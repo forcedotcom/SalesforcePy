@@ -1,0 +1,45 @@
+{
+    "content_type": "application/json",
+    "method": "POST",
+    "url": "https://eu11.salesforce.com/services/data/v37.0/wave/query",
+    "status_code": 200,
+    "body": {
+        "action":"query",
+        "responseId":"4ISj6CEx311whP-qbyxHh-",
+        "results":{
+            "metadata":[
+                {
+                    "columns":[
+                        {
+                            "name":"Account.Industry",
+                            "type":"string"
+                        },
+                        {
+                            "name":"count",
+                            "type":"numeric"
+                        }
+                    ],
+                    "groups":[
+                        "Account.Industry"
+                    ]
+                }
+            ],
+            "records":[
+                {
+                    "Account.Industry":"Apparel",
+                    "count":49
+                },
+                {
+                    "Account.Industry":"Banking",
+                    "count":56
+                },
+                {
+                    "Account.Industry":"Biotechnology",
+                    "count":40
+                }
+            ]
+        },
+        "query":"q = load \"0Fb0N000000XuvBSAS/0Fc0N000001M5BMSA0\";\nq = filter q by 'Account.Industry' in [\"Apparel\", \"Banking\", \"Biotechnology\"];\nq = group q by 'Account.Industry';\nq = foreach q generate 'Account.Industry' as 'Account.Industry', count() as 'count';\nq = order q by 'Account.Industry' asc;\nq = limit q 2000;",
+        "responseTime":164
+    }
+}

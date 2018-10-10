@@ -1,0 +1,15 @@
+{
+    "content_type": "application/json",
+    "method": "POST",
+    "status_code": 200,
+    "url": "https://eu11.salesforce.com/services/data/v37.0/process/approvals/",
+    "body": [{
+        "actorIds": ["00561000000j3h2AAA"],
+        "entityId": "00161000011ueBVAAY",
+        "errors": "",
+        "instanceId": "04g61000000yKigAAE",
+        "instanceStatus": "Pending",
+        "newWorkitemIds": ["04i61000001FEgNAAW"],
+        "success": "true"
+    }]
+}

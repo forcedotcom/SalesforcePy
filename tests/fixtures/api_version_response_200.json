@@ -1,0 +1,33 @@
+{
+    "content_type": "application/json",
+    "method": "GET",
+    "url": "https://eu11.salesforce.com/services/data/",
+    "status_code": 200,
+    "body": [
+        {
+            "label": "Spring '15",
+            "url": "/services/data/v33.0",
+            "version": "33.0"
+        },
+        {
+            "label": "Summer '15",
+            "url": "/services/data/v34.0",
+            "version": "34.0"
+        },
+        {
+            "label": "Winter '16",
+            "url": "/services/data/v35.0",
+            "version": "35.0"
+        },
+        {
+            "label": "Spring '16",
+            "url": "/services/data/v36.0",
+            "version": "36.0"
+        },
+        {
+            "label": "Summer '16",
+            "url": "/services/data/v37.0",
+            "version": "37.0"
+        }
+    ]
+}

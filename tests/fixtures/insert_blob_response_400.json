@@ -1,0 +1,7 @@
+{
+    "content_type": "application/json",
+    "method": "POST",
+    "url": "https://eu11.salesforce.com/services/data/v37.0/sobjects/Attachment",
+    "status_code": 400,
+    "body": [{"errorCode": "REQUIRED_FIELD_MISSING", "fields": ["Body"], "message": "Required fields are missing:[Body]"}]
+}
