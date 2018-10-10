@@ -1,0 +1,7 @@
+{
+  "content_type": "application/json",
+  "method": "GET",
+  "url": "https://eu11.salesforce.com/services/data/v37.0/sobjects/Account/0010Y0000056ljcQAA",
+  "status_code": 200,
+  "body": null
+}

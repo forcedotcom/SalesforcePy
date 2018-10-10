@@ -1,0 +1,7 @@
+{
+    "content_type": "application/octet-stream",
+    "method": "GET",
+    "url": "https://eu11.salesforce.com/services/data/v37.0/sobjects/Attachment/00P0Y000000hUviUAE/Body",
+    "status_code": 200,
+    "body": null
+}

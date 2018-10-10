@@ -1,0 +1,26 @@
+{
+    "content_type": "application/json",
+    "method": "POST",
+    "url": "https://eu11.salesforce.com/services/data/v37.0/chatter/feed-elements",
+    "status_code": 201,
+    "body": {
+        "actor": {
+            "communityNickname": "jgarcia1.450273834980812E12",
+            "companyName": "Pre-Release Org",
+            "displayName": "Admin User",
+            "firstName": "Admin",
+            "id": "005B0000001mOGjIAM",
+            "lastName": "User",
+            "motif": {
+                "color": "65CAE4",
+                "largeIconUrl": "/img/icon/profile64.png",
+                "mediumIconUrl": "/img/icon/profile32.png",
+                "smallIconUrl": "/img/icon/profile16.png"
+            },
+            "name": "Admin User",
+            "type": "TextPost",
+            "url": "/services/data/v39.0/chatter/feed-elements/0D5B000000SKuuyKAD",
+            "visibility": "AllUsers"
+        }
+    }
+}

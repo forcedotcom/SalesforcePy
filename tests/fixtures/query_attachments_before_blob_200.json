@@ -1,0 +1,27 @@
+{
+    "content_type": "application/json",
+    "method": "GET",
+    "url": "https://eu11.salesforce.com/services/data/v37.0/sobjects/Attachment/00P0Y000000hUviUAE",
+    "status_code": 200,
+    "body": {
+        "attributes": {
+            "type": "Attachment",
+            "url": "/services/data/v37.0/sobjects/Attachment/00P0Y000000hUviUAE"
+        },
+        "Id": "00P0Y000000hUviUAE",
+        "IsDeleted": false,
+        "ParentId": "0010Y0000056ljcQAA",
+        "Name": "helloworld.txt",
+        "IsPrivate": false,
+        "ContentType": null,
+        "BodyLength": 11,
+        "Body": "/services/data/v37.0/sobjects/Attachment/00P0Y000000hUviUAE/Body",
+        "OwnerId": "0050Y000000pyREQAY",
+        "CreatedDate": "2016-10-26T11:24:40.000+0000",
+        "CreatedById": "0050Y000000pyREQAY",
+        "LastModifiedDate": "2016-10-26T11:24:40.000+0000",
+        "LastModifiedById": "0050Y000000pyREQAY",
+        "SystemModstamp": "2016-10-26T11:24:40.000+0000",
+        "Description": null
+    }
+}

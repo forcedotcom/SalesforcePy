@@ -1,0 +1,11 @@
+{
+  "content_type": "application/json",
+  "method": "PATCH",
+  "url": "https://eu11.salesforce.com/services/data/v37.0/sobjects/Upsert_Object__c/External_Field__c/333",
+  "status_code": 201,
+  "body": {
+    "id": "a3w0M000000VN4IQAW",
+    "success": true,
+    "errors": []
+  }
+}

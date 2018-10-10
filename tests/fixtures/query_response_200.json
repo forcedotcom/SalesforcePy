@@ -1,0 +1,81 @@
+{
+    "content_type": "application/json",
+    "method": "GET",
+    "url": "https://eu11.salesforce.com/services/data/v37.0/query/",
+    "status_code": 200,
+    "body": {
+        "totalSize": 10,
+        "records": [{
+            "attributes": {
+                "url": "/services/data/v37.0/sobjects/Account/0010Y000004zOE5QAM",
+                "type": "Account"
+            },
+            "Id": "0010Y000004zOE5QAM",
+            "Name": "GenePoint"
+        }, {
+            "attributes": {
+                "url": "/services/data/v37.0/sobjects/Account/0010Y000004zOE3QAM",
+                "type": "Account"
+            },
+            "Id": "0010Y000004zOE3QAM",
+            "Name": "United Oil & Gas, UK"
+        }, {
+            "attributes": {
+                "url": "/services/data/v37.0/sobjects/Account/0010Y000004zOE4QAM",
+                "type": "Account"
+            },
+            "Id": "0010Y000004zOE4QAM",
+            "Name": "United Oil & Gas, Singapore"
+        }, {
+            "attributes": {
+                "url": "/services/data/v37.0/sobjects/Account/0010Y000004zODvQAM",
+                "type": "Account"
+            },
+            "Id": "0010Y000004zODvQAM",
+            "Name": "Edge Communications"
+        }, {
+            "attributes": {
+                "url": "/services/data/v37.0/sobjects/Account/0010Y000004zODwQAM",
+                "type": "Account"
+            },
+            "Id": "0010Y000004zODwQAM",
+            "Name": "Burlington Textiles Corp of America"
+        }, {
+            "attributes": {
+                "url": "/services/data/v37.0/sobjects/Account/0010Y000004zODxQAM",
+                "type": "Account"
+            },
+            "Id": "0010Y000004zODxQAM",
+            "Name": "Pyramid Construction Inc."
+        }, {
+            "attributes": {
+                "url": "/services/data/v37.0/sobjects/Account/0010Y000004zODyQAM",
+                "type": "Account"
+            },
+            "Id": "0010Y000004zODyQAM",
+            "Name": "Dickenson plc"
+        }, {
+            "attributes": {
+                "url": "/services/data/v37.0/sobjects/Account/0010Y000004zODzQAM",
+                "type": "Account"
+            },
+            "Id": "0010Y000004zODzQAM",
+            "Name": "Grand Hotels & Resorts Ltd"
+        }, {
+            "attributes": {
+                "url": "/services/data/v37.0/sobjects/Account/0010Y000004zOE1QAM",
+                "type": "Account"
+            },
+            "Id": "0010Y000004zOE1QAM",
+            "Name": "Express Logistics and Transport"
+        }, {
+            "attributes": {
+                "url": "/services/data/v37.0/sobjects/Account/0010Y000004zOE2QAM",
+                "type": "Account"
+            },
+            "Id": "0010Y000004zOE2QAM",
+            "Name": "University of Arizona"
+        }],
+        "done": true
+    }
+}

@@ -1,0 +1,7 @@
+{
+      "content_type": "application/json",
+      "method": "POST",
+      "url": "https://eu11.salesforce.com/services/data/v37.0/wave/query",
+      "status_code": 500,
+      "body": null
+}

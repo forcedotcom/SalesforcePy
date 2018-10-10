@@ -1,0 +1,7 @@
+{
+    "content_type": "application/json",
+    "method": "PATCH",
+    "url": "https://eu11.salesforce.com/services/data/v42.0/sobjects/Account/0010Y0000055YG7QAM",
+    "status_code": 204,
+    "body": null
+}

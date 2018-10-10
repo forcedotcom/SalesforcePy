@@ -1,0 +1,13 @@
+{
+    "content_type": "application/json",
+    "method": "POST",
+    "url": "https://eu11.salesforce.com/services/data/v37.0/chatter/feed-elements/0D5B000000T7MxR/capabilities/comments/items",
+    "status_code": 201,
+    "body":
+        {"body":
+              {"isRichText": "false",
+               "messageSegments": [{"text": "New comment 2", "type": "Text"}],
+               "text": "New comment 2"
+               }
+         }
+}
