@@ -1,0 +1,32 @@
+{
+    "content_type": "application/json",
+    "method": "GET",
+    "url": "https://eu11.salesforce.com/services/data/v40.0/query/",
+    "status_code": 200,
+    "body": {
+        "totalSize": 10,
+        "records": [{
+            "attributes": {
+                "url": "/services/data/v40.0/sobjects/Account/0010Y000004zOE5QAM",
+                "type": "Account"
+            },
+            "Id": "0010Y000004zOE5QAM",
+            "Name": "GenePoint"
+        }, {
+            "attributes": {
+                "url": "/services/data/v40.0/sobjects/Account/0010Y000004zOE3QAM",
+                "type": "Account"
+            },
+            "Id": "0010Y000004zOE3QAM",
+            "Name": "United Oil & Gas, UK"
+        }, {
+            "attributes": {
+                "url": "/services/data/v40.0/sobjects/Account/0010Y000004zOE4QAM",
+                "type": "Account"
+            },
+            "Id": "0010Y000004zOE4QAM",
+            "Name": "United Oil & Gas, Singapore"
+        }],
+        "done": true
+    }
+}

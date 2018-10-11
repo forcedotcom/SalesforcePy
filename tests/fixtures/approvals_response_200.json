@@ -1,0 +1,17 @@
+{
+    "content_type": "application/json",
+    "method": "GET",
+    "url": "https://eu11.salesforce.com/services/data/v37.0/process/approvals/",
+    "status_code": 200,
+    "body": {
+        "approvals": {
+            "Account": [{
+                "description": "something",
+                "id": "04a61000000L9H2",
+                "name": "test account",
+                "object": "Account",
+                "sortOrder": 1
+            }]
+        }
+    }
+}

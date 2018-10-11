@@ -1,0 +1,41 @@
+{
+    "content_type": "application/json",
+    "method": "GET",
+    "url": "https://eu11.salesforce.com/services/data/v37.0/wave/datasets/opportunities",
+    "status_code": 200,
+    "body": {
+        "createdBy":{
+            "id":"0050N000007YcGGQA0",
+            "name":"Integration User",
+            "profilePhotoUrl":"https://c.eu11.content.force.com/profilephoto/005/T"
+        },
+        "createdDate":"2018-06-12T13:39:53.000Z",
+        "currentVersionId":"0Fc0N000001M5BMSA0",
+        "currentVersionUrl":"/services/data/v37.0/wave/datasets/0Fb0N000000XuvBSAS/versions/0Fc0N000001M5BMSA0",
+        "folder":{
+            "id":"00l0N0000018RgsQAE",
+            "label":"Shared App",
+            "name":"SharedApp",
+            "url":"/services/data/v37.0/wave/folders/00l0N0000018RgsQAE"
+        },
+        "id":"0Fb0N000000XuvBSAS",
+        "label":"Opportunities",
+        "lastAccessedDate":"2018-06-12T14:08:06.000Z",
+        "lastModifiedBy":{
+            "id":"0050N000007YcGIQA0",
+            "name":"Security User",
+            "profilePhotoUrl":"https://c.eu11.content.force.com/profilephoto/005/T"
+        },
+        "lastModifiedDate":"2018-06-12T13:40:03.000Z",
+        "lastQueriedDate":"2018-06-12T13:50:07.000Z",
+        "name":"opportunities",
+        "permissions":{
+            "manage":true,
+            "modify":true,
+            "view":true
+        },
+        "type":"dataset",
+        "url":"/services/data/v37.0/wave/datasets/0Fb0N000000XuvBSAS",
+        "versionsUrl":"/services/data/v37.0/wave/datasets/0Fb0N000000XuvBSAS/versions"
+    }
+}
