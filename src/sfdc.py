@@ -1001,7 +1001,7 @@ def client(username, password, client_id, client_secret, **kwargs):
 
         .. versionadded:: 1.0.0
 
-    Note: if any of the required paramaters ar missing, a `ValueError` will be raised.
+    Note: if any of the required parameters are missing, a `ValueError` will be raised.
 
         :Parameters:
             - `*username` (`string`) - Salesforce username.
