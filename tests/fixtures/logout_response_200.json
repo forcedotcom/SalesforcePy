@@ -1,0 +1,7 @@
+{
+    "content_type": "application/x-www-form-urlencoded",
+    "method": "POST",
+    "url": "https://eu11.salesforce.com/services/oauth2/revoke",
+    "status_code": 200,
+    "body": null
+}

@@ -1,0 +1,7 @@
+{
+  "content_type": "application/json",
+  "method": "GET",
+  "url": "https://eu11.salesforce.com/services/data/",
+  "status_code": 500,
+  "body": null
+}
