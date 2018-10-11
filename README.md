@@ -1,7 +1,7 @@
 # SalesforcePy
 
-[![Build Status](https://travis-ci.com/caffalaughrey/SalesforcePy.svg?token=VEFNGJhbySaAEtyHVj3L&branch=master)](https://travis-ci.com/caffalaughrey/SalesforcePy)
-[![Coverage Status](https://coveralls.io/repos/github/caffalaughrey/SalesforcePy/badge.svg?branch=master)](https://coveralls.io/github/caffalaughrey/SalesforcePy?branch=master)
+[![Build Status](https://travis-ci.com/forcedotcom/SalesforcePy.svg?token=VEFNGJhbySaAEtyHVj3L&branch=master)](https://travis-ci.com/forcedotcom/SalesforcePy)
+[![Coverage Status](https://coveralls.io/repos/github/forcedotcom/SalesforcePy/badge.svg?branch=master)](https://coveralls.io/github/forcedotcom/SalesforcePy?branch=master)
 
 An absurdly simple package for making Salesforce Rest API calls.
 
