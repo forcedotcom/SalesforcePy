@@ -2,7 +2,7 @@ from setuptools import setup
 setup(name='SalesforcePy',
       version='1.0.0',
       description='An absurdly simple package for making Salesforce Rest API requests',
-      url='https://github.com/salesforce/SalesforcePy',
+      url='https://github.com/forcedotcom/SalesforcePy',
       author='Aaron Caffrey',
       author_email='acaffrey@salesforce.com',
       license='MIT',
