@@ -285,7 +285,7 @@ client = sfdc.client(
     client_id=client_id,
     client_secret=client_secret
 )
-client.debug(debug=logging.INFO)    # Tell the client to debug at an info level
+client.debug(level=logging.INFO)    # Tell the client to debug at an info level
 client.login()  # Outputs "POST https://login.salesforce.com/services/oauth2/token" to logs
 ```
 
