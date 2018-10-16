@@ -12,4 +12,4 @@ install:
 script:
   - coverage run --source=SalesforcePy -m py.test
 after_success:
-  - coveralls --data_file=.coverage --config_file=.coveragerc
+  - coveralls
