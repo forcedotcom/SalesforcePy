@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.com/forcedotcom/SalesforcePy.svg?branch=master)](https://travis-ci.com/forcedotcom/SalesforcePy)
 [![Coverage Status](https://coveralls.io/repos/github/forcedotcom/SalesforcePy/badge.svg?branch=master)](https://coveralls.io/github/forcedotcom/SalesforcePy?branch=master)
+[![Documentation Status](https://readthedocs.org/projects/salesforcepy/badge/?version=latest)](https://salesforcepy.readthedocs.io/en/latest/?badge=latest)
 
 An absurdly simple package for making Salesforce Rest API calls.
 
