@@ -5,7 +5,7 @@ with open('README.md', 'r') as fh:
 
 setuptools.setup(
     name='SalesforcePy',
-    version='1.0.1',
+    version='1.0.2',
     description='An absurdly simple package for making Salesforce Rest API requests',
     url='https://github.com/forcedotcom/SalesforcePy',
     author='Aaron Caffrey',
