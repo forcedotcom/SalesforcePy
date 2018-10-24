@@ -21,5 +21,5 @@ setup(name='SalesforcePy',
       zip_safe=False,
       package_dir={'SalesforcePy': 'src'},
       install_requires=['requests', 'pytest',
-                        'responses', 'coverage', 'python-coveralls'],
+                        'responses', 'coverage', 'python-coveralls', 'pytest-flake8'],
       tests_require=['pytest', 'responses'])
