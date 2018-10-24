@@ -135,19 +135,20 @@ class Client(object):
           :raises: LoginException
         """
 
-        l = Login(
+        login_response = Login(
             self.username,
             self.password,
             self.client_id,
             self.client_secret,
-            **kwargs)
-        req = l.request()
+            **kwargs
+        )
+        req = login_response.request()
         if req is None:
             raise LoginException("Failed to perform `login` request")
-        self.session_id = l.get_session_id()
+        self.session_id = login_response.get_session_id()
         self.set_instance_url(req.get('instance_url', str()))
         self.set_api_version()
-        return req, l
+        return req, login_response
 
     @commons.kwarg_adder
     def set_api_version(self, **kwargs):
@@ -181,9 +182,9 @@ class Client(object):
           :rtype: (dict, Logout)
         """
 
-        l = Logout(self.session_id, self.instance_url, **kwargs)
-        req = l.request()
-        return req, l
+        logout_response = Logout(self.session_id, self.instance_url, **kwargs)
+        req = logout_response.request()
+        return req, logout_response
 
     @commons.kwarg_adder
     def query(self, qs, **kwargs):
@@ -534,7 +535,7 @@ class QueryMore(commons.BaseRequest):
             results.append(response)
             last = response
         elif len_results > 0:
-            last = results[len_results-1]
+            last = results[len_results - 1]
             if last.get('done') is False:
                 (headers, logger, request_object, response, service) = self.get_request_vars()
                 service = 'https://%s%s' % (self.instance_url, last.get('nextRecordsUrl'))

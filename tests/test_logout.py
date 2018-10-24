@@ -1,7 +1,5 @@
-import SalesforcePy as sfdc
 import testutil
 import responses
-import logging
 
 
 @responses.activate
