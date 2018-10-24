@@ -109,6 +109,7 @@ def test_update_with_proxy():
     assert update_result[1].status == 204
     assert update_result[1].proxies.get("https") is testutil.proxies.get("https")
 
+
 @responses.activate
 def test_delete():
     testutil.add_response("login_response_200")
@@ -258,6 +259,7 @@ def test_describe_with_proxy():
     assert describe_result[1].status == 200
     assert describe_result[1].proxies.get("https") is testutil.proxies.get("https")
 
+
 @responses.activate
 def test_upsert_existing_record():
     testutil.add_response("login_response_200")
@@ -268,6 +270,7 @@ def test_upsert_existing_record():
         id="999", object_type="Upsert_Object__c", external_id='External_Field__c').upsert({"Name": "Test Upsert Name"})
     assert update_result[0] == testutil.mock_responses["upsert_existing_record_response_204"]["body"]
     assert update_result[1].status == 204
+
 
 @responses.activate
 def test_upsert_existing_record_with_proxy():
@@ -281,6 +284,7 @@ def test_upsert_existing_record_with_proxy():
     assert update_result[1].status == 204
     assert update_result[1].proxies.get("https") is testutil.proxies.get("https")
 
+
 @responses.activate
 def test_upsert_non_existing_record():
     testutil.add_response("login_response_200")
@@ -291,6 +295,7 @@ def test_upsert_non_existing_record():
         id="333", object_type="Upsert_Object__c", external_id='External_Field__c').upsert({"Name": "Test Upsert Name"})
     assert update_result[0] == testutil.mock_responses["upsert_non_existing_record_response_201"]["body"]
     assert update_result[1].status == 201
+
 
 @responses.activate
 def test_upsert_non_existing_record_with_proxy():
@@ -303,6 +308,7 @@ def test_upsert_non_existing_record_with_proxy():
     assert update_result[0] == testutil.mock_responses["upsert_non_existing_record_response_201"]["body"]
     assert update_result[1].status == 201
     assert update_result[1].proxies.get("https") is testutil.proxies.get("https")
+
 
 @responses.activate
 def test_describe_global():

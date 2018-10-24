@@ -4,6 +4,7 @@ import responses
 import SalesforcePy as sfdc
 import testutil
 
+
 def test_client_no_username_negative():
     with pytest.raises(ValueError) as e:
         sfdc.client(
@@ -147,7 +148,7 @@ def test_function_kwarg_overrides_client_kwarg():
 
     with sfdc.client(**client_args) as client:
         # kwarg defined at function level
-        qr = client.query("SELECT Id, Name FROM Account LIMIT 10",**function_kwargs)
+        qr = client.query("SELECT Id, Name FROM Account LIMIT 10", **function_kwargs)
         assert qr[1].timeout == float(function_timeout), 'Timeout value in function was not used'
         # kwarg defined at client level
         qr = client.query("SELECT Id, Name FROM Account LIMIT 10")
@@ -195,12 +196,10 @@ def test_client_kwargs__in_sobjects_at_function_level():
         "version": "37.0",
         "proxies": proxy
     }
-    fn_level_kwarg = {'version':'42.0'}
+    fn_level_kwarg = {'version': '42.0'}
     with sfdc.client(**client_args) as client:
         update_result = client.sobjects(
-            id="0010Y0000055YG7QAM", object_type="Account").update({"Name": "sfdc_py 2"},**fn_level_kwarg)
+            id="0010Y0000055YG7QAM", object_type="Account").update({"Name": "sfdc_py 2"}, **fn_level_kwarg)
         assert update_result[0] == testutil.mock_responses["update_response_204_v42"]["body"]
         assert update_result[1].status == 204
         assert update_result[1].proxies['https'] is 'someproxy.net:8080'
-
-

@@ -2,6 +2,7 @@ import testutil
 import responses
 import SalesforcePy.sfdc as sfdc
 
+
 @responses.activate
 def test_undefined_api_version():
     testutil.add_response("login_response_200")
