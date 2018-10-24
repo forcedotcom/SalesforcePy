@@ -21,6 +21,7 @@ setuptools.setup(
     packages=setuptools.find_packages(),
     zip_safe=False,
     install_requires=['requests', 'pytest',
-                    'responses', 'coverage'],
+                    'responses', 'coverage==4.0.3', 'python-coveralls'],
+    setup_requires=['pytest-runner'],
     tests_require=['pytest', 'responses']
 )
