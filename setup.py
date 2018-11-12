@@ -21,9 +21,9 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type='text/markdown',
     classifiers=[
-      'Programming Language :: Python :: 3',
-      'License :: OSI Approved :: BSD License',
-      'Operating System :: OS Independent',
+        'Programming Language :: Python :: 3',
+        'License :: OSI Approved :: BSD License',
+        'Operating System :: OS Independent',
     ],
     packages=setuptools.find_packages(),
     zip_safe=False,
