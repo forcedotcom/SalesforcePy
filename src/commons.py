@@ -43,6 +43,21 @@ def post_request(base_request):
         json=base_request.request_body)
 
 
+def put_request(base_request):
+    """
+    Performs PUT request for the class provided.
+    :param: base_request: Class with which to make request.
+    :type: BaseRequest
+    :return: response
+    :rtype: requests.Response
+    """
+    (headers, _, _, _, service) = base_request.get_request_vars()
+
+    return requests.put(
+        service, headers=headers, proxies=base_request.proxies, timeout=base_request.timeout,
+        data=base_request.request_body)
+
+
 def kwarg_adder(func):
     """
     Decorator to add the kwargs from the client to the kwargs at the function level. If the same
@@ -176,6 +191,8 @@ class BaseRequest(object):
 
         if self.http_method == 'POST':
             request_fn = post_request
+        elif self.http_method == 'PUT':
+            request_fn = put_request
         else:
             request_fn = get_request
 

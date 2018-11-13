@@ -15,24 +15,18 @@ CREATE_URI = '/services/data/v%s/jobs/ingest'
 
 
 class Batches(commons.BaseRequest):
-    """ Performs a POST request to `'/services/data/vX.XX/jobs/ingest/<job_id>/batches'`
+    """ Performs a PUT request to `'/services/data/vX.XX/jobs/ingest/<job_id>/batches'`
         .. versionadded:: 1.1.0
     """
     def __init__(self, session_id, instance_url, api_version, job_id, csv_file, **kwargs):
         super(Batches, self).__init__(session_id, instance_url, **kwargs)
 
-        self.csv_file = csv_file
+        self.request_body = csv_file
         self.http_method = 'PUT'
         self.service = BATCHES_URI % (api_version, job_id)
-
-    def request(self):
-        (headers, logger, request, response, service) = self.get_request_vars()
-        csv_file = self.csv_file
-
-        logging.getLogger('sfdc_py').info('%s %s' % (self.http_method, service))
-        headers.set('Content-Type', 'text/csv')
-
-        # TODO: Compose and make request with file stream...
+        self.headers = {
+            'Content-Type': 'text/csv',
+            'Authorization': 'OAuth %s' % self.session_id}
 
 
 class CreateJob(commons.BaseRequest):
@@ -58,32 +52,6 @@ class CreateJob(commons.BaseRequest):
         self.http_method = 'POST'
         self.request_body = request_body
         self.service = CREATE_URI % api_version
-
-    def request(self):
-        """ Return created job response from Salesforce.
-
-          :return: A dict containing created job info
-          :rtype: dict
-        """
-        (headers, logger, request, response, service) = self.get_request_vars()
-
-        logging.getLogger('sfdc_py').info('%s %s' % (self.http_method, service))
-
-        request = requests.post(
-            service,
-            headers=headers,
-            json=self.request_body,
-            proxies=self.proxies)
-        self.status = request.status_code
-
-        try:
-            response = request.json()
-        except Exception as e:
-            logger.error('%s %s %s' % (self.http_method, service, self.status))
-            logger.error(e.args[0])
-            return
-        finally:
-            return response
 
 
 class Ingest(commons.ApiNamespace):
