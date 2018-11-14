@@ -11,8 +11,8 @@
     "state": "Open",
     "concurrencyMode": "Parallel",
     "contentType": "CSV",
-    "apiVersion": 40.0,
-    "contentUrl": "services/data/v40.0/jobs/ingest/7500Y00000BSfbrQAD/batches",
+    "apiVersion": 37.0,
+    "contentUrl": "services/data/v37.0/jobs/ingest/7500Y00000BSfbrQAD/batches",
     "lineEnding": "LF",
     "columnDelimiter": "COMMA"
   },
