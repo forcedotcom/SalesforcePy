@@ -1,37 +1,37 @@
-src package
+SalesforcePy package
 ===========
 
 Submodules
 ----------
 
-src.chatter module
+SalesforcePy.chatter module
 ------------------
 
-.. automodule:: src.chatter
+.. automodule:: SalesforcePy.chatter
     :members:
     :undoc-members:
     :show-inheritance:
 
-src.commons module
+SalesforcePy.commons module
 ------------------
 
-.. automodule:: src.commons
+.. automodule:: SalesforcePy.commons
     :members:
     :undoc-members:
     :show-inheritance:
 
-src.sfdc module
+SalesforcePy.sfdc module
 ---------------
 
-.. automodule:: src.sfdc
+.. automodule:: SalesforcePy.sfdc
     :members:
     :undoc-members:
     :show-inheritance:
 
-src.wave module
+SalesforcePy.wave module
 ---------------
 
-.. automodule:: src.wave
+.. automodule:: SalesforcePy.wave
     :members:
     :undoc-members:
     :show-inheritance:
@@ -40,7 +40,7 @@ src.wave module
 Module contents
 ---------------
 
-.. automodule:: src
+.. automodule:: SalesforcePy
     :members:
     :undoc-members:
     :show-inheritance:
