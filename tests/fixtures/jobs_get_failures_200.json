@@ -1,0 +1,7 @@
+{
+  "url": "https://eu11.salesforce.com/services/data/v37.0/jobs/ingest/7500Y00000BSfbrQAD/failedResults",
+  "status_code": 200,
+  "body": "\"sf__Id\",\"sf__Error\",Name\n\"\",\"FIELD_CUSTOM_VALIDATION_EXCEPTION:Type must contain a value.:Type --\",\"Salesforce.com\"\n\"\",\"FIELD_CUSTOM_VALIDATION_EXCEPTION:Type must contain a value.:Type --\",\"Universal Containers\"",
+  "content_type":"text/csv",
+  "method": "GET"
+}
