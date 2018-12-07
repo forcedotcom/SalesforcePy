@@ -163,3 +163,20 @@ def test_get_unprocessed_jobs():
 
     assert get_result[0] == testutil.mock_responses.get("jobs_get_unprocessed_200").get("body")
     assert get_result[1].status == 200
+
+
+@responses.activate
+def test_delete_job():
+    testutil.add_response("login_response_200")
+    testutil.add_response("api_version_response_200")
+    testutil.add_response("jobs_create_200")
+    testutil.add_response("jobs_delete_204")
+
+    client = testutil.get_client()
+    job = ACCOUNTS_INSERT_JOB
+    create_result = client.jobs.ingest.create(job_resource=job)
+    job_id = create_result[0].get("id")
+    delete_result = client.jobs.ingest.delete(job_id=job_id)
+
+    assert delete_result[0] == testutil.mock_responses.get("jobs_delete_204").get("body")
+    assert delete_result[1].status == 204

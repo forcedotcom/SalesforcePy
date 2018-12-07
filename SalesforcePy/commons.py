@@ -14,6 +14,20 @@ import requests
 DEFAULT_API_VERSION = '37.0'
 
 
+def delete_request(base_request):
+    """
+    Performs DELETE request for the class provided.
+    :param: base_request: Class with which to make request.
+    :type: BaseRequest
+    :return: response
+    :rtype: requests.Response
+    """
+    (headers, _, _, _, service) = base_request.get_request_vars()
+
+    return requests.delete(
+        service, headers=headers, proxies=base_request.proxies, timeout=base_request.timeout)
+
+
 def get_request(base_request):
     """
     Performs GET request for the class provided.
@@ -210,6 +224,8 @@ class BaseRequest(object):
             request_fn = put_request
         elif self.http_method == 'PATCH':
             request_fn = patch_request
+        elif self.http_method == 'DELETE':
+            request_fn = delete_request
         else:
             request_fn = get_request
 

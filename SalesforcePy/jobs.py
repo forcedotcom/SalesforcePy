@@ -10,6 +10,7 @@ from . import commons
 
 BATCHES_URI = '/services/data/v%s/jobs/ingest/%s/batches'
 CREATE_URI = '/services/data/v%s/jobs/ingest'
+DELETE_URI = '/services/data/v%s/jobs/ingest/%s'
 GET_ALL_URI = '/services/data/v%s/jobs/ingest'
 GET_INFO_URI = '/services/data/v%s/jobs/ingest/%s'
 GET_SUCCESSES_URI = '/services/data/v%s/jobs/ingest/%s/successfulResults'
@@ -58,6 +59,30 @@ class CreateJob(commons.BaseRequest):
         self.service = CREATE_URI % api_version
 
 
+class DeleteJob(commons.BaseRequest):
+    """ Performs a DELETE request to `'/services/data/vX.XX/jobs/ingest/<job_id>'`
+        .. versionadded:: 1.1.0
+    """
+    def __init__(self, session_id, instance_url, api_version, job_id, **kwargs):
+        """ Constructor. Calls `super`, then encodes the `service` including the `query_string` provided
+
+          :param: session_id: Session ID used to make request
+          :type: session_id: string
+          :param: instance_url: Instance URL used to make the request (eg. `'eu11.salesforce.com'`)
+          :type: instance_url: string
+          :param: api_version: API version
+          :type: api_version: string
+          :param: job_id: Job ID
+          :type: job_id: string
+          :param: **kwargs: kwargs
+          :type: **kwargs: dict
+        """
+        super(DeleteJob, self).__init__(session_id, instance_url, **kwargs)
+
+        self.http_method = 'DELETE'
+        self.service = DELETE_URI % (api_version, job_id)
+
+
 class GetJob(commons.BaseRequest):
     """ Performs a GET request to `'/services/data/vX.XX/jobs/ingest'`
         .. versionadded:: 1.1.0
@@ -71,8 +96,6 @@ class GetJob(commons.BaseRequest):
           :type: instance_url: string
           :param: api_version: API version
           :type: api_version: string
-          :param: request_body: Request body
-          :type: request_body: dict
           :param: **kwargs: kwargs
           :type: **kwargs: dict
         """
@@ -123,8 +146,13 @@ class Ingest(commons.ApiNamespace):
 
         return response, get_job
 
-    def delete(self):
-        pass
+    def delete(self, job_id, **kwargs):
+        client = self.client
+        api_version = self.client_kwargs.get('version')
+        delete_job = DeleteJob(client.session_id, client.instance_url, api_version, job_id, **kwargs)
+        response = delete_job.request()
+
+        return response, delete_job
 
     def update(self, job_id, state, **kwargs):
         client = self.client
@@ -151,7 +179,7 @@ class UpdateJob(commons.BaseRequest):
           :type: instance_url: string
           :param: api_version: API version
           :type: api_version: string
-          :param: job_id: API version
+          :param: job_id: Job ID
           :type: job_id: string
           :param: request_body: Request body
           :type: request_body: dict
