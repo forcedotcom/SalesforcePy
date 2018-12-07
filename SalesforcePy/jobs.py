@@ -6,7 +6,7 @@
 
 """
 from __future__ import absolute_import
-from src import commons
+from . import commons
 import logging
 import requests
 
