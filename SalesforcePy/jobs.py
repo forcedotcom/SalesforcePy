@@ -122,6 +122,7 @@ class GetJob(commons.BaseRequest):
 
 
 class Ingest(commons.ApiNamespace):
+    @commons.kwarg_adder
     def batches(self, job_id, csv_file, **kwargs):
         client = self.client
         api_version = self.client_kwargs.get('version')
@@ -130,6 +131,7 @@ class Ingest(commons.ApiNamespace):
 
         return response, batches
 
+    @commons.kwarg_adder
     def create(self, job_resource, **kwargs):
         client = self.client
         api_version = self.client_kwargs.get('version')
@@ -138,6 +140,7 @@ class Ingest(commons.ApiNamespace):
 
         return response, create_job
 
+    @commons.kwarg_adder
     def get(self, **kwargs):
         client = self.client
         api_version = self.client_kwargs.get('version')
@@ -146,6 +149,7 @@ class Ingest(commons.ApiNamespace):
 
         return response, get_job
 
+    @commons.kwarg_adder
     def delete(self, job_id, **kwargs):
         client = self.client
         api_version = self.client_kwargs.get('version')
@@ -154,6 +158,7 @@ class Ingest(commons.ApiNamespace):
 
         return response, delete_job
 
+    @commons.kwarg_adder
     def update(self, job_id, state, **kwargs):
         client = self.client
         api_version = self.client_kwargs.get('version')
