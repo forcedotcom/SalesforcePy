@@ -1,4 +1,3 @@
-import SalesforcePy.sfdc as sfdc
 import os
 import testutil
 import responses

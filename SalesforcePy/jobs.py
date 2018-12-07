@@ -7,8 +7,6 @@
 """
 from __future__ import absolute_import
 from . import commons
-import logging
-import requests
 
 BATCHES_URI = '/services/data/v%s/jobs/ingest/%s/batches'
 CREATE_URI = '/services/data/v%s/jobs/ingest'
