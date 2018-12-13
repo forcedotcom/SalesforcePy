@@ -295,7 +295,7 @@ delete_result = client.jobs.ingest.delete(job_id=job_id)
 ```
 
 For more information on the response for this request, see
-https://developer.salesforce.com/docs/atlas.en-us.api_bulk_v2.meta/api_bulk_v2/close_job.htm
+https://developer.salesforce.com/docs/atlas.en-us.api_bulk_v2.meta/api_bulk_v2/delete_job.htm
 
 ### Get all jobs
 In this example, we get a list of all jobs.
