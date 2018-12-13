@@ -30,6 +30,7 @@ Salesforce.com
 - [Approval Process](#approval-process)
 - [Chatter](#chatter)
 - [Wave](#wave)
+- [Bulk API 2.0](#bulk-api)
 - [Logout](#logout)
 - [Contributing](#contributing)
 - [FAQ](#faq)
@@ -235,6 +236,120 @@ query = {
 
 client.wave.query(query)
 ```
+
+## Bulk API 2.0
+As a general rule, supported Bulk API 2.0 calls can be made from `client.jobs.ingest`. The samples below cover specific
+calls.
+
+### Create a job
+In this example, we create a job to insert accounts.
+
+```python
+job_resource = {"object": "Account", "operation": "insert", "lineEnding": "CRLF"}
+
+client.jobs.ingest.create(job_resource=job_resource)
+```
+
+For more information on the response for this request, see 
+https://developer.salesforce.com/docs/atlas.en-us.api_bulk_v2.meta/api_bulk_v2/create_job.htm.
+
+### Upload job data
+In this example, we create a job, then upload a csv file using the job ID.
+
+```python
+job_resource = {"object": "Account", "operation": "insert", "lineEnding": "CRLF"}
+create_result = client.jobs.ingest.batches(job_resource=job_resource)
+
+with open("/path/to/accounts.csv") as f:
+    csv_file = f.read()
+    job_id = create_result[0].get("id")
+    batches_result = client.jobs.ingest.batches(job_id=job_id, csv_file=csv_file)
+```
+
+For more information on the response for this request, see
+https://developer.salesforce.com/docs/atlas.en-us.api_bulk_v2.meta/api_bulk_v2/upload_job_data.htm.
+
+### Update a job state
+In this example, we create a job, upload a csv file using its job ID, then update it with a state of `"UploadComplete"`.
+
+```python
+job_resource = {"object": "Account", "operation": "insert", "lineEnding": "CRLF"}
+create_result = client.jobs.ingest.batches(job_resource=job_resource)
+job_id = create_result[0].get("Id")
+
+with open("/path/to/accounts.csv") as f:
+    csv_file = f.read()
+    batches_result = client.jobs.ingest.batches(job_id=job_id, csv_file=csv_file)
+
+client.jobs.ingest.update(job_id=job_id, state="UploadComplete")
+```
+
+For more information on the response for this request, see
+https://developer.salesforce.com/docs/atlas.en-us.api_bulk_v2.meta/api_bulk_v2/close_job.htm
+
+### Delete a job
+In this example, we delete a job based on its ID.  Assumed in this example that this value is stored in `job_id`.
+
+```python
+delete_result = client.jobs.ingest.delete(job_id=job_id)
+```
+
+For more information on the response for this request, see
+https://developer.salesforce.com/docs/atlas.en-us.api_bulk_v2.meta/api_bulk_v2/close_job.htm
+
+### Get all jobs
+In this example, we get a list of all jobs.
+
+```python
+get_result = client.jobs.ingest.get()
+```
+
+For more information on the response for this request, see
+https://developer.salesforce.com/docs/atlas.en-us.api_bulk_v2.meta/api_bulk_v2/get_all_jobs.htm
+
+### Get job info
+In this example, we get information for a specific job based on its ID. Assumed in this example that this value is
+stored in `job_id`.
+
+```python
+get_result = client.jobs.ingest.get(job_id=job_id)
+```
+
+For more information on the response for this request, see
+https://developer.salesforce.com/docs/atlas.en-us.api_bulk_v2.meta/api_bulk_v2/get_job_info.htm
+
+### Get job successes
+In this example, we get a successes CSV for a given job based on its ID. Assumed in this example that this value is
+stored in `job_id`.
+
+```python
+get_result = client.jobs.ingest.get(job_id=job_id, successes=True)
+```
+
+For more information on the response for this request, see
+https://developer.salesforce.com/docs/atlas.en-us.api_bulk_v2.meta/api_bulk_v2/get_job_successful_results.htm
+
+### Get job failures
+In this example, we get a failures CSV for a given job based on its ID. Assumed in this example that this value is
+stored in `job_id`.
+
+```python
+get_result = client.jobs.ingest.get(job_id=job_id, failures=True)
+```
+
+For more information on the response for this request, see
+https://developer.salesforce.com/docs/atlas.en-us.api_bulk_v2.meta/api_bulk_v2/get_job_failed_results.htm
+
+### Get job unprocessed rows
+In this example, we get an unprocessed rows CSV for a given job based on its ID. Assumed in this example that this value
+is stored in `job_id`.
+
+```python
+get_result = client.jobs.ingest.get(job_id=job_id, unprocessed=True)
+```
+
+For more information on the response for this request, see
+https://developer.salesforce.com/docs/atlas.en-us.api_bulk_v2.meta/api_bulk_v2/get_job_unprocessed_results.htm
 
 ## Logout
 Expires the session by revoking the access token. It returns a 200 status code for a successful token revocation.
