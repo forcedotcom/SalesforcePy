@@ -1,0 +1,21 @@
+{
+  "url": "https://eu11.salesforce.com/services/data/v37.0/jobs/ingest",
+  "status_code": 200,
+  "body": {
+    "id": "7500Y00000BSfbrQAD",
+    "operation": "insert",
+    "object": "Account",
+    "createdById": "0050Y000000pyREQAY",
+    "createdDate": "2018-05-14T13:22:43.000+0000",
+    "systemModstamp": "2018-05-14T13:22:43.000+0000",
+    "state": "Open",
+    "concurrencyMode": "Parallel",
+    "contentType": "CSV",
+    "apiVersion": 37.0,
+    "contentUrl": "services/data/v37.0/jobs/ingest/7500Y00000BSfbrQAD/batches",
+    "lineEnding": "LF",
+    "columnDelimiter": "COMMA"
+  },
+  "content_type":"application/json",
+  "method":"POST"
+}

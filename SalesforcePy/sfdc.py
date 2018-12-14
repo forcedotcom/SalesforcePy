@@ -10,6 +10,7 @@ from __future__ import absolute_import
 
 from . import chatter
 from . import commons
+from . import jobs
 from . import wave
 
 import json
@@ -110,6 +111,7 @@ class Client(object):
         self.client_kwargs = kwargs
         self.session_id = None
         self.chatter = chatter.Chatter(self)
+        self.jobs = jobs.Jobs(self)
         self.wave = wave.Wave(self)
 
     def set_instance_url(self, url):

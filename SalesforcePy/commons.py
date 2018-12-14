@@ -14,6 +14,20 @@ import requests
 DEFAULT_API_VERSION = '37.0'
 
 
+def delete_request(base_request):
+    """
+    Performs DELETE request for the class provided.
+    :param: base_request: Class with which to make request.
+    :type: BaseRequest
+    :return: response
+    :rtype: requests.Response
+    """
+    (headers, _, _, _, service) = base_request.get_request_vars()
+
+    return requests.delete(
+        service, headers=headers, proxies=base_request.proxies, timeout=base_request.timeout)
+
+
 def get_request(base_request):
     """
     Performs GET request for the class provided.
@@ -26,6 +40,21 @@ def get_request(base_request):
 
     return requests.get(
         service, headers=headers, proxies=base_request.proxies, timeout=base_request.timeout)
+
+
+def patch_request(base_request):
+    """
+    Performs PATCH request for the class provided.
+    :param: base_request: Class with which to make request.
+    :type: BaseRequest
+    :return: response
+    :rtype: requests.Response
+    """
+    (headers, _, _, _, service) = base_request.get_request_vars()
+
+    return requests.patch(
+        service, headers=headers, proxies=base_request.proxies, timeout=base_request.timeout,
+        json=base_request.request_body)
 
 
 def post_request(base_request):
@@ -41,6 +70,21 @@ def post_request(base_request):
     return requests.post(
         service, headers=headers, proxies=base_request.proxies, timeout=base_request.timeout,
         json=base_request.request_body)
+
+
+def put_request(base_request):
+    """
+    Performs PUT request for the class provided.
+    :param: base_request: Class with which to make request.
+    :type: BaseRequest
+    :return: response
+    :rtype: requests.Response
+    """
+    (headers, _, _, _, service) = base_request.get_request_vars()
+
+    return requests.put(
+        service, headers=headers, proxies=base_request.proxies, timeout=base_request.timeout,
+        data=base_request.request_body)
 
 
 def kwarg_adder(func):
@@ -176,6 +220,12 @@ class BaseRequest(object):
 
         if self.http_method == 'POST':
             request_fn = post_request
+        elif self.http_method == 'PUT':
+            request_fn = put_request
+        elif self.http_method == 'PATCH':
+            request_fn = patch_request
+        elif self.http_method == 'DELETE':
+            request_fn = delete_request
         else:
             request_fn = get_request
 

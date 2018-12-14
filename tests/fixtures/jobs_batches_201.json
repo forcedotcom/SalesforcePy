@@ -1,0 +1,7 @@
+{
+  "url": "https://eu11.salesforce.com/services/data/v37.0/jobs/ingest/7500Y00000BSfbrQAD/batches",
+  "status_code": 201,
+  "body": null,
+  "content_type":"application/csv",
+  "method":"PUT"
+}
