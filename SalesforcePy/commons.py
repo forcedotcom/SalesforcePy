@@ -44,7 +44,7 @@ def get_request(base_request):
 
 def patch_request(base_request):
     """
-    Performs POST request for the class provided.
+    Performs PATCH request for the class provided.
     :param: base_request: Class with which to make request.
     :type: BaseRequest
     :return: response

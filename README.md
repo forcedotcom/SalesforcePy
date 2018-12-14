@@ -258,7 +258,7 @@ In this example, we create a job, then upload a csv file using the job ID.
 
 ```python
 job_resource = {"object": "Account", "operation": "insert", "lineEnding": "CRLF"}
-create_result = client.jobs.ingest.batches(job_resource=job_resource)
+create_result = client.jobs.ingest.create(job_resource=job_resource)
 
 with open("/path/to/accounts.csv") as f:
     csv_file = f.read()
@@ -274,7 +274,7 @@ In this example, we create a job, upload a csv file using its job ID, then updat
 
 ```python
 job_resource = {"object": "Account", "operation": "insert", "lineEnding": "CRLF"}
-create_result = client.jobs.ingest.batches(job_resource=job_resource)
+create_result = client.jobs.ingest.create(job_resource=job_resource)
 job_id = create_result[0].get("Id")
 
 with open("/path/to/accounts.csv") as f:
