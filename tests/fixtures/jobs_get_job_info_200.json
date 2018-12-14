@@ -1,0 +1,26 @@
+{
+  "url": "https://eu11.salesforce.com/services/data/v37.0/jobs/ingest/7500Y00000BSfbrQAD",
+  "status_code": 200,
+  "body": {
+    "id":"7500Y00000BSfbrQAD",
+    "operation":"insert",
+    "object":"Account",
+    "createdById":"0050Y000000pyREQAY",
+    "createdDate":"2018-12-05T10:56:43.000+0000",
+    "systemModstamp":"2018-12-05T10:56:43.000+0000",
+    "state":"Open",
+    "concurrencyMode":"Parallel",
+    "contentType":"CSV",
+    "apiVersion":37.0,
+    "jobType":"V2Ingest",
+    "contentUrl":"services/data/v37.0/jobs/ingest/7500Y00000BSfbrQAD/batches",
+    "lineEnding":"LF",
+    "columnDelimiter":"COMMA",
+    "retries":0,
+    "totalProcessingTime":0,
+    "apiActiveProcessingTime":0,
+    "apexProcessingTime":0
+  },
+  "content_type":"application/json",
+  "method":"GET"
+}
