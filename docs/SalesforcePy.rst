@@ -20,6 +20,14 @@ SalesforcePy.commons module
     :undoc-members:
     :show-inheritance:
 
+SalesforcePy.jobs module
+------------------
+
+.. automodule:: SalesforcePy.jobs
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 SalesforcePy.sfdc module
 ---------------
 
