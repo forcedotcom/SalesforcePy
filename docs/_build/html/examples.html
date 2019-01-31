@@ -1,0 +1,526 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Usage Examples &mdash; SalesforcePy  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Advanced Usage" href="advanced_usage.html" />
+    <link rel="prev" title="Get Started with SalesforcePy" href="get_started.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SalesforcePy
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Get Started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="get_started.html">Get Started with SalesforcePy</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Usage Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#query">Query</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#query-more">Query More</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#insert-sobjects">Insert sObjects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#update-sobjects">Update sObjects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#delete-sobjects">Delete sObjects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#query-sobject-row">Query SObject Row</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#describe-sobject">Describe SObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#describe-global">Describe Global</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#insert-file">Insert File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#search">Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#execute-anonymous">Execute Anonymous</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#chatter">Chatter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#wave">Wave</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#retrieve-a-data-set">Retrieve a data set</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#perform-a-query">Perform a query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#bulk-api-2-0">Bulk API 2.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-job">Create a Job</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#upload-job-data">Upload Job Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#update-a-job-state">Update a job state</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#delete-a-job">Delete a job</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-all-jobs">Get all jobs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-job-info">Get Job Info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-job-successes">Get Job Successes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-job-failures">Get Job Failures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-job-unprocessed-rows">Get Job Unprocessed Rows</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#logout">Logout</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_usage.html">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="SalesforcePy.html">SalesforcePy Package Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SalesforcePy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Usage Examples</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/examples.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="usage-examples">
+<h1>Usage Examples<a class="headerlink" href="#usage-examples" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="query">
+<h2>Query<a class="headerlink" href="#query" title="Permalink to this headline">¶</a></h2>
+<p>Once the login call has been performed successfully,
+the client will maintain the session leaving you free to make API calls.
+This example demonstrates how to perform a query.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">query_results</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;SELECT Id, Name FROM Account LIMIT 1&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In the example above <code class="docutils literal notranslate"><span class="pre">query_results[0]</span></code> will be a dict with the response. See
+<a class="reference external" href="https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/dome_query.htm">Execute a SOQL Query</a>.</p>
+</div>
+<div class="section" id="query-more">
+<h2>Query More<a class="headerlink" href="#query-more" title="Permalink to this headline">¶</a></h2>
+<p>While the client <code class="docutils literal notranslate"><span class="pre">query()</span></code> method can be useful for making requests when you’re expecting a
+small amount of data, a single query result won’t give you all records if the total size of
+records exceeds the standard batch size (2000).</p>
+<p>In such scenarios, you may wish to use <code class="docutils literal notranslate"><span class="pre">query_more()</span></code>.
+As the example shows, you simply provide the query string in the same way you did previously
+with <code class="docutils literal notranslate"><span class="pre">query()</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">query_results</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">query_more</span><span class="p">(</span><span class="s1">&#39;SELECT Id, Name FROM Account&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In the example above <code class="docutils literal notranslate"><span class="pre">query_results[0]</span></code> will be a list of dicts,
+each of which is a query result (batch).
+The behaviour of <code class="docutils literal notranslate"><span class="pre">query_more()</span></code> is to consume <code class="docutils literal notranslate"><span class="pre">nextRecordsUrl</span></code> of each query result recursively
+until it runs out. For more on this topic, see Retrieving the Remaining SOQL Query Results in
+<a class="reference external" href="https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/dome_query.htm">Execute a SOQL Query</a>.</p>
+</div>
+<div class="section" id="insert-sobjects">
+<h2>Insert sObjects<a class="headerlink" href="#insert-sobjects" title="Permalink to this headline">¶</a></h2>
+<p>From the client, the <code class="docutils literal notranslate"><span class="pre">sobjects</span></code> class can be used to perform DML statements and file i/o with
+Salesforce objects. This example shows how to insert.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">create_result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">sobjects</span><span class="p">(</span><span class="n">object_type</span><span class="o">=</span><span class="s1">&#39;Account&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">insert</span><span class="p">({</span><span class="s2">&quot;Name&quot;</span> <span class="p">:</span> <span class="s2">&quot;SalesforcePy&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>In the example above <code class="docutils literal notranslate"><span class="pre">create_result[0]</span></code> will be a dict with the response. See
+<a class="reference external" href="https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/dome_sobject_create.htm">Create a Record</a>.</p>
+</div>
+<div class="section" id="update-sobjects">
+<h2>Update sObjects<a class="headerlink" href="#update-sobjects" title="Permalink to this headline">¶</a></h2>
+<p>Update works similarly to insert, with the main difference being that <code class="docutils literal notranslate"><span class="pre">id</span></code> is
+a required <code class="docutils literal notranslate"><span class="pre">kwarg</span></code> in sobjects so it is clear which record is to be updated.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">update_result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">sobjects</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;0010Y0000055YG7QAM&#39;</span><span class="p">,</span><span class="n">object_type</span><span class="o">=</span><span class="s1">&#39;Account&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;Name&quot;</span> <span class="p">:</span> <span class="s2">&quot;SalesforcePy 2&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>In the example above <code class="docutils literal notranslate"><span class="pre">update_result[0]</span></code> will be None.
+This is because the HTTP method used under the hood is <code class="docutils literal notranslate"><span class="pre">PATCH</span></code>,
+for which the expected success code is <code class="docutils literal notranslate"><span class="pre">204</span></code>.
+The success code can be found in <code class="docutils literal notranslate"><span class="pre">update_result[1].status</span></code>.
+For more information, see
+<a class="reference external" href="https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/dome_update_fields.htm">Update a Record</a>.</p>
+</div>
+<div class="section" id="delete-sobjects">
+<h2>Delete sObjects<a class="headerlink" href="#delete-sobjects" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">delete_result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">sobjects</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;0010Y0000055YG7QAM&#39;</span><span class="p">,</span><span class="n">object_type</span><span class="o">=</span><span class="s1">&#39;Account&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>In the example above <code class="docutils literal notranslate"><span class="pre">delete_result[0]</span></code> will be None.
+This is because the HTTP method used under the hood is <code class="docutils literal notranslate"><span class="pre">DELETE</span></code>,
+for which the expected success code is <code class="docutils literal notranslate"><span class="pre">204</span></code>.
+The success code can be found in <code class="docutils literal notranslate"><span class="pre">delete_result[1].status</span></code>. For more information, see
+<a class="reference external" href="https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/dome_delete_record.htm">Delete a Record</a>.</p>
+</div>
+<div class="section" id="query-sobject-row">
+<h2>Query SObject Row<a class="headerlink" href="#query-sobject-row" title="Permalink to this headline">¶</a></h2>
+<p>If you know the ID of a record, you can easily retrieve the entire row using this method.
+This may be preferable to <code class="docutils literal notranslate"><span class="pre">query()</span></code> if you wish to get all fields
+without specifying them.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">query_result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">sobjects</span><span class="p">(</span> <span class="n">object_type</span><span class="o">=</span><span class="s2">&quot;Account&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;0010Y0000056ljcQAA&quot;</span> <span class="p">)</span><span class="o">.</span><span class="n">query</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="describe-sobject">
+<h2>Describe SObject<a class="headerlink" href="#describe-sobject" title="Permalink to this headline">¶</a></h2>
+<p>The describe method retrieves the individual metadata at all levels for the specified SObject.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">describe_result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">sobjects</span><span class="p">(</span><span class="n">object_type</span><span class="o">=</span><span class="s1">&#39;Account&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>In the example above <code class="docutils literal notranslate"><span class="pre">describe_result[0]</span></code> will be a dict with the response. For more information, see
+<a class="reference external" href="https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_sobject_describe.htm.TheIf-Modified-Sinceheadercannotbeusedwiththismethod">sObject Describe</a>.</p>
+</div>
+<div class="section" id="describe-global">
+<h2>Describe Global<a class="headerlink" href="#describe-global" title="Permalink to this headline">¶</a></h2>
+<p>The describe global method lists the available objects and their metadata for the organization’s data.
+In addition, it provides the organization encoding, as well as the maximum batch size permitted in queries.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">describe_global_result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">sobjects</span><span class="p">()</span><span class="o">.</span><span class="n">describe_global</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>In the example above <code class="docutils literal notranslate"><span class="pre">describe_global_result[0]</span></code> will be a dict with the response. For more information, see
+<a class="reference external" href="https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_describeGlobal.htm">Describe Global</a>.
+The <code class="docutils literal notranslate"><span class="pre">If-Modified-Since</span></code> header cannot be used with this method.</p>
+</div>
+<div class="section" id="insert-file">
+<h2>Insert File<a class="headerlink" href="#insert-file" title="Permalink to this headline">¶</a></h2>
+<p>There are some special objects in Salesforce such as <code class="docutils literal notranslate"><span class="pre">Attachment</span></code>, <code class="docutils literal notranslate"><span class="pre">Document</span></code>, and <code class="docutils literal notranslate"><span class="pre">ContentVersion</span></code> which
+allow storage of files as blobs. The following is an example of how to insert a file.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a file tuple ordered like so: ( filename, body, content_type )</span>
+<span class="nb">file</span> <span class="o">=</span> <span class="p">(</span> <span class="s2">&quot;SalesforcePy.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;Hello world&quot;</span><span class="p">,</span> <span class="s2">&quot;text/plain&quot;</span> <span class="p">)</span>
+
+<span class="n">insert_result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">sobjects</span><span class="p">(</span><span class="n">object_type</span> <span class="o">=</span> <span class="s2">&quot;Attachment&quot;</span><span class="p">,</span> <span class="n">binary_field</span><span class="o">=</span><span class="s2">&quot;Body&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">insert</span><span class="p">({</span>
+        <span class="s2">&quot;Name&quot;</span><span class="p">:</span><span class="s2">&quot;SalesforcePy&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ParentId&quot;</span><span class="p">:</span><span class="s2">&quot;0010Y0000056ljcQAA&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Description&quot;</span><span class="p">:</span><span class="s2">&quot;An excellent package&quot;</span>
+    <span class="p">},</span> <span class="n">binary</span><span class="o">=</span><span class="nb">file</span> <span class="p">)</span>    <span class="c1"># Pass your file through using the binary kwarg</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="search">
+<h2>Search<a class="headerlink" href="#search" title="Permalink to this headline">¶</a></h2>
+<p>SOSL search statements can be made as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">search_result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;FIND {SalesforcePy} RETURNING Account(Id, Name) LIMIT 5&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="execute-anonymous">
+<h2>Execute Anonymous<a class="headerlink" href="#execute-anonymous" title="Permalink to this headline">¶</a></h2>
+<p>Anonymous Apex can be executed in a Salesforce organisation like so:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ea_result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">execute_anonymous</span><span class="p">(</span><span class="s1">&#39;system.debug(</span><span class="se">\&#39;</span><span class="s1">Hello world.</span><span class="se">\&#39;</span><span class="s1">);&#39;</span><span class="p">)</span>
+<span class="n">Approval</span> <span class="n">Process</span>
+<span class="n">Approvals</span> <span class="n">can</span> <span class="n">be</span> <span class="n">retrieved</span><span class="p">,</span> <span class="n">submitted</span> <span class="ow">and</span> <span class="n">approved</span><span class="o">/</span><span class="n">rejected</span>
+
+<span class="n">ap_result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">approvals</span><span class="p">(</span><span class="n">requestBody</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>See documentation for sample request body.</p>
+</div>
+<div class="section" id="chatter">
+<h2>Chatter<a class="headerlink" href="#chatter" title="Permalink to this headline">¶</a></h2>
+<p>Create a feed item (chatter post). It returns a 201 status code for a successful request.
+See Chatter REST api documentation for information on the expected body to create feed items.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># create chatter post</span>
+<span class="n">client</span><span class="o">.</span><span class="n">chatter</span><span class="o">.</span><span class="n">feed_item</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+
+<span class="c1"># create a comment on a chatter post</span>
+<span class="n">client</span><span class="o">.</span><span class="n">chatter</span><span class="o">.</span><span class="n">feed_comment</span><span class="p">(</span><span class="s1">&#39;feed-elementid&#39;</span><span class="p">,</span> <span class="n">body</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="wave">
+<h2>Wave<a class="headerlink" href="#wave" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="retrieve-a-data-set">
+<h3>Retrieve a data set<a class="headerlink" href="#retrieve-a-data-set" title="Permalink to this headline">¶</a></h3>
+<p>Retrieve a wave data set using the <code class="docutils literal notranslate"><span class="pre">datataset()</span></code> function.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">wave</span><span class="o">.</span><span class="n">dataset</span><span class="p">(</span><span class="s2">&quot;opportunities&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="perform-a-query">
+<h3>Perform a query<a class="headerlink" href="#perform-a-query" title="Permalink to this headline">¶</a></h3>
+<p>Perform a SAQL query using the wave query() function.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;query&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;&quot;q = load </span><span class="se">\&quot;</span><span class="s2">0Fb0N000000XuvBSAS/0Fc0N000001M5BMSA0</span><span class="se">\&quot;</span><span class="s2">;</span><span class="se">\n</span><span class="s2">q = filter q by &#39;Account.Industry&#39; in</span>
+<span class="s2">[</span><span class="se">\&quot;</span><span class="s2">Apparel</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">Banking</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">Biotechnology</span><span class="se">\&quot;</span><span class="s2">];</span><span class="se">\n</span><span class="s2">q = group q by &#39;Account.Industry&#39;;</span><span class="se">\n</span><span class="s2">q = foreach q generate</span>
+<span class="s2">&#39;Account.Industry&#39; as &#39;Account.Industry&#39;, count() as &#39;count&#39;;</span><span class="se">\n</span><span class="s2">q = order q by &#39;Account.Industry&#39; asc;</span><span class="se">\n</span><span class="s2">q = limit q</span>
+<span class="s2">2000;&quot;&quot;&quot;</span>
+<span class="p">}</span>
+
+<span class="n">client</span><span class="o">.</span><span class="n">wave</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="bulk-api-2-0">
+<h2>Bulk API 2.0<a class="headerlink" href="#bulk-api-2-0" title="Permalink to this headline">¶</a></h2>
+<p>As a general rule, supported Bulk API 2.0 calls can be made from <code class="docutils literal notranslate"><span class="pre">client.jobs.ingest</span></code>.
+The samples below cover specific calls.</p>
+<div class="section" id="create-a-job">
+<h3>Create a Job<a class="headerlink" href="#create-a-job" title="Permalink to this headline">¶</a></h3>
+<p>In this example, we create a job to insert accounts.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">job_resource</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;object&quot;</span><span class="p">:</span> <span class="s2">&quot;Account&quot;</span><span class="p">,</span> <span class="s2">&quot;operation&quot;</span><span class="p">:</span> <span class="s2">&quot;insert&quot;</span><span class="p">,</span> <span class="s2">&quot;lineEnding&quot;</span><span class="p">:</span> <span class="s2">&quot;CRLF&quot;</span><span class="p">}</span>
+<span class="n">client</span><span class="o">.</span><span class="n">jobs</span><span class="o">.</span><span class="n">ingest</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">job_resource</span><span class="o">=</span><span class="n">job_resource</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For more information on the response for this request, see
+<a class="reference external" href="https://developer.salesforce.com/docs/atlas.en-us.api_bulk_v2.meta/api_bulk_v2/create_job.htm">Create a Job</a>.</p>
+</div>
+<div class="section" id="upload-job-data">
+<h3>Upload Job Data<a class="headerlink" href="#upload-job-data" title="Permalink to this headline">¶</a></h3>
+<p>In this example, we create a job, then upload a csv file using the job ID.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">job_resource</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;object&quot;</span><span class="p">:</span> <span class="s2">&quot;Account&quot;</span><span class="p">,</span> <span class="s2">&quot;operation&quot;</span><span class="p">:</span> <span class="s2">&quot;insert&quot;</span><span class="p">,</span> <span class="s2">&quot;lineEnding&quot;</span><span class="p">:</span> <span class="s2">&quot;CRLF&quot;</span><span class="p">}</span>
+<span class="n">create_result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">jobs</span><span class="o">.</span><span class="n">ingest</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">job_resource</span><span class="o">=</span><span class="n">job_resource</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;/path/to/accounts.csv&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">csv_file</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">job_id</span> <span class="o">=</span> <span class="n">create_result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">)</span>
+    <span class="n">batches_result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">jobs</span><span class="o">.</span><span class="n">ingest</span><span class="o">.</span><span class="n">batches</span><span class="p">(</span><span class="n">job_id</span><span class="o">=</span><span class="n">job_id</span><span class="p">,</span> <span class="n">csv_file</span><span class="o">=</span><span class="n">csv_file</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For more information on the response for this request, see
+<a class="reference external" href="https://developer.salesforce.com/docs/atlas.en-us.api_bulk_v2.meta/api_bulk_v2/upload_job_data.htm">Upload Job Data</a>.</p>
+</div>
+<div class="section" id="update-a-job-state">
+<h3>Update a job state<a class="headerlink" href="#update-a-job-state" title="Permalink to this headline">¶</a></h3>
+<p>In this example, we create a job, upload a csv file using its job ID, then update it with a state of <code class="docutils literal notranslate"><span class="pre">UploadComplete</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">job_resource</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;object&quot;</span><span class="p">:</span> <span class="s2">&quot;Account&quot;</span><span class="p">,</span> <span class="s2">&quot;operation&quot;</span><span class="p">:</span> <span class="s2">&quot;insert&quot;</span><span class="p">,</span> <span class="s2">&quot;lineEnding&quot;</span><span class="p">:</span> <span class="s2">&quot;CRLF&quot;</span><span class="p">}</span>
+<span class="n">create_result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">jobs</span><span class="o">.</span><span class="n">ingest</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">job_resource</span><span class="o">=</span><span class="n">job_resource</span><span class="p">)</span>
+<span class="n">job_id</span> <span class="o">=</span> <span class="n">create_result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;Id&quot;</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;/path/to/accounts.csv&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">csv_file</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">batches_result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">jobs</span><span class="o">.</span><span class="n">ingest</span><span class="o">.</span><span class="n">batches</span><span class="p">(</span><span class="n">job_id</span><span class="o">=</span><span class="n">job_id</span><span class="p">,</span> <span class="n">csv_file</span><span class="o">=</span><span class="n">csv_file</span><span class="p">)</span>
+
+<span class="n">client</span><span class="o">.</span><span class="n">jobs</span><span class="o">.</span><span class="n">ingest</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">job_id</span><span class="o">=</span><span class="n">job_id</span><span class="p">,</span> <span class="n">state</span><span class="o">=</span><span class="s2">&quot;UploadComplete&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For more information on the response for this request, see
+<a class="reference external" href="https://developer.salesforce.com/docs/atlas.en-us.api_bulk_v2.meta/api_bulk_v2/close_job.htm">Close or Abort a Job</a>.</p>
+</div>
+<div class="section" id="delete-a-job">
+<h3>Delete a job<a class="headerlink" href="#delete-a-job" title="Permalink to this headline">¶</a></h3>
+<p>In this example, we delete a job based on its ID.
+Assumed in this example that this value is stored in <code class="docutils literal notranslate"><span class="pre">job_id</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">delete_result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">jobs</span><span class="o">.</span><span class="n">ingest</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">job_id</span><span class="o">=</span><span class="n">job_id</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For more information on the response for this request, see
+<a class="reference external" href="https://developer.salesforce.com/docs/atlas.en-us.api_bulk_v2.meta/api_bulk_v2/delete_job.htm">Delete a Job</a>.</p>
+</div>
+<div class="section" id="get-all-jobs">
+<h3>Get all jobs<a class="headerlink" href="#get-all-jobs" title="Permalink to this headline">¶</a></h3>
+<p>In this example, we get a list of all jobs.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">get_result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">jobs</span><span class="o">.</span><span class="n">ingest</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>For more information on the response for this request, see
+<a class="reference external" href="https://developer.salesforce.com/docs/atlas.en-us.api_bulk_v2.meta/api_bulk_v2/get_all_jobs.htm">Get All Jobs</a>.</p>
+</div>
+<div class="section" id="get-job-info">
+<h3>Get Job Info<a class="headerlink" href="#get-job-info" title="Permalink to this headline">¶</a></h3>
+<p>In this example, we get information for a specific job based on its ID.
+Assumed in this example that this value is stored in <code class="docutils literal notranslate"><span class="pre">job_id</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">get_result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">jobs</span><span class="o">.</span><span class="n">ingest</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">job_id</span><span class="o">=</span><span class="n">job_id</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For more information on the response for this request, see
+<a class="reference external" href="https://developer.salesforce.com/docs/atlas.en-us.api_bulk_v2.meta/api_bulk_v2/get_job_info.htm">Get Job Info</a>.</p>
+</div>
+<div class="section" id="get-job-successes">
+<h3>Get Job Successes<a class="headerlink" href="#get-job-successes" title="Permalink to this headline">¶</a></h3>
+<p>In this example, we get a successes CSV for a given job based on its ID.
+Assumed in this example that this value is stored in <code class="docutils literal notranslate"><span class="pre">job_id</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">get_result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">jobs</span><span class="o">.</span><span class="n">ingest</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">job_id</span><span class="o">=</span><span class="n">job_id</span><span class="p">,</span> <span class="n">successes</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For more information on the response for this request, see
+<a class="reference external" href="https://developer.salesforce.com/docs/atlas.en-us.api_bulk_v2.meta/api_bulk_v2/get_job_successful_results.htm">Get Job Successful Record Results</a>.</p>
+</div>
+<div class="section" id="get-job-failures">
+<h3>Get Job Failures<a class="headerlink" href="#get-job-failures" title="Permalink to this headline">¶</a></h3>
+<p>In this example, we get a failures CSV for a given job based on its ID.
+Assumed in this example that this value is stored in <code class="docutils literal notranslate"><span class="pre">job_id</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">get_result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">jobs</span><span class="o">.</span><span class="n">ingest</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">job_id</span><span class="o">=</span><span class="n">job_id</span><span class="p">,</span> <span class="n">failures</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For more information on the response for this request, see
+<a class="reference external" href="https://developer.salesforce.com/docs/atlas.en-us.api_bulk_v2.meta/api_bulk_v2/get_job_failed_results.htm">Get Job Failed Record Results</a>.</p>
+</div>
+<div class="section" id="get-job-unprocessed-rows">
+<h3>Get Job Unprocessed Rows<a class="headerlink" href="#get-job-unprocessed-rows" title="Permalink to this headline">¶</a></h3>
+<p>In this example, we get an unprocessed rows CSV for a given job based on its ID.
+Assumed in this example that this value is stored in <code class="docutils literal notranslate"><span class="pre">job_id</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">get_result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">jobs</span><span class="o">.</span><span class="n">ingest</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">job_id</span><span class="o">=</span><span class="n">job_id</span><span class="p">,</span> <span class="n">unprocessed</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For more information on the response for this request, see
+<a class="reference external" href="https://developer.salesforce.com/docs/atlas.en-us.api_bulk_v2.meta/api_bulk_v2/get_job_unprocessed_results.htm">Get Job Unprocessed Record Results</a>.</p>
+</div>
+</div>
+<div class="section" id="logout">
+<h2>Logout<a class="headerlink" href="#logout" title="Permalink to this headline">¶</a></h2>
+<p>Expires the session by revoking the access token.
+It returns a <code class="docutils literal notranslate"><span class="pre">200</span></code> status code for a successful token revocation.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">logout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="advanced_usage.html" class="btn btn-neutral float-right" title="Advanced Usage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="get_started.html" class="btn btn-neutral" title="Get Started with SalesforcePy" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Salesforce.com
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

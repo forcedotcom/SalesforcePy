@@ -1,0 +1,93 @@
+
+.. toctree::
+   :maxdepth: 2
+   :caption: User Documentation
+
+   versions
+   builds
+   features
+   connected-accounts
+   support
+   faq
+   config-file/index
+   guides/index
+   api/index
+   embed
+
+.. _feature-docs:
+
+.. toctree::
+   :maxdepth: 2
+   :glob:
+   :caption: Feature Documentation
+
+   webhooks
+   badges
+   alternate_domains
+   localization
+   vcs
+   subprojects
+   conda
+   canonical
+   single_version
+   privacy
+   user-defined-redirects
+   automatic-redirects
+   features/*
+
+.. _about-docs:
+
+.. toctree::
+   :maxdepth: 1
+   :caption: About Read the Docs
+
+   contribute
+   roadmap
+   team
+   gsoc
+   code-of-conduct
+   privacy-policy
+   advertising/index
+   sponsors
+   open-source-philosophy
+   story
+   abandoned-projects
+   dmca/index
+
+.. _dev-docs:
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Developer Documentation
+
+   changelog
+   install
+   development/search
+   architecture
+   tests
+   docs
+   development/standards
+   development/buildenvironments
+   symlinks
+   settings
+   i18n
+   issue-labels
+   security
+   design
+   RTD Theme <https://sphinx-rtd-theme.readthedocs.io/en/latest/>
+
+.. _commercial-docs:
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Commercial Documentation
+
+   commercial/index
+
+.. _custom-docs:
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Custom Install Documentation
+
+   custom_installs/index

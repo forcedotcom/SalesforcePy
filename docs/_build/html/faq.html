@@ -1,0 +1,283 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>FAQs &mdash; SalesforcePy  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="SalesforcePy Package Reference" href="SalesforcePy.html" />
+    <link rel="prev" title="Advanced Usage" href="advanced_usage.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SalesforcePy
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Get Started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="get_started.html">Get Started with SalesforcePy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Usage Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_usage.html">Advanced Usage</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">FAQs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#how-do-i-inspect-my-organisation-schema">How do I inspect my organisation schema?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-do-i-test-a-query">How do I test a query?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#is-it-possible-to-debug-requests-being-made-by-salesforcepy">Is it possible to debug requests being made by SalesforcePy?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#can-i-specify-a-proxy-to-talk-to-salesforce-org-in-the-code">Can I specify a proxy to talk to Salesforce Org in the code?</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="SalesforcePy.html">SalesforcePy Package Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SalesforcePy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>FAQs</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/faq.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="faqs">
+<h1>FAQs<a class="headerlink" href="#faqs" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="how-do-i-inspect-my-organisation-schema">
+<h2>How do I inspect my organisation schema?<a class="headerlink" href="#how-do-i-inspect-my-organisation-schema" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Log in to <a class="reference external" href="https://workbench.developerforce.com/login.php">Workbench</a>.</li>
+<li>Go to <strong>Info &gt; Standard and Custom Objects</strong>.</li>
+<li>In the Object dropdown, choose the object you wish to inspect (eg. Case) then click Select.</li>
+<li>Expand Fields. You should find what you’re looking for here.</li>
+</ol>
+</div>
+<div class="section" id="how-do-i-test-a-query">
+<h2>How do I test a query?<a class="headerlink" href="#how-do-i-test-a-query" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Log in to <a class="reference external" href="https://workbench.developerforce.com/login.php">Workbench</a>.</li>
+<li>Go to <strong>Queries &gt; SOQL Query</strong>.</li>
+<li>Enter your query or optionally use the form to help you build the query, then click <strong>Query</strong>.</li>
+</ol>
+</div>
+<div class="section" id="is-it-possible-to-debug-requests-being-made-by-salesforcepy">
+<h2>Is it possible to debug requests being made by SalesforcePy?<a class="headerlink" href="#is-it-possible-to-debug-requests-being-made-by-salesforcepy" title="Permalink to this headline">¶</a></h2>
+<p>Yes. Here’s an example of how to do it, and what to expect.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">SalesforcePy</span> <span class="kn">as</span> <span class="nn">sfdc</span>
+
+<span class="n">username</span> <span class="o">=</span> <span class="s2">&quot;jsoap@universalcontainers.com&quot;</span>
+<span class="n">password</span> <span class="o">=</span> <span class="s2">&quot;p@ssword1&quot;</span>
+<span class="n">client_id</span> <span class="o">=</span> <span class="s2">&quot;XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&quot;</span>
+<span class="n">client_secret</span> <span class="o">=</span> <span class="s2">&quot;123456789123456789&quot;</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">sfdc</span><span class="o">.</span><span class="n">client</span><span class="p">(</span>
+    <span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">,</span>
+    <span class="n">password</span><span class="o">=</span><span class="n">password</span><span class="p">,</span>
+    <span class="n">client_id</span><span class="o">=</span><span class="n">client_id</span><span class="p">,</span>
+    <span class="n">client_secret</span><span class="o">=</span><span class="n">client_secret</span>
+<span class="p">)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>    <span class="c1"># Tell the client to debug at an info level</span>
+<span class="n">client</span><span class="o">.</span><span class="n">login</span><span class="p">()</span>  <span class="c1"># Outputs &quot;POST https://login.salesforce.com/services/oauth2/token&quot; to logs</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="can-i-specify-a-proxy-to-talk-to-salesforce-org-in-the-code">
+<h2>Can I specify a proxy to talk to Salesforce Org in the code?<a class="headerlink" href="#can-i-specify-a-proxy-to-talk-to-salesforce-org-in-the-code" title="Permalink to this headline">¶</a></h2>
+<p>Yes. Here’s an example of how to do it.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">SalesforcePy</span> <span class="kn">as</span> <span class="nn">sfdc</span>
+
+<span class="n">username</span> <span class="o">=</span> <span class="s2">&quot;jsoap@universalcontainers.com&quot;</span>
+<span class="n">password</span> <span class="o">=</span> <span class="s2">&quot;p@ssword1&quot;</span>
+<span class="n">client_id</span> <span class="o">=</span> <span class="s2">&quot;XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&quot;</span>
+<span class="n">client_secret</span> <span class="o">=</span> <span class="s2">&quot;123456789123456789&quot;</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">sfdc</span><span class="o">.</span><span class="n">client</span><span class="p">(</span>
+    <span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">,</span>
+    <span class="n">password</span><span class="o">=</span><span class="n">password</span><span class="p">,</span>
+    <span class="n">client_id</span><span class="o">=</span><span class="n">client_id</span><span class="p">,</span>
+    <span class="n">client_secret</span><span class="o">=</span><span class="n">client_secret</span><span class="p">,</span>
+    <span class="n">proxies</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;https&quot;</span><span class="p">:</span> <span class="s2">&quot;localhost:8888/example/&quot;</span><span class="p">}</span>    <span class="c1"># `proxies` kwarg takes a dict as required by the `requests` module.</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="SalesforcePy.html" class="btn btn-neutral float-right" title="SalesforcePy Package Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="advanced_usage.html" class="btn btn-neutral" title="Advanced Usage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Salesforce.com
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
