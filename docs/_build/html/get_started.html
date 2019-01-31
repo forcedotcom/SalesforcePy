@@ -190,7 +190,7 @@
 </div>
 <div class="section" id="create-a-client-and-log-in">
 <h2>Create a Client and Log In<a class="headerlink" href="#create-a-client-and-log-in" title="Permalink to this headline">¶</a></h2>
-<p>Getting started is a three-step process:</p>
+<p>Getting started with SalesforcePy is a three-step process:</p>
 <ol class="arabic simple">
 <li>Import SalesforcePy</li>
 <li>Create a client</li>
@@ -205,7 +205,7 @@
     <span class="n">client_id</span><span class="o">=</span><span class="s2">&quot;XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&quot;</span><span class="p">,</span>
     <span class="n">client_secret</span><span class="o">=</span><span class="s2">&quot;123456789123456789&quot;</span><span class="p">,</span>
     <span class="n">login_url</span><span class="o">=</span><span class="s2">&quot;test.salesforce.com&quot;</span><span class="p">,</span>
-    <span class="n">version</span> <span class="o">=</span> <span class="s2">&quot;38.0&quot;</span><span class="p">,</span> <span class="c1">#optional parameter, defaults to the latest version for your instance</span>
+    <span class="n">version</span> <span class="o">=</span> <span class="s2">&quot;38.0&quot;</span><span class="p">,</span> <span class="c1"># optional, defaults to the latest version for your instance.</span>
     <span class="n">timeout</span> <span class="o">=</span> <span class="s2">&quot;30&quot;</span><span class="p">,</span> <span class="c1"># optional, defines a connect/read timeout value, if not specified requests can hang for minutes or more.</span>
 <span class="p">)</span>
 
@@ -213,8 +213,8 @@
 <span class="n">login_results</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">login</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>In the example above, <code class="docutils literal notranslate"><span class="pre">login_results[0]</span></code> will be a dict with the response from the Salesforce OAuth resource.
-The only supported flow at present is username-password. For more on the response,
+<p>In the example above, <code class="docutils literal notranslate"><span class="pre">login_results[0]</span></code> is a dict with the response from the Salesforce OAuth resource.
+The only supported flow at present is username-password. For more information about the response,
 see <a class="reference external" href="https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_username_password_oauth_flow.htm">Understanding the Username-Password OAuth Authentication Flow</a>.</p>
 <p>You can also use the context manager which handles <code class="docutils literal notranslate"><span class="pre">login()</span></code> and <code class="docutils literal notranslate"><span class="pre">logout()</span></code> automatically.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">client_args</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;username&#39;</span> <span class="p">:</span><span class="s1">&#39;jsoap@universalcontainers.com&#39;</span><span class="p">,</span>

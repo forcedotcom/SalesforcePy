@@ -5,24 +5,23 @@ Query
 -----
 
 Once the login call has been performed successfully, 
-the client will maintain the session leaving you free to make API calls. 
-This example demonstrates how to perform a query.
+the client maintains the session, allowing you to make API calls. 
+Here's how you can perform a query.
 
 .. code-block:: python
 
     query_results = client.query('SELECT Id, Name FROM Account LIMIT 1')
 
-In the example above ``query_results[0]`` will be a dict with the response. See
+In the example above ``query_results[0]`` is a dict with the response. For more information, See
 `Execute a SOQL Query <https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/dome_query.htm>`_.
 
 Query More
 ----------
 
-While the client ``query()`` method can be useful for making requests when you're expecting a 
-small amount of data, a single query result won't give you all records if the total size of 
-records exceeds the standard batch size (2000).
+While the client ``query()`` method is useful for making requests for a 
+small amount of data, it is not useful if the total size of records exceeds the standard batch size (2000).
 
-In such scenarios, you may wish to use ``query_more()``. 
+In such scenarios, ``query_more()`` comes handy. 
 As the example shows, you simply provide the query string in the same way you did previously 
 with ``query()``:
 
@@ -30,23 +29,22 @@ with ``query()``:
 
     query_results = client.query_more('SELECT Id, Name FROM Account')
 
-In the example above ``query_results[0]`` will be a list of dicts, 
-each of which is a query result (batch). 
+In this example, ``query_results[0]`` is a list of dicts, each of which is a single query result (batch). 
 The behaviour of ``query_more()`` is to consume ``nextRecordsUrl`` of each query result recursively 
-until it runs out. For more on this topic, see Retrieving the Remaining SOQL Query Results in
+until it runs out. For more information, see Retrieving the Remaining SOQL Query Results in
 `Execute a SOQL Query <https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/dome_query.htm>`_.
 
 Insert sObjects
 ---------------
 
-From the client, the ``sobjects`` class can be used to perform DML statements and file i/o with 
-Salesforce objects. This example shows how to insert.
+Use the ``sobjects`` class from the client to perform DML statements and file i/o with 
+Salesforce objects. Here's an example to demonstrate insert operation.
 
 .. code-block:: python
 
     create_result = client.sobjects(object_type='Account').insert({"Name" : "SalesforcePy"})
 
-In the example above ``create_result[0]`` will be a dict with the response. See 
+In this example, ``create_result[0]`` is a dict with the response. For more information, see 
 `Create a Record <https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/dome_sobject_create.htm>`_.
 
 Update sObjects
@@ -186,7 +184,7 @@ Retrieve a wave data set using the ``datataset()`` function.
 Perform a query
 ^^^^^^^^^^^^^^^
 
-Perform a SAQL query using the wave query() function.
+Perform a SOQL query using the wave ``query()`` function.
 
 .. code-block:: python
 

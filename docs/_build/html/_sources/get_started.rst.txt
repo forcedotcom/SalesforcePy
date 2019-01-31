@@ -22,7 +22,7 @@ From Local Source
 Create a Client and Log In
 --------------------------
 
-Getting started is a three-step process:
+Getting started with SalesforcePy is a three-step process:
 
 1. Import SalesforcePy
 2. Create a client
@@ -39,15 +39,15 @@ Getting started is a three-step process:
         client_id="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
         client_secret="123456789123456789",
         login_url="test.salesforce.com",
-        version = "38.0", #optional parameter, defaults to the latest version for your instance
+        version = "38.0", # optional, defaults to the latest version for your instance.
         timeout = "30", # optional, defines a connect/read timeout value, if not specified requests can hang for minutes or more.
     )
 
     # Log in
     login_results = client.login()
 
-In the example above, ``login_results[0]`` will be a dict with the response from the Salesforce OAuth resource. 
-The only supported flow at present is username-password. For more on the response, 
+In the example above, ``login_results[0]`` is a dict with the response from the Salesforce OAuth resource. 
+The only supported flow at present is username-password. For more information about the response, 
 see `Understanding the Username-Password OAuth Authentication Flow <https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_username_password_oauth_flow.htm>`_.
 
 You can also use the context manager which handles ``login()`` and ``logout()`` automatically.
