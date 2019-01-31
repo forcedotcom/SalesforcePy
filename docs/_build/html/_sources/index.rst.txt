@@ -33,3 +33,9 @@ Python 2 or 3
 
     SalesforcePy
 
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
