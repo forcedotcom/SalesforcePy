@@ -13,8 +13,8 @@ How do I test a query?
 ----------------------
 
 1. Log in to `Workbench <https://workbench.developerforce.com/login.php>`_.
-2. Go to **Queries > SOQL Query**.
-3. Enter your query or optionally use the form to help you build the query, then click **Query**.
+2. Go to :guilabel:`Queries > SOQL Query`.
+3. Enter your query or optionally use the form to help you build the query, then click :guilabel:`Query`.
 
 Is it possible to debug requests being made by SalesforcePy?
 ------------------------------------------------------------
