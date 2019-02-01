@@ -98,14 +98,6 @@ html_static_path = ['_static']
 #
 # html_sidebars = {}
 
-# For GitHub integration. See https://docs.readthedocs.io/en/latest/vcs.html
-html_context = {
-    "display_github": True, # Integrate GitHub
-    "github_user": "forcedotcom", # Username
-    "github_repo": "SalesforcePy", # Repo name
-    "github_version": "master", # Version
-    "conf_py_path": "/docs/", # Path in the checkout to the docs root
-}
 
 # -- Options for HTMLHelp output ---------------------------------------------
 
