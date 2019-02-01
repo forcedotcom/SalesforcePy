@@ -17,6 +17,7 @@ DEFAULT_API_VERSION = '37.0'
 def delete_request(base_request):
     """
     Performs DELETE request for the class provided.
+    
     :param: base_request: Class with which to make request.
     :type: BaseRequest
     :return: response
@@ -31,6 +32,7 @@ def delete_request(base_request):
 def get_request(base_request):
     """
     Performs GET request for the class provided.
+    
     :param: base_request: Class with which to make request.
     :type: BaseRequest
     :return: response
@@ -45,6 +47,7 @@ def get_request(base_request):
 def patch_request(base_request):
     """
     Performs PATCH request for the class provided.
+    
     :param: base_request: Class with which to make request.
     :type: BaseRequest
     :return: response
@@ -60,6 +63,7 @@ def patch_request(base_request):
 def post_request(base_request):
     """
     Performs POST request for the class provided.
+    
     :param: base_request: Class with which to make request.
     :type: BaseRequest
     :return: response
@@ -75,6 +79,7 @@ def post_request(base_request):
 def put_request(base_request):
     """
     Performs PUT request for the class provided.
+    
     :param: base_request: Class with which to make request.
     :type: BaseRequest
     :return: response
@@ -91,6 +96,7 @@ def kwarg_adder(func):
     """
     Decorator to add the kwargs from the client to the kwargs at the function level. If the same
     parameters are used in both, the function level kwarg will supersede the one at the client level.
+    
     :param func: client function to add client kwargs to
     :return: the function with updated kwargs
     """
@@ -108,6 +114,7 @@ def kwarg_adder(func):
 class SFDCRequestException(Exception):
     """
     This exception is raised when we fail to complete requests to the SFDC REST API.
+    
     .. versionadded:: 1.0.0
     """
     pass
@@ -171,7 +178,7 @@ class BaseRequest(object):
         self.exceptions = []
 
     def get_request_url(self):
-        """ Returns the request URL. (default: `'https://<instance_url><service>'`)
+        """ Returns the request URL. Default value is ``https://<instance_url><service>``
 
           :return: request_url
           :rtype: string
@@ -209,10 +216,10 @@ class BaseRequest(object):
 
     def request(self):
         """ Makes request to Salesforce and returns serialised response. Catches any exceptions and appends them to
-        `self.exceptions`.
+        ``self.exceptions``.
 
-          :return: response: Salesforce response, if available
-          :rtype: list|dict|None
+        :return: response: Salesforce response, if available
+        :rtype: list|dict|None
         """
         (headers, logger, request_object, response, service) = self.get_request_vars()
         logging.getLogger('sfdc_py').info('%s %s' %
@@ -246,10 +253,10 @@ class BaseRequest(object):
             return response
 
     def set_proxies(self, proxies):
-        """ Sets `proxies` for this class.
-        :param proxies: A dict containing proxies to use (see:
-        http://docs.python-requests.org/en/master/user/advanced/#proxies)
-        :type: dict
+        """ Sets `proxies` for this class. See: http://docs.python-requests.org/en/master/user/advanced/#proxies
+
+           :param proxies: A dict containing proxies to use            
+           :type: dict
         """
         self.proxies = proxies
 

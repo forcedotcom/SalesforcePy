@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="FAQs" href="faq.html" /> 
+    <link rel="prev" title="Contribute" href="contribute.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -77,12 +77,13 @@
               
             
             
-              <p class="caption"><span class="caption-text">Get Started</span></p>
+              <p class="caption"><span class="caption-text">Overview</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="get_started.html">Get Started with SalesforcePy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples.html">Usage Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="advanced_usage.html">Advanced Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">FAQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">Contribute</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Reference</span></p>
 <ul class="current">
@@ -146,7 +147,7 @@
         
             
             
-              <a href="https://github.com/sejal27/SalesforcePy/blob/master/docs/SalesforcePy.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/forcedotcom/SalesforcePy/blob/master/docs/SalesforcePy.rst" class="fa fa-github"> Edit on GitHub</a>
             
           
         
@@ -171,8 +172,10 @@
 <dt id="SalesforcePy.chatter.Chatter">
 <em class="property">class </em><code class="descclassname">SalesforcePy.chatter.</code><code class="descname">Chatter</code><span class="sig-paren">(</span><em>client</em><span class="sig-paren">)</span><a class="headerlink" href="#SalesforcePy.chatter.Chatter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#SalesforcePy.commons.ApiNamespace" title="SalesforcePy.commons.ApiNamespace"><code class="xref py py-class docutils literal notranslate"><span class="pre">SalesforcePy.commons.ApiNamespace</span></code></a></p>
-<p>The Chatter namespace class from which all API calls to a Salesforce organisation are made.
-.. versionadded:: 1.0.0</p>
+<p>The Chatter namespace class from which all API calls to a Salesforce organisation are made.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.0.0.</span></p>
+</div>
 <dl class="method">
 <dt id="SalesforcePy.chatter.Chatter.feed_comment">
 <code class="descname">feed_comment</code><span class="sig-paren">(</span><em>*args</em>, <em>**function_kwarg</em><span class="sig-paren">)</span><a class="headerlink" href="#SalesforcePy.chatter.Chatter.feed_comment" title="Permalink to this definition">¶</a></dt>
@@ -189,16 +192,20 @@
 <dt id="SalesforcePy.chatter.ChatterFeedComment">
 <em class="property">class </em><code class="descclassname">SalesforcePy.chatter.</code><code class="descname">ChatterFeedComment</code><span class="sig-paren">(</span><em>session_id</em>, <em>instance_url</em>, <em>_id</em>, <em>body</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#SalesforcePy.chatter.ChatterFeedComment" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#SalesforcePy.commons.BaseRequest" title="SalesforcePy.commons.BaseRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">SalesforcePy.commons.BaseRequest</span></code></a></p>
-<p>Performs a request to <cite>‘/services/data/v&lt;api_version&gt;/chatter/feed-elements/&lt;id&gt;/capabilities/comments/items’</cite>
-.. versionadded:: 1.0.0</p>
+<p>Performs a request to <code class="docutils literal notranslate"><span class="pre">/services/data/v&lt;api_version&gt;/chatter/feed-elements/&lt;id&gt;/capabilities/comments/items</span></code></p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.0.0.</span></p>
+</div>
 </dd></dl>
 
 <dl class="class">
 <dt id="SalesforcePy.chatter.ChatterFeedItem">
 <em class="property">class </em><code class="descclassname">SalesforcePy.chatter.</code><code class="descname">ChatterFeedItem</code><span class="sig-paren">(</span><em>session_id</em>, <em>instance_url</em>, <em>body</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#SalesforcePy.chatter.ChatterFeedItem" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#SalesforcePy.commons.BaseRequest" title="SalesforcePy.commons.BaseRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">SalesforcePy.commons.BaseRequest</span></code></a></p>
-<p>Performs a request to <cite>‘/services/data/v&lt;api_version&gt;/chatter/feed-elements’</cite>
-.. versionadded:: 1.0.0</p>
+<p>Performs a request to <code class="docutils literal notranslate"><span class="pre">/services/data/v&lt;api_version&gt;/chatter/feed-elements</span></code></p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.0.0.</span></p>
+</div>
 </dd></dl>
 
 </div>
@@ -244,7 +251,7 @@
 <dl class="method">
 <dt id="SalesforcePy.commons.BaseRequest.get_request_url">
 <code class="descname">get_request_url</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#SalesforcePy.commons.BaseRequest.get_request_url" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the request URL. (default: <cite>‘https://&lt;instance_url&gt;&lt;service&gt;’</cite>)</p>
+<dd><p>Returns the request URL. Default value is <code class="docutils literal notranslate"><span class="pre">https://&lt;instance_url&gt;&lt;service&gt;</span></code></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -277,28 +284,33 @@
 <dt id="SalesforcePy.commons.BaseRequest.request">
 <code class="descname">request</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#SalesforcePy.commons.BaseRequest.request" title="Permalink to this definition">¶</a></dt>
 <dd><p>Makes request to Salesforce and returns serialised response. Catches any exceptions and appends them to
-<cite>self.exceptions</cite>.</p>
-<blockquote>
-<div><table class="docutils field-list" frame="void" rules="none">
+<code class="docutils literal notranslate"><span class="pre">self.exceptions</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">return:</th><td class="field-body">response: Salesforce response, if available</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">response: Salesforce response, if available</td>
 </tr>
-<tr class="field-even field"><th class="field-name">rtype:</th><td class="field-body">list|dict|None</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list|dict|None</td>
 </tr>
 </tbody>
 </table>
-</div></blockquote>
 </dd></dl>
 
 <dl class="method">
 <dt id="SalesforcePy.commons.BaseRequest.set_proxies">
 <code class="descname">set_proxies</code><span class="sig-paren">(</span><em>proxies</em><span class="sig-paren">)</span><a class="headerlink" href="#SalesforcePy.commons.BaseRequest.set_proxies" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets <cite>proxies</cite> for this class.
-:param proxies: A dict containing proxies to use (see:
-<a class="reference external" href="http://docs.python-requests.org/en/master/user/advanced/#proxies">http://docs.python-requests.org/en/master/user/advanced/#proxies</a>)
-:type: dict</p>
+<dd><p>Sets <cite>proxies</cite> for this class. See: <a class="reference external" href="http://docs.python-requests.org/en/master/user/advanced/#proxies">http://docs.python-requests.org/en/master/user/advanced/#proxies</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>proxies</strong> – A dict containing proxies to use</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body">dict</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -314,7 +326,7 @@
 <dl class="method">
 <dt id="SalesforcePy.commons.OAuthRequest.get_request_url">
 <code class="descname">get_request_url</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#SalesforcePy.commons.OAuthRequest.get_request_url" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the request URL. (default: <cite>‘https://&lt;instance_url&gt;&lt;service&gt;’</cite>)</p>
+<dd><p>Returns the request URL. Default value is <code class="docutils literal notranslate"><span class="pre">https://&lt;instance_url&gt;&lt;service&gt;</span></code></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -331,19 +343,17 @@
 <dt id="SalesforcePy.commons.OAuthRequest.request">
 <code class="descname">request</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#SalesforcePy.commons.OAuthRequest.request" title="Permalink to this definition">¶</a></dt>
 <dd><p>Makes request to Salesforce and returns serialised response. Catches any exceptions and appends them to
-<cite>self.exceptions</cite>.</p>
-<blockquote>
-<div><table class="docutils field-list" frame="void" rules="none">
+<code class="docutils literal notranslate"><span class="pre">self.exceptions</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">return:</th><td class="field-body">response: Salesforce response, if available</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">response: Salesforce response, if available</td>
 </tr>
-<tr class="field-even field"><th class="field-name">rtype:</th><td class="field-body">list|dict|None</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list|dict|None</td>
 </tr>
 </tbody>
 </table>
-</div></blockquote>
 </dd></dl>
 
 </dd></dl>
@@ -352,67 +362,127 @@
 <dt id="SalesforcePy.commons.SFDCRequestException">
 <em class="property">exception </em><code class="descclassname">SalesforcePy.commons.</code><code class="descname">SFDCRequestException</code><a class="headerlink" href="#SalesforcePy.commons.SFDCRequestException" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
-<p>This exception is raised when we fail to complete requests to the SFDC REST API.
-.. versionadded:: 1.0.0</p>
+<p>This exception is raised when we fail to complete requests to the SFDC REST API.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.0.0.</span></p>
+</div>
 </dd></dl>
 
 <dl class="function">
 <dt id="SalesforcePy.commons.delete_request">
 <code class="descclassname">SalesforcePy.commons.</code><code class="descname">delete_request</code><span class="sig-paren">(</span><em>base_request</em><span class="sig-paren">)</span><a class="headerlink" href="#SalesforcePy.commons.delete_request" title="Permalink to this definition">¶</a></dt>
-<dd><p>Performs DELETE request for the class provided.
-:param: base_request: Class with which to make request.
-:type: BaseRequest
-:return: response
-:rtype: requests.Response</p>
+<dd><p>Performs DELETE request for the class provided.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">base_request: Class with which to make request.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#SalesforcePy.commons.BaseRequest" title="SalesforcePy.commons.BaseRequest">BaseRequest</a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">response</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">requests.Response</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
 <dt id="SalesforcePy.commons.get_request">
 <code class="descclassname">SalesforcePy.commons.</code><code class="descname">get_request</code><span class="sig-paren">(</span><em>base_request</em><span class="sig-paren">)</span><a class="headerlink" href="#SalesforcePy.commons.get_request" title="Permalink to this definition">¶</a></dt>
-<dd><p>Performs GET request for the class provided.
-:param: base_request: Class with which to make request.
-:type: BaseRequest
-:return: response
-:rtype: requests.Response</p>
+<dd><p>Performs GET request for the class provided.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">base_request: Class with which to make request.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#SalesforcePy.commons.BaseRequest" title="SalesforcePy.commons.BaseRequest">BaseRequest</a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">response</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">requests.Response</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
 <dt id="SalesforcePy.commons.kwarg_adder">
 <code class="descclassname">SalesforcePy.commons.</code><code class="descname">kwarg_adder</code><span class="sig-paren">(</span><em>func</em><span class="sig-paren">)</span><a class="headerlink" href="#SalesforcePy.commons.kwarg_adder" title="Permalink to this definition">¶</a></dt>
 <dd><p>Decorator to add the kwargs from the client to the kwargs at the function level. If the same
-parameters are used in both, the function level kwarg will supersede the one at the client level.
-:param func: client function to add client kwargs to
-:return: the function with updated kwargs</p>
+parameters are used in both, the function level kwarg will supersede the one at the client level.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>func</strong> – client function to add client kwargs to</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the function with updated kwargs</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
 <dt id="SalesforcePy.commons.patch_request">
 <code class="descclassname">SalesforcePy.commons.</code><code class="descname">patch_request</code><span class="sig-paren">(</span><em>base_request</em><span class="sig-paren">)</span><a class="headerlink" href="#SalesforcePy.commons.patch_request" title="Permalink to this definition">¶</a></dt>
-<dd><p>Performs PATCH request for the class provided.
-:param: base_request: Class with which to make request.
-:type: BaseRequest
-:return: response
-:rtype: requests.Response</p>
+<dd><p>Performs PATCH request for the class provided.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">base_request: Class with which to make request.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#SalesforcePy.commons.BaseRequest" title="SalesforcePy.commons.BaseRequest">BaseRequest</a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">response</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">requests.Response</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
 <dt id="SalesforcePy.commons.post_request">
 <code class="descclassname">SalesforcePy.commons.</code><code class="descname">post_request</code><span class="sig-paren">(</span><em>base_request</em><span class="sig-paren">)</span><a class="headerlink" href="#SalesforcePy.commons.post_request" title="Permalink to this definition">¶</a></dt>
-<dd><p>Performs POST request for the class provided.
-:param: base_request: Class with which to make request.
-:type: BaseRequest
-:return: response
-:rtype: requests.Response</p>
+<dd><p>Performs POST request for the class provided.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">base_request: Class with which to make request.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#SalesforcePy.commons.BaseRequest" title="SalesforcePy.commons.BaseRequest">BaseRequest</a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">response</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">requests.Response</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
 <dt id="SalesforcePy.commons.put_request">
 <code class="descclassname">SalesforcePy.commons.</code><code class="descname">put_request</code><span class="sig-paren">(</span><em>base_request</em><span class="sig-paren">)</span><a class="headerlink" href="#SalesforcePy.commons.put_request" title="Permalink to this definition">¶</a></dt>
-<dd><p>Performs PUT request for the class provided.
-:param: base_request: Class with which to make request.
-:type: BaseRequest
-:return: response
-:rtype: requests.Response</p>
+<dd><p>Performs PUT request for the class provided.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">base_request: Class with which to make request.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#SalesforcePy.commons.BaseRequest" title="SalesforcePy.commons.BaseRequest">BaseRequest</a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">response</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">requests.Response</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
@@ -422,32 +492,40 @@ parameters are used in both, the function level kwarg will supersede the one at 
 <dt id="SalesforcePy.jobs.Batches">
 <em class="property">class </em><code class="descclassname">SalesforcePy.jobs.</code><code class="descname">Batches</code><span class="sig-paren">(</span><em>session_id</em>, <em>instance_url</em>, <em>api_version</em>, <em>job_id</em>, <em>csv_file</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#SalesforcePy.jobs.Batches" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#SalesforcePy.commons.BaseRequest" title="SalesforcePy.commons.BaseRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">SalesforcePy.commons.BaseRequest</span></code></a></p>
-<p>Performs a PUT request to <cite>‘/services/data/vX.XX/jobs/ingest/&lt;job_id&gt;/batches’</cite>
-.. versionadded:: 1.1.0</p>
+<p>Performs a PUT request to <code class="docutils literal notranslate"><span class="pre">/services/data/vX.XX/jobs/ingest/&lt;job_id&gt;/batches</span></code></p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.1.0.</span></p>
+</div>
 </dd></dl>
 
 <dl class="class">
 <dt id="SalesforcePy.jobs.CreateJob">
 <em class="property">class </em><code class="descclassname">SalesforcePy.jobs.</code><code class="descname">CreateJob</code><span class="sig-paren">(</span><em>session_id</em>, <em>instance_url</em>, <em>api_version</em>, <em>request_body</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#SalesforcePy.jobs.CreateJob" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#SalesforcePy.commons.BaseRequest" title="SalesforcePy.commons.BaseRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">SalesforcePy.commons.BaseRequest</span></code></a></p>
-<p>Performs a POST request to <cite>‘/services/data/vX.XX/jobs/ingest’</cite>
-.. versionadded:: 1.1.0</p>
+<p>Performs a POST request to <code class="docutils literal notranslate"><span class="pre">/services/data/vX.XX/jobs/ingest</span></code></p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.1.0.</span></p>
+</div>
 </dd></dl>
 
 <dl class="class">
 <dt id="SalesforcePy.jobs.DeleteJob">
 <em class="property">class </em><code class="descclassname">SalesforcePy.jobs.</code><code class="descname">DeleteJob</code><span class="sig-paren">(</span><em>session_id</em>, <em>instance_url</em>, <em>api_version</em>, <em>job_id</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#SalesforcePy.jobs.DeleteJob" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#SalesforcePy.commons.BaseRequest" title="SalesforcePy.commons.BaseRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">SalesforcePy.commons.BaseRequest</span></code></a></p>
-<p>Performs a DELETE request to <cite>‘/services/data/vX.XX/jobs/ingest/&lt;job_id&gt;’</cite>
-.. versionadded:: 1.1.0</p>
+<p>Performs a DELETE request to <code class="docutils literal notranslate"><span class="pre">/services/data/vX.XX/jobs/ingest/&lt;job_id&gt;</span></code></p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.1.0.</span></p>
+</div>
 </dd></dl>
 
 <dl class="class">
 <dt id="SalesforcePy.jobs.GetJob">
 <em class="property">class </em><code class="descclassname">SalesforcePy.jobs.</code><code class="descname">GetJob</code><span class="sig-paren">(</span><em>session_id</em>, <em>instance_url</em>, <em>api_version</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#SalesforcePy.jobs.GetJob" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#SalesforcePy.commons.BaseRequest" title="SalesforcePy.commons.BaseRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">SalesforcePy.commons.BaseRequest</span></code></a></p>
-<p>Performs a GET request to <cite>‘/services/data/vX.XX/jobs/ingest’</cite>
-.. versionadded:: 1.1.0</p>
+<p>Performs a GET request to <code class="docutils literal notranslate"><span class="pre">/services/data/vX.XX/jobs/ingest</span></code></p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.1.0.</span></p>
+</div>
 </dd></dl>
 
 <dl class="class">
@@ -491,8 +569,10 @@ parameters are used in both, the function level kwarg will supersede the one at 
 <dt id="SalesforcePy.jobs.UpdateJob">
 <em class="property">class </em><code class="descclassname">SalesforcePy.jobs.</code><code class="descname">UpdateJob</code><span class="sig-paren">(</span><em>session_id</em>, <em>instance_url</em>, <em>api_version</em>, <em>job_id</em>, <em>request_body</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#SalesforcePy.jobs.UpdateJob" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#SalesforcePy.commons.BaseRequest" title="SalesforcePy.commons.BaseRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">SalesforcePy.commons.BaseRequest</span></code></a></p>
-<p>Performs a PATCH request to <cite>‘/services/data/vX.XX/jobs/ingest/&lt;job_id&gt;’</cite>
-.. versionadded:: 1.1.0</p>
+<p>Performs a PATCH request to <code class="docutils literal notranslate"><span class="pre">/services/data/vX.XX/jobs/ingest/&lt;job_id&gt;</span></code></p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.1.0.</span></p>
+</div>
 </dd></dl>
 
 </div>
@@ -502,11 +582,9 @@ parameters are used in both, the function level kwarg will supersede the one at 
 <dt id="SalesforcePy.sfdc.ApprovalProcess">
 <em class="property">class </em><code class="descclassname">SalesforcePy.sfdc.</code><code class="descname">ApprovalProcess</code><span class="sig-paren">(</span><em>session_id</em>, <em>instance_url</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#SalesforcePy.sfdc.ApprovalProcess" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#SalesforcePy.commons.BaseRequest" title="SalesforcePy.commons.BaseRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">SalesforcePy.commons.BaseRequest</span></code></a></p>
-<dl class="docutils">
-<dt>Returns a list of all approval processes. Can also be used to submit a particular record if that entity supports</dt>
-<dd>an approval process and one has already been defined. It also supports specifying a collection of different
-Process Approvals requests to have them all executed in bulk.</dd>
-</dl>
+<p>Returns a list of all approval processes. Can also be used to submit a particular record if that entity supports
+an approval process and one has already been defined. It also supports specifying a collection of different
+Process Approvals requests to have them all executed in bulk.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 1.0.0.</span></p>
 </div>
@@ -516,8 +594,10 @@ Process Approvals requests to have them all executed in bulk.</dd>
 <dt id="SalesforcePy.sfdc.Client">
 <em class="property">class </em><code class="descclassname">SalesforcePy.sfdc.</code><code class="descname">Client</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#SalesforcePy.sfdc.Client" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>The client class from which all API calls to a Salesforce organisation are made.
-.. versionadded:: 1.0.0</p>
+<p>The client class from which all API calls to a Salesforce organisation are made.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.0.0.</span></p>
+</div>
 <dl class="method">
 <dt id="SalesforcePy.sfdc.Client.approvals">
 <code class="descname">approvals</code><span class="sig-paren">(</span><em>*args</em>, <em>**function_kwarg</em><span class="sig-paren">)</span><a class="headerlink" href="#SalesforcePy.sfdc.Client.approvals" title="Permalink to this definition">¶</a></dt>
@@ -566,12 +646,12 @@ Process Approvals requests to have them all executed in bulk.</dd>
 <dl class="method">
 <dt id="SalesforcePy.sfdc.Client.set_instance_url">
 <code class="descname">set_instance_url</code><span class="sig-paren">(</span><em>url</em><span class="sig-paren">)</span><a class="headerlink" href="#SalesforcePy.sfdc.Client.set_instance_url" title="Permalink to this definition">¶</a></dt>
-<dd><p>Strips the protocol from <cite>url</cite> and assigns the value to <cite>self.instance_url</cite></p>
+<dd><p>Strips the protocol from <code class="docutils literal notranslate"><span class="pre">url</span></code> and assigns the value to <code class="docutils literal notranslate"><span class="pre">self.instance_url</span></code></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>url</strong> (<em>string</em>) – Instance URL used to make requests (eg. <cite>‘https://eu11.salesforce.com’</cite>)</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>url</strong> (<em>string</em>) – Instance URL used to make requests (eg. <code class="docutils literal notranslate"><span class="pre">https://eu11.salesforce.com</span></code>)</td>
 </tr>
 </tbody>
 </table>
@@ -588,16 +668,20 @@ Process Approvals requests to have them all executed in bulk.</dd>
 <dt id="SalesforcePy.sfdc.ExecuteAnonymous">
 <em class="property">class </em><code class="descclassname">SalesforcePy.sfdc.</code><code class="descname">ExecuteAnonymous</code><span class="sig-paren">(</span><em>session_id</em>, <em>instance_url</em>, <em>ab</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#SalesforcePy.sfdc.ExecuteAnonymous" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#SalesforcePy.commons.BaseRequest" title="SalesforcePy.commons.BaseRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">SalesforcePy.commons.BaseRequest</span></code></a></p>
-<p>Performs a request to ‘/services/data/vX.XX/tooling/executeAnonymous/’
-.. versionadded:: 1.0.0</p>
+<p>Performs a request to <code class="docutils literal notranslate"><span class="pre">/services/data/vX.XX/tooling/executeAnonymous/</span></code></p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.0.0.</span></p>
+</div>
 </dd></dl>
 
 <dl class="class">
 <dt id="SalesforcePy.sfdc.Login">
 <em class="property">class </em><code class="descclassname">SalesforcePy.sfdc.</code><code class="descname">Login</code><span class="sig-paren">(</span><em>username</em>, <em>password</em>, <em>client_id</em>, <em>client_secret</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#SalesforcePy.sfdc.Login" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#SalesforcePy.commons.OAuthRequest" title="SalesforcePy.commons.OAuthRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">SalesforcePy.commons.OAuthRequest</span></code></a></p>
-<p>Performs a request to <cite>‘/services/oauth2/token’</cite>
-.. versionadded:: 1.0.0</p>
+<p>Performs a request to <code class="docutils literal notranslate"><span class="pre">/services/oauth2/token</span></code></p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.0.0.</span></p>
+</div>
 <dl class="method">
 <dt id="SalesforcePy.sfdc.Login.get_payload">
 <code class="descname">get_payload</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#SalesforcePy.sfdc.Login.get_payload" title="Permalink to this definition">¶</a></dt>
@@ -617,7 +701,7 @@ Process Approvals requests to have them all executed in bulk.</dd>
 <dl class="method">
 <dt id="SalesforcePy.sfdc.Login.get_session_id">
 <code class="descname">get_session_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#SalesforcePy.sfdc.Login.get_session_id" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the session ID obtained if the login request was successful</p>
+<dd><p>Returns the session ID obtained if the login request was successful.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -633,20 +717,18 @@ Process Approvals requests to have them all executed in bulk.</dd>
 <dl class="method">
 <dt id="SalesforcePy.sfdc.Login.request">
 <code class="descname">request</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#SalesforcePy.sfdc.Login.request" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the result of <cite>super</cite> for this method, then assigns the <cite>access_token</cite> to <cite>session_id</cite>.  Returns
+<dd><p>Gets the result of <cite>super</cite> for this method, then assigns the <code class="docutils literal notranslate"><span class="pre">access_token</span></code> to <code class="docutils literal notranslate"><span class="pre">session_id</span></code>.  Returns
 request response.</p>
-<blockquote>
-<div><table class="docutils field-list" frame="void" rules="none">
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">return:</th><td class="field-body">Response dict</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Response dict</td>
 </tr>
-<tr class="field-even field"><th class="field-name">rtype:</th><td class="field-body">dict</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dict</td>
 </tr>
 </tbody>
 </table>
-</div></blockquote>
 </dd></dl>
 
 </dd></dl>
@@ -655,54 +737,60 @@ request response.</p>
 <dt id="SalesforcePy.sfdc.LoginException">
 <em class="property">exception </em><code class="descclassname">SalesforcePy.sfdc.</code><code class="descname">LoginException</code><a class="headerlink" href="#SalesforcePy.sfdc.LoginException" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
-<p>Exception thrown during due to login failure.
-.. versionadded:: 1.0.0</p>
+<p>Exception thrown during due to login failure.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.0.0.</span></p>
+</div>
 </dd></dl>
 
 <dl class="class">
 <dt id="SalesforcePy.sfdc.Logout">
 <em class="property">class </em><code class="descclassname">SalesforcePy.sfdc.</code><code class="descname">Logout</code><span class="sig-paren">(</span><em>session_id</em>, <em>instance_url</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#SalesforcePy.sfdc.Logout" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#SalesforcePy.commons.OAuthRequest" title="SalesforcePy.commons.OAuthRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">SalesforcePy.commons.OAuthRequest</span></code></a></p>
-<p>Performs a request to <cite>‘/services/oauth2/revoke’</cite>
-.. versionadded:: 1.0.0</p>
+<p>Performs a request to <code class="docutils literal notranslate"><span class="pre">/services/oauth2/revoke</span></code></p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.0.0.</span></p>
+</div>
 </dd></dl>
 
 <dl class="class">
 <dt id="SalesforcePy.sfdc.Query">
 <em class="property">class </em><code class="descclassname">SalesforcePy.sfdc.</code><code class="descname">Query</code><span class="sig-paren">(</span><em>session_id</em>, <em>instance_url</em>, <em>query_string</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#SalesforcePy.sfdc.Query" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#SalesforcePy.commons.BaseRequest" title="SalesforcePy.commons.BaseRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">SalesforcePy.commons.BaseRequest</span></code></a></p>
-<p>Performs a request to <cite>‘/services/data/vX.XX/query/’</cite>
-.. versionadded:: 1.0.0</p>
+<p>Performs a request to <code class="docutils literal notranslate"><span class="pre">/services/data/vX.XX/query/</span></code></p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.0.0.</span></p>
+</div>
 </dd></dl>
 
 <dl class="class">
 <dt id="SalesforcePy.sfdc.QueryMore">
 <em class="property">class </em><code class="descclassname">SalesforcePy.sfdc.</code><code class="descname">QueryMore</code><span class="sig-paren">(</span><em>session_id</em>, <em>instance_url</em>, <em>query_string</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#SalesforcePy.sfdc.QueryMore" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#SalesforcePy.commons.BaseRequest" title="SalesforcePy.commons.BaseRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">SalesforcePy.commons.BaseRequest</span></code></a></p>
-<p>Performs recursive requests to <cite>‘/services/data/vX.XX/query/’</cite> when there are multiple batches to process.
-.. versionadded:: 1.0.0</p>
+<p>Performs recursive requests to <code class="docutils literal notranslate"><span class="pre">/services/data/vX.XX/query/</span></code> when there are multiple batches to process.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.0.0.</span></p>
+</div>
 <dl class="method">
 <dt id="SalesforcePy.sfdc.QueryMore.request">
 <code class="descname">request</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#SalesforcePy.sfdc.QueryMore.request" title="Permalink to this definition">¶</a></dt>
-<dd><p>Makes a <cite>Query</cite> request for the initial query string, then calls itself recursively to request all remaining
+<dd><p>Makes a <code class="docutils literal notranslate"><span class="pre">Query</span></code> request for the initial query string, then calls itself recursively to request all remaining
 batches, if there are any.  This method will break the recursion and return all when the last batch processed
-contains a <cite>done</cite> value equal to <cite>True</cite>.</p>
-<blockquote>
-<div><table class="docutils field-list" frame="void" rules="none">
+contains a <code class="docutils literal notranslate"><span class="pre">done</span></code> value equal to <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param:</th><td class="field-body">results: All queried batch results obtained in prior recursions of this method.</td>
+<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">results: All queried batch results obtained in prior recursions of this method.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">type:</th><td class="field-body">results: [dict]</td>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body">results: [dict]</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">return:</th><td class="field-body">A list of dicts where each dict is a batch of query results</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A list of dicts where each dict is a batch of query results</td>
 </tr>
-<tr class="field-even field"><th class="field-name">rtype:</th><td class="field-body">[dict]</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">[dict]</td>
 </tr>
 </tbody>
 </table>
-</div></blockquote>
 </dd></dl>
 
 </dd></dl>
@@ -711,8 +799,10 @@ contains a <cite>done</cite> value equal to <cite>True</cite>.</p>
 <dt id="SalesforcePy.sfdc.SObjectBlob">
 <em class="property">class </em><code class="descclassname">SalesforcePy.sfdc.</code><code class="descname">SObjectBlob</code><span class="sig-paren">(</span><em>_client</em>, <em>service</em>, <em>http_method</em><span class="sig-paren">)</span><a class="headerlink" href="#SalesforcePy.sfdc.SObjectBlob" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#SalesforcePy.commons.BaseRequest" title="SalesforcePy.commons.BaseRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">SalesforcePy.commons.BaseRequest</span></code></a></p>
-<p>Perform a request to <cite>‘/services/data/vX.XX/sobjects’</cite> where file i/o is necessary.
-.. versionadded:: 1.0.0</p>
+<p>Perform a request to <code class="docutils literal notranslate"><span class="pre">/services/data/vX.XX/sobjects</span></code> where file i/o is necessary.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.0.0.</span></p>
+</div>
 <dl class="method">
 <dt id="SalesforcePy.sfdc.SObjectBlob.request">
 <code class="descname">request</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#SalesforcePy.sfdc.SObjectBlob.request" title="Permalink to this definition">¶</a></dt>
@@ -732,21 +822,19 @@ contains a <cite>done</cite> value equal to <cite>True</cite>.</p>
 <dl class="method">
 <dt id="SalesforcePy.sfdc.SObjectBlob.set_request_body">
 <code class="descname">set_request_body</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#SalesforcePy.sfdc.SObjectBlob.set_request_body" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates binary request body by merging <cite>entity</cite>, <cite>json_body</cite>, <cite>file_content_type</cite>, <cite>field</cite>, <cite>filename</cite> and
-<cite>content</cite> from <cite>**kwargs**</cite> into a binary body template.  Sets <cite>request_body</cite> instance variable with the result.</p>
-<p>Note: <cite>content</cite> can be either a <cite>file</cite> or a raw value.</p>
-<blockquote>
-<div><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Creates binary request body by merging <code class="docutils literal notranslate"><span class="pre">entity</span></code>, <code class="docutils literal notranslate"><span class="pre">json_body</span></code>, <code class="docutils literal notranslate"><span class="pre">file_content_type</span></code>, <code class="docutils literal notranslate"><span class="pre">field</span></code>, <code class="docutils literal notranslate"><span class="pre">filename</span></code> and
+<code class="docutils literal notranslate"><span class="pre">content</span></code> from <code class="docutils literal notranslate"><span class="pre">**kwargs**</span></code> into a binary body template.  Sets <code class="docutils literal notranslate"><span class="pre">request_body</span></code> instance variable with the result.</p>
+<p>Note: <code class="docutils literal notranslate"><span class="pre">content</span></code> can be either a <code class="docutils literal notranslate"><span class="pre">file</span></code> or a raw value.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param:</th><td class="field-body"><a href="#id1"><span class="problematic" id="id2">**</span></a>kwargs:</td>
+<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body"><a href="#id1"><span class="problematic" id="id2">**</span></a>kwargs:</td>
 </tr>
-<tr class="field-even field"><th class="field-name">type:</th><td class="field-body"><a href="#id3"><span class="problematic" id="id4">**</span></a>kwargs: string</td>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body"><a href="#id3"><span class="problematic" id="id4">**</span></a>kwargs: string</td>
 </tr>
 </tbody>
 </table>
-</div></blockquote>
 </dd></dl>
 
 </dd></dl>
@@ -755,8 +843,10 @@ contains a <cite>done</cite> value equal to <cite>True</cite>.</p>
 <dt id="SalesforcePy.sfdc.SObjectController">
 <em class="property">class </em><code class="descclassname">SalesforcePy.sfdc.</code><code class="descname">SObjectController</code><span class="sig-paren">(</span><em>_client</em>, <em>object_type</em>, <em>_id</em>, <em>binary_field</em>, <em>api_version</em>, <em>external_id</em><span class="sig-paren">)</span><a class="headerlink" href="#SalesforcePy.sfdc.SObjectController" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>A special class that controls insert/update/delete/query/describe of SObject resources.
-.. versionadded:: 1.0.0</p>
+<p>A special class that controls insert/update/delete/query/describe of SObject resources.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.0.0.</span></p>
+</div>
 <dl class="method">
 <dt id="SalesforcePy.sfdc.SObjectController.delete">
 <code class="descname">delete</code><span class="sig-paren">(</span><em>*args</em>, <em>**function_kwarg</em><span class="sig-paren">)</span><a class="headerlink" href="#SalesforcePy.sfdc.SObjectController.delete" title="Permalink to this definition">¶</a></dt>
@@ -775,7 +865,7 @@ contains a <cite>done</cite> value equal to <cite>True</cite>.</p>
 <dl class="method">
 <dt id="SalesforcePy.sfdc.SObjectController.get_service">
 <code class="descname">get_service</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#SalesforcePy.sfdc.SObjectController.get_service" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the correct sobject service depending on whether the countroller contains an <cite>id</cite> instance variable</p>
+<dd><p>Returns the correct sobject service depending on whether the countroller contains an <code class="docutils literal notranslate"><span class="pre">id</span></code> instance variable</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -814,28 +904,28 @@ contains a <cite>done</cite> value equal to <cite>True</cite>.</p>
 <dt id="SalesforcePy.sfdc.SObjects">
 <em class="property">class </em><code class="descclassname">SalesforcePy.sfdc.</code><code class="descname">SObjects</code><span class="sig-paren">(</span><em>_client</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#SalesforcePy.sfdc.SObjects" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#SalesforcePy.commons.BaseRequest" title="SalesforcePy.commons.BaseRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">SalesforcePy.commons.BaseRequest</span></code></a></p>
-<p>Perform a request to <cite>‘/services/data/vX.XX/sobjects’</cite>
-.. versionadded:: 1.0.0</p>
+<p>Perform a request to <code class="docutils literal notranslate"><span class="pre">/services/data/vX.XX/sobjects</span></code></p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.0.0.</span></p>
+</div>
 <dl class="method">
 <dt id="SalesforcePy.sfdc.SObjects.request">
 <code class="descname">request</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#SalesforcePy.sfdc.SObjects.request" title="Permalink to this definition">¶</a></dt>
-<dd><p>Makes the appropriate request depending on the <cite>http_method</cite>.  Supported now are: <cite>‘GET’</cite>, <cite>‘POST’</cite>,
-<cite>‘PATCH’</cite>, and <cite>‘DELETE’</cite>. Returns request response.</p>
-<p>Note: As successful <cite>‘PATCH’</cite> and <cite>‘DELETE’</cite> responses return <cite>NO CONTENT</cite>, this method will return <cite>None</cite>.
-It may be advisable to check the <cite>status</cite> of the <cite>SObject</cite> instance returned as an additional factor in
+<dd><p>Makes the appropriate request depending on the <code class="docutils literal notranslate"><span class="pre">http_method</span></code>.  Supported now are <code class="docutils literal notranslate"><span class="pre">GET</span></code>, <code class="docutils literal notranslate"><span class="pre">POST</span></code>,
+<code class="docutils literal notranslate"><span class="pre">PATCH</span></code>, and <code class="docutils literal notranslate"><span class="pre">DELETE</span></code>. Returns request response.</p>
+<p>Note: As successful <code class="docutils literal notranslate"><span class="pre">PATCH</span></code> and <code class="docutils literal notranslate"><span class="pre">DELETE</span></code> responses return <code class="docutils literal notranslate"><span class="pre">NO</span> <span class="pre">CONTENT</span></code>, this method will return <code class="docutils literal notranslate"><span class="pre">None</span></code>.
+It may be advisable to check the <code class="docutils literal notranslate"><span class="pre">status</span></code> of the <code class="docutils literal notranslate"><span class="pre">SObject</span></code> instance returned as an additional factor in
 determining whether the request succeeded.</p>
-<blockquote>
-<div><table class="docutils field-list" frame="void" rules="none">
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">return:</th><td class="field-body">response dict</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">response dict</td>
 </tr>
-<tr class="field-even field"><th class="field-name">rtype:</th><td class="field-body">dict|None</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dict|None</td>
 </tr>
 </tbody>
 </table>
-</div></blockquote>
 </dd></dl>
 
 </dd></dl>
@@ -844,81 +934,53 @@ determining whether the request succeeded.</p>
 <dt id="SalesforcePy.sfdc.Search">
 <em class="property">class </em><code class="descclassname">SalesforcePy.sfdc.</code><code class="descname">Search</code><span class="sig-paren">(</span><em>session_id</em>, <em>instance_url</em>, <em>search_string</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#SalesforcePy.sfdc.Search" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#SalesforcePy.commons.BaseRequest" title="SalesforcePy.commons.BaseRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">SalesforcePy.commons.BaseRequest</span></code></a></p>
-<p>Performs a request to <cite>‘/services/data/vX.XX/search/’</cite>
-.. versionadded:: 1.0.0</p>
+<p>Performs a request to <code class="docutils literal notranslate"><span class="pre">/services/data/vX.XX/search/</span></code></p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.0.0.</span></p>
+</div>
 </dd></dl>
 
 <dl class="function">
 <dt id="SalesforcePy.sfdc.client">
 <code class="descclassname">SalesforcePy.sfdc.</code><code class="descname">client</code><span class="sig-paren">(</span><em>username</em>, <em>password</em>, <em>client_id</em>, <em>client_secret</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#SalesforcePy.sfdc.client" title="Permalink to this definition">¶</a></dt>
-<dd><p>Builds a <cite>Client</cite> and returns it.</p>
-<blockquote>
-<div><div class="versionadded">
+<dd><p>Builds a <code class="docutils literal notranslate"><span class="pre">Client</span></code> and returns it.</p>
+<div class="versionadded">
 <p><span class="versionmodified">New in version 1.0.0.</span></p>
 </div>
-</div></blockquote>
-<p>Note: if any of the required parameters are missing, a <cite>ValueError</cite> will be raised.</p>
-<blockquote>
-<div><table class="docutils field-list" frame="void" rules="none">
+<p>Note: if any of the required parameters are missing, a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> will be raised.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><cite>*username</cite> (<cite>string</cite>) - Salesforce username.</li>
-<li><cite>*password</cite> (<cite>string</cite>) - Salesforce password.</li>
-<li><cite>*client_id</cite> (<cite>string</cite>) - Salesforce client ID.</li>
-<li><cite>*client_secret</cite> (<cite>string</cite>) - Salesforce client secret.</li>
-<li><cite>**kwargs</cite> - kwargs (see below)</li>
+<li><em>username</em> (<cite>string</cite>) - Salesforce username.</li>
+<li><em>password</em> (<cite>string</cite>) - Salesforce password.</li>
+<li><em>client_id</em> (<cite>string</cite>) - Salesforce client ID.</li>
+<li><em>client_secret</em> (<cite>string</cite>) - Salesforce client secret.</li>
+<li><em>**kwargs</em> - kwargs (see below)</li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body"><ul class="first">
-<li><dl class="first docutils">
-<dt><em>login_url</em> (<cite>string</cite>) –</dt>
-<dd><p class="first last">Salesforce login URL without protocol
-Default: <cite>‘login.salesforce.com’</cite></p>
-</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt><em>protocol</em> (<cite>string</cite>) –</dt>
-<dd><p class="first last">Protocol (future use)</p>
-</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt><em>proxies</em> (<cite>dict</cite>) –</dt>
-<dd><dl class="first docutils">
-<dt>A dict containing proxies to be used by <cite>requests</cite> module. Ex:</dt>
-<dd><p class="first last"><cite>{“https”: “example.org:443”}</cite></p>
-</dd>
-</dl>
-<p class="last">Default: <cite>None</cite></p>
-</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt><em>timeout</em> (‘string’) –</dt>
-<dd><p class="first last">Tell Requests to stop waiting for a response after a given number of seconds</p>
-</dd>
-</dl>
-</li>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><ul class="first simple">
+<li><em>login_url</em> (<cite>string</cite>) - Salesforce login URL without protocol. Default: <code class="docutils literal notranslate"><span class="pre">login.salesforce.com</span></code></li>
+<li><em>protocol</em> (<cite>string</cite>) - Protocol (future use)</li>
+<li><em>proxies</em> (<cite>dict</cite>) - A dict containing proxies to be used by <code class="docutils literal notranslate"><span class="pre">requests</span></code> module. Ex:<code class="docutils literal notranslate"><span class="pre">{&quot;https&quot;:</span> <span class="pre">&quot;example.org:443&quot;}</span></code>. Default: <code class="docutils literal notranslate"><span class="pre">None</span></code></li>
+<li><em>timeout</em> (<cite>string</cite>) - Tell Requests to stop waiting for a response after a given number of seconds</li>
 </ul>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">returns:</th><td class="field-body"><p class="first">client</p>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">client</p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">rtype:</th><td class="field-body"><p class="first">Client</p>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="#SalesforcePy.sfdc.Client" title="SalesforcePy.sfdc.Client">Client</a></p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">raises:</th><td class="field-body"><p class="first last">ValueError</p>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last">ValueError</p>
 </td>
 </tr>
 </tbody>
 </table>
-</div></blockquote>
 </dd></dl>
 
 </div>
@@ -931,8 +993,10 @@ Default: <cite>‘login.salesforce.com’</cite></p>
 <dt id="SalesforcePy.wave.Wave">
 <em class="property">class </em><code class="descclassname">SalesforcePy.wave.</code><code class="descname">Wave</code><span class="sig-paren">(</span><em>client</em><span class="sig-paren">)</span><a class="headerlink" href="#SalesforcePy.wave.Wave" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#SalesforcePy.commons.ApiNamespace" title="SalesforcePy.commons.ApiNamespace"><code class="xref py py-class docutils literal notranslate"><span class="pre">SalesforcePy.commons.ApiNamespace</span></code></a></p>
-<p>The Wave namespace class from which all API calls to a Salesforce organisation are made.
-.. versionadded:: 1.0.0</p>
+<p>The Wave namespace class from which all API calls to a Salesforce organisation are made.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.0.0.</span></p>
+</div>
 <dl class="method">
 <dt id="SalesforcePy.wave.Wave.dataset">
 <code class="descname">dataset</code><span class="sig-paren">(</span><em>*args</em>, <em>**function_kwarg</em><span class="sig-paren">)</span><a class="headerlink" href="#SalesforcePy.wave.Wave.dataset" title="Permalink to this definition">¶</a></dt>
@@ -949,16 +1013,20 @@ Default: <cite>‘login.salesforce.com’</cite></p>
 <dt id="SalesforcePy.wave.WaveDataSet">
 <em class="property">class </em><code class="descclassname">SalesforcePy.wave.</code><code class="descname">WaveDataSet</code><span class="sig-paren">(</span><em>session_id</em>, <em>instance_url</em>, <em>api_name</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#SalesforcePy.wave.WaveDataSet" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#SalesforcePy.commons.BaseRequest" title="SalesforcePy.commons.BaseRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">SalesforcePy.commons.BaseRequest</span></code></a></p>
-<p>Performs a request to <cite>‘/services/data/&lt;api_version&gt;/wave/datasets/&lt;api_name&gt;’</cite>
-.. versionadded:: 1.0.0</p>
+<p>Performs a request to <code class="docutils literal notranslate"><span class="pre">/services/data/&lt;api_version&gt;/wave/datasets/&lt;api_name&gt;</span></code></p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.0.0.</span></p>
+</div>
 </dd></dl>
 
 <dl class="class">
 <dt id="SalesforcePy.wave.WaveQuery">
 <em class="property">class </em><code class="descclassname">SalesforcePy.wave.</code><code class="descname">WaveQuery</code><span class="sig-paren">(</span><em>session_id</em>, <em>instance_url</em>, <em>query</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#SalesforcePy.wave.WaveQuery" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#SalesforcePy.commons.BaseRequest" title="SalesforcePy.commons.BaseRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">SalesforcePy.commons.BaseRequest</span></code></a></p>
-<p>Performs a request to <cite>‘/services/data/&lt;api_version&gt;/wave/query’</cite>
-.. versionadded:: 1.0.0</p>
+<p>Performs a request to <code class="docutils literal notranslate"><span class="pre">/services/data/&lt;api_version&gt;/wave/query</span></code></p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.0.0.</span></p>
+</div>
 </dd></dl>
 
 </div>
@@ -973,7 +1041,7 @@ Default: <cite>‘login.salesforce.com’</cite></p>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="faq.html" class="btn btn-neutral" title="FAQs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="contribute.html" class="btn btn-neutral" title="Contribute" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
