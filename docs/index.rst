@@ -2,6 +2,7 @@ SalesforcePy
 ============
 
 An absurdly simple package for making Salesforce Rest API calls.
+
 by Aaron Caffrey, Colin Cheevers, Jose Garcia, Tania Prince
 
 This package enables you to produce:
