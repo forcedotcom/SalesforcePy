@@ -28,3 +28,4 @@ The tools used for documentation are:
 - **Sphinx**: Sphinx simplifies creating intelligent and beautiful documentation for Python projects (or other documents consisting of multiple reStructuredText sources). For more information on installation and usage, see `Getting Started sith Sphinx <https://docs.readthedocs.io/en/latest/intro/getting-started-with-sphinx.html>`_.
 
 Documentation file format is reStructuredText. Learn more with `this handy primer <http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html>`_.
+
