@@ -78,7 +78,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Get Started</span></p>
+              <p class="caption"><span class="caption-text">Overview</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="get_started.html">Get Started with SalesforcePy</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Usage Examples</a><ul>
@@ -116,6 +116,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="advanced_usage.html">Advanced Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">FAQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">Contribute</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Reference</span></p>
 <ul>
@@ -201,7 +202,7 @@ Here’s how you can perform a query.</p>
 </div>
 <div class="section" id="query-more">
 <h2>Query More<a class="headerlink" href="#query-more" title="Permalink to this headline">¶</a></h2>
-<p>While the client <code class="docutils literal notranslate"><span class="pre">query()</span></code> method is useful for making requests for a
+<p>While the client <code class="docutils literal notranslate"><span class="pre">query()</span></code> method helps with making requests for a
 small amount of data, it is not useful if the total size of records exceeds the standard batch size (2000).</p>
 <p>In such scenarios, <code class="docutils literal notranslate"><span class="pre">query_more()</span></code> comes handy.
 As the example shows, you simply provide the query string in the same way you did previously
@@ -217,7 +218,7 @@ until it runs out. For more information, see Retrieving the Remaining SOQL Query
 <div class="section" id="insert-sobjects">
 <h2>Insert sObjects<a class="headerlink" href="#insert-sobjects" title="Permalink to this headline">¶</a></h2>
 <p>Use the <code class="docutils literal notranslate"><span class="pre">sobjects</span></code> class from the client to perform DML statements and file i/o with
-Salesforce objects. Here’s an example to demonstrate insert operation.</p>
+Salesforce objects. Here’s an example to demonstrate such insert operation.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">create_result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">sobjects</span><span class="p">(</span><span class="n">object_type</span><span class="o">=</span><span class="s1">&#39;Account&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">insert</span><span class="p">({</span><span class="s2">&quot;Name&quot;</span> <span class="p">:</span> <span class="s2">&quot;SalesforcePy&quot;</span><span class="p">})</span>
 </pre></div>
 </div>
@@ -351,7 +352,7 @@ See Chatter REST api documentation for information on the expected body to creat
 <div class="section" id="bulk-api-2-0">
 <h2>Bulk API 2.0<a class="headerlink" href="#bulk-api-2-0" title="Permalink to this headline">¶</a></h2>
 <p>As a general rule, supported Bulk API 2.0 calls can be made from <code class="docutils literal notranslate"><span class="pre">client.jobs.ingest</span></code>.
-The samples below cover specific calls.</p>
+The samples here cover specific calls.</p>
 <div class="section" id="create-a-job">
 <h3>Create a Job<a class="headerlink" href="#create-a-job" title="Permalink to this headline">¶</a></h3>
 <p>In this example, we create a job to insert accounts.</p>

@@ -18,7 +18,7 @@ In the example above ``query_results[0]`` is a dict with the response. For more 
 Query More
 ----------
 
-While the client ``query()`` method is useful for making requests for a 
+While the client ``query()`` method helps with making requests for a 
 small amount of data, it is not useful if the total size of records exceeds the standard batch size (2000).
 
 In such scenarios, ``query_more()`` comes handy. 
@@ -38,7 +38,7 @@ Insert sObjects
 ---------------
 
 Use the ``sobjects`` class from the client to perform DML statements and file i/o with 
-Salesforce objects. Here's an example to demonstrate insert operation.
+Salesforce objects. Here's an example to demonstrate such insert operation.
 
 .. code-block:: python
 
@@ -201,7 +201,7 @@ Bulk API 2.0
 ------------
 
 As a general rule, supported Bulk API 2.0 calls can be made from ``client.jobs.ingest``. 
-The samples below cover specific calls.
+The samples here cover specific calls.
 
 Create a Job
 ^^^^^^^^^^^^

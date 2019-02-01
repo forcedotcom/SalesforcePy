@@ -6,6 +6,9 @@ Install
 
 From Git
 ^^^^^^^^
+
+Install directly from Git using PyPi.
+
 ::
 
     pip install git+ssh://git@github.com/forcedotcom/SalesforcePy.git
@@ -14,10 +17,7 @@ From Local Source
 ^^^^^^^^^^^^^^^^^
 1. Download and extract, or clone this repo.
 2. cd into the ``/SalesforcePy`` directory.
-3. Run the following:
-    ::
-
-        pip install .
+3. Run ``pip install .``.
 
 Create a Client and Log In
 --------------------------
@@ -30,9 +30,10 @@ Getting started with SalesforcePy is a three-step process:
 
 .. code-block:: python
 
+    #Import SalesforcePy
     import SalesforcePy as sfdc
 
-    # Create an instance of a Salesforce client, replacing the credentials below with valid ones.
+    # Create an instance of a Salesforce client. Replace the credentials here with valid ones.
     client = sfdc.client(
         username="jsoap@universalcontainers.com",
         password="p@ssword1",
@@ -46,7 +47,7 @@ Getting started with SalesforcePy is a three-step process:
     # Log in
     login_results = client.login()
 
-In the example above, ``login_results[0]`` is a dict with the response from the Salesforce OAuth resource. 
+In this example, ``login_results[0]`` is a dict with the response from the Salesforce OAuth resource. 
 The only supported flow at present is username-password. For more information about the response, 
 see `Understanding the Username-Password OAuth Authentication Flow <https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_username_password_oauth_flow.htm>`_.
 

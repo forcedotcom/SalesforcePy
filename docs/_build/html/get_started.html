@@ -29,7 +29,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Usage Examples" href="examples.html" />
-    <link rel="prev" title="SalesforcePy: Documentation" href="index.html" /> 
+    <link rel="prev" title="SalesforcePy" href="index.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -78,7 +78,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Get Started</span></p>
+              <p class="caption"><span class="caption-text">Overview</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Get Started with SalesforcePy</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#install">Install</a><ul>
@@ -92,6 +92,7 @@
 <li class="toctree-l1"><a class="reference internal" href="examples.html">Usage Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="advanced_usage.html">Advanced Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">FAQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">Contribute</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Reference</span></p>
 <ul>
@@ -168,25 +169,17 @@
 <h2>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="from-git">
 <h3>From Git<a class="headerlink" href="#from-git" title="Permalink to this headline">¶</a></h3>
+<p>Install directly from Git using PyPi.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">git</span><span class="o">+</span><span class="n">ssh</span><span class="p">:</span><span class="o">//</span><span class="n">git</span><span class="nd">@github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">forcedotcom</span><span class="o">/</span><span class="n">SalesforcePy</span><span class="o">.</span><span class="n">git</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="from-local-source">
 <h3>From Local Source<a class="headerlink" href="#from-local-source" title="Permalink to this headline">¶</a></h3>
-<ol class="arabic">
-<li><p class="first">Download and extract, or clone this repo.</p>
-</li>
-<li><p class="first">cd into the <code class="docutils literal notranslate"><span class="pre">/SalesforcePy</span></code> directory.</p>
-</li>
-<li><dl class="first docutils">
-<dt>Run the following:</dt>
-<dd><div class="first last highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">.</span>
-</pre></div>
-</div>
-</dd>
-</dl>
-</li>
+<ol class="arabic simple">
+<li>Download and extract, or clone this repo.</li>
+<li>cd into the <code class="docutils literal notranslate"><span class="pre">/SalesforcePy</span></code> directory.</li>
+<li>Run <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">.</span></code>.</li>
 </ol>
 </div>
 </div>
@@ -198,9 +191,10 @@
 <li>Create a client</li>
 <li>Perform a login request</li>
 </ol>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">SalesforcePy</span> <span class="kn">as</span> <span class="nn">sfdc</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Import SalesforcePy</span>
+<span class="kn">import</span> <span class="nn">SalesforcePy</span> <span class="kn">as</span> <span class="nn">sfdc</span>
 
-<span class="c1"># Create an instance of a Salesforce client, replacing the credentials below with valid ones.</span>
+<span class="c1"># Create an instance of a Salesforce client. Replace the credentials here with valid ones.</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">sfdc</span><span class="o">.</span><span class="n">client</span><span class="p">(</span>
     <span class="n">username</span><span class="o">=</span><span class="s2">&quot;jsoap@universalcontainers.com&quot;</span><span class="p">,</span>
     <span class="n">password</span><span class="o">=</span><span class="s2">&quot;p@ssword1&quot;</span><span class="p">,</span>
@@ -215,7 +209,7 @@
 <span class="n">login_results</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">login</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>In the example above, <code class="docutils literal notranslate"><span class="pre">login_results[0]</span></code> is a dict with the response from the Salesforce OAuth resource.
+<p>In this example, <code class="docutils literal notranslate"><span class="pre">login_results[0]</span></code> is a dict with the response from the Salesforce OAuth resource.
 The only supported flow at present is username-password. For more information about the response,
 see <a class="reference external" href="https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_username_password_oauth_flow.htm">Understanding the Username-Password OAuth Authentication Flow</a>.</p>
 <p>You can also use the context manager which handles <code class="docutils literal notranslate"><span class="pre">login()</span></code> and <code class="docutils literal notranslate"><span class="pre">logout()</span></code> automatically.</p>
@@ -242,7 +236,7 @@ see <a class="reference external" href="https://developer.salesforce.com/docs/at
         <a href="examples.html" class="btn btn-neutral float-right" title="Usage Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="SalesforcePy: Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral" title="SalesforcePy" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

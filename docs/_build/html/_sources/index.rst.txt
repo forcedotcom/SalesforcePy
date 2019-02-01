@@ -1,11 +1,14 @@
-SalesforcePy: Documentation
-===========================
+SalesforcePy
+============
 
-The reason this package exists is to produce:
+An absurdly simple package for making Salesforce Rest API calls.
+by Aaron Caffrey, Colin Cheevers, Jose Garcia, Tania Prince
 
-1. A Salesforce client that is reusable, minimalistic, and pythonic
-2. Interfaces that are closely knit to the Salesforce Rest API service specification
-3. Gradual support for the Salesforce API extended family (ie. Chatter, Analytics, Wave, Tooling, Bulk, Metadata, etc.)
+This package enables you to produce:
+
+1. A Salesforce client that is reusable, minimalistic, and pythonic.
+2. Interfaces that are closely knit into the Salesforce Rest API service specification.
+3. Gradual support for the Salesforce API extended family (i.e., Chatter, Analytics, Wave, Tooling, Bulk, Metadata, and so on).
 
 Contributors
 ------------
@@ -19,12 +22,13 @@ Python 2 or 3
 .. toctree::
     :maxdepth: 2
     :hidden:
-    :caption: Get Started
+    :caption: Overview
 
     get_started
     examples
     advanced_usage
     faq
+    contribute
 
 .. toctree::
     :maxdepth: 2
