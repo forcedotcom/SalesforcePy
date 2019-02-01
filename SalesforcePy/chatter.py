@@ -16,7 +16,6 @@ FEED_ITEM_SERVICE = '/services/data/v%s/chatter/feed-elements'
 
 class Chatter(commons.ApiNamespace):
     """ The Chatter namespace class from which all API calls to a Salesforce organisation are made.
-        
         .. versionadded:: 1.0.0
     """
     @commons.kwarg_adder
@@ -57,8 +56,7 @@ class Chatter(commons.ApiNamespace):
 
 
 class ChatterFeedComment(commons.BaseRequest):
-    """ Performs a request to ``/services/data/v<api_version>/chatter/feed-elements/<id>/capabilities/comments/items`` 
-        
+    """ Performs a request to `'/services/data/v<api_version>/chatter/feed-elements/<id>/capabilities/comments/items'`
         .. versionadded:: 1.0.0
     """
     def __init__(self, session_id, instance_url, _id, body, **kwargs):
@@ -70,8 +68,7 @@ class ChatterFeedComment(commons.BaseRequest):
 
 
 class ChatterFeedItem(commons.BaseRequest):
-    """ Performs a request to ``/services/data/v<api_version>/chatter/feed-elements``
-        
+    """ Performs a request to `'/services/data/v<api_version>/chatter/feed-elements'`
         .. versionadded:: 1.0.0
     """
     def __init__(self, session_id, instance_url, body, **kwargs):

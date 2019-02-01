@@ -49,8 +49,8 @@ Content-Disposition: form-data; name="%s"; filename="%s"
 
 class ApprovalProcess(commons.BaseRequest):
     """ Returns a list of all approval processes. Can also be used to submit a particular record if that entity supports
-        an approval process and one has already been defined. It also supports specifying a collection of different
-        Process Approvals requests to have them all executed in bulk.
+            an approval process and one has already been defined. It also supports specifying a collection of different
+            Process Approvals requests to have them all executed in bulk.
 
         .. versionadded:: 1.0.0
     """
@@ -73,7 +73,6 @@ class ApprovalProcess(commons.BaseRequest):
 
 class Client(object):
     """ The client class from which all API calls to a Salesforce organisation are made.
-        
         .. versionadded:: 1.0.0
     """
     def __init__(self, *args, **kwargs):
@@ -116,9 +115,9 @@ class Client(object):
         self.wave = wave.Wave(self)
 
     def set_instance_url(self, url):
-        """ Strips the protocol from ``url`` and assigns the value to ``self.instance_url``
+        """ Strips the protocol from `url` and assigns the value to `self.instance_url`
 
-          :param url: Instance URL used to make requests (eg. ``https://eu11.salesforce.com``)
+          :param url: Instance URL used to make requests (eg. `'https://eu11.salesforce.com'`)
           :type url: string
         """
 
@@ -242,12 +241,12 @@ class Client(object):
     def search(self, ss, **kwargs):
         """ Performs a search request.
 
-        :param: ss: Search string. eg `'FIND {sfdc_py} RETURNING Account(Id, Name) LIMIT 5'`
-        :type: ss: string
-        :param: **kwargs: kwargs
-        :type: **kwargs: dict
-        :return: Search response
-        :rtype: (dict, Search)
+          :param: ss: Search string. eg `'FIND {sfdc_py} RETURNING Account(Id, Name) LIMIT 5'`
+          :type: ss: string
+          :param: **kwargs: kwargs
+          :type: **kwargs: dict
+          :return: Search response
+          :rtype: (dict, Search)
         """
 
         s = Search(self.session_id, self.instance_url, ss, **kwargs)
@@ -258,7 +257,7 @@ class Client(object):
     def execute_anonymous(self, ab, **kwargs):
         """ Performs an anonymous Apex execution request.
 
-          :param: ab: Anonymous block of Apex code, eg: `1system.debug("Hello world")`
+          :param: ab: Anonymous block of Apex code, eg: `'system.debug("Hello world")'`
           :type: ab: string
           :param: **kwargs: kwargs
           :type: **kwargs: dict
@@ -341,8 +340,7 @@ class Client(object):
 
 
 class ExecuteAnonymous(commons.BaseRequest):
-    """ Performs a request to ``/services/data/vX.XX/tooling/executeAnonymous/``
-
+    """ Performs a request to '/services/data/vX.XX/tooling/executeAnonymous/'
         .. versionadded:: 1.0.0
     """
     def __init__(self, session_id, instance_url, ab, **kwargs):
@@ -371,8 +369,7 @@ class ExecuteAnonymous(commons.BaseRequest):
 
 
 class Login(commons.OAuthRequest):
-    """ Performs a request to ``/services/oauth2/token``
-
+    """ Performs a request to `'/services/oauth2/token'`
         .. versionadded:: 1.0.0
     """
     def __init__(
@@ -382,7 +379,7 @@ class Login(commons.OAuthRequest):
             client_id,
             client_secret,
             **kwargs):
-        """ Constructor. Calls ``super``, assigns all params to their equivalent instance variables, sets ``http_method`` to
+        """ Constructor. Calls `super`, assigns all params to their equivalent instance variables, sets `http_method` to
         POST, and prepares the request service and payload.
 
           :param: username: Salesforce username
@@ -425,11 +422,11 @@ class Login(commons.OAuthRequest):
         }
 
     def request(self):
-        """ Gets the result of `super` for this method, then assigns the ``access_token`` to ``session_id``.  Returns
+        """ Gets the result of `super` for this method, then assigns the `access_token` to `session_id`.  Returns
         request response.
 
-        :return: Response dict
-        :rtype: dict
+          :return: Response dict
+          :rtype: dict
         """
         response = super(Login, self).request()
         if response is not None:
@@ -438,10 +435,10 @@ class Login(commons.OAuthRequest):
             return response
 
     def get_session_id(self):
-        """ Returns the session ID obtained if the login request was successful.
+        """ Returns the session ID obtained if the login request was successful
 
-        :return: Session ID
-        :rtype: string
+          :return: Session ID
+          :rtype: string
         """
 
         return self.session_id
@@ -449,24 +446,22 @@ class Login(commons.OAuthRequest):
 
 class LoginException(Exception):
     """ Exception thrown during due to login failure.
-
         .. versionadded:: 1.0.0
     """
     pass
 
 
 class Logout(commons.OAuthRequest):
-    """ Performs a request to ``/services/oauth2/revoke``
-
+    """ Performs a request to `'/services/oauth2/revoke'`
         .. versionadded:: 1.0.0
     """
     def __init__(self, session_id, instance_url, **kwargs):
-        """ Constructor. Calls ``super``, assigns the service from the hardcoded value, and sets a ``payload``
-        instance variable with a dict where key is ``token`` and value is ``session_id``
+        """ Constructor. Calls `super`, assigns the service from the hardcoded value, and sets a `payload`
+        instance variable with a dict where key is `'token'` and value is `session_id`
 
           :param: session_id: Session ID used to make request
           :type: session_id: string
-          :param: instance_url: Instance URL used to make the request (eg. ``eu11.salesforce.com``)
+          :param: instance_url: Instance URL used to make the request (eg. `'eu11.salesforce.com'`)
           :type: instance_url: string
           :param: **kwargs: kwargs
           :type: **kwargs: dict
@@ -478,18 +473,17 @@ class Logout(commons.OAuthRequest):
 
 
 class Query(commons.BaseRequest):
-    """ Performs a request to ``/services/data/vX.XX/query/``
-
+    """ Performs a request to `'/services/data/vX.XX/query/'`
         .. versionadded:: 1.0.0
     """
     def __init__(self, session_id, instance_url, query_string, **kwargs):
-        """ Constructor. Calls ``super``, then encodes the ``service`` including the ``query_string`` provided
+        """ Constructor. Calls `super`, then encodes the `service` including the `query_string` provided
 
           :param: session_id: Session ID used to make request
           :type: session_id: string
-          :param: instance_url: Instance URL used to make the request (eg. ``eu11.salesforce.com``)
+          :param: instance_url: Instance URL used to make the request (eg. `'eu11.salesforce.com'`)
           :type: instance_url: string
-          :param: query_string: Query string. eg ``SELECT Id FROM Account LIMIT 10``
+          :param: query_string: Query string. eg `'SELECT Id FROM Account LIMIT 10'`
           :type: query_string: string
           :param: **kwargs: kwargs
           :type: **kwargs: dict
@@ -500,34 +494,33 @@ class Query(commons.BaseRequest):
 
 
 class QueryMore(commons.BaseRequest):
-    """ Performs recursive requests to ``/services/data/vX.XX/query/`` when there are multiple batches to process.
-
+    """ Performs recursive requests to `'/services/data/vX.XX/query/'` when there are multiple batches to process.
         .. versionadded:: 1.0.0
     """
     def __init__(self, session_id, instance_url, query_string, **kwargs):
-        """ Constructor. Calls ``super``, then assigns the ``query_string`` to an instance variable.
+        """ Constructor. Calls `super`, then assigns the `query_string` to an instance variable.
 
-        :param: session_id: Session ID used to make request
-        :type: session_id: string
-        :param: instance_url: Instance URL used to make the request (eg. ``eu11.salesforce.com``)
-        :type: instance_url: string
-        :param: query_string: Query string. eg ``SELECT Id FROM Account LIMIT 10``
-        :type: query_string: string
-        :param: **kwargs: kwargs
-        :type: **kwargs: dict
+          :param: session_id: Session ID used to make request
+          :type: session_id: string
+          :param: instance_url: Instance URL used to make the request (eg. `'eu11.salesforce.com'`)
+          :type: instance_url: string
+          :param: query_string: Query string. eg `'SELECT Id FROM Account LIMIT 10'`
+          :type: query_string: string
+          :param: **kwargs: kwargs
+          :type: **kwargs: dict
         """
         super(QueryMore, self).__init__(session_id, instance_url, **kwargs)
         self.query_string = query_string
 
     def request(self, *args):
-        """ Makes a ``Query`` request for the initial query string, then calls itself recursively to request all remaining
+        """ Makes a `Query` request for the initial query string, then calls itself recursively to request all remaining
         batches, if there are any.  This method will break the recursion and return all when the last batch processed
-        contains a ``done`` value equal to ``True``.
+        contains a `done` value equal to `True`.
 
-        :param: results: All queried batch results obtained in prior recursions of this method.
-        :type: results: [dict]
-        :return: A list of dicts where each dict is a batch of query results
-        :rtype: [dict]
+          :param: results: All queried batch results obtained in prior recursions of this method.
+          :type: results: [dict]
+          :return: A list of dicts where each dict is a batch of query results
+          :rtype: [dict]
         """
 
         (last, results) = (
@@ -573,21 +566,20 @@ class QueryMore(commons.BaseRequest):
 
 
 class Search(commons.BaseRequest):
-    """ Performs a request to ``/services/data/vX.XX/search/``
-    
+    """ Performs a request to `'/services/data/vX.XX/search/'`
         .. versionadded:: 1.0.0
     """
     def __init__(self, session_id, instance_url, search_string, **kwargs):
-        """ Constructor. Calls ``super``, then encodes the ``service`` including the ``search_string`` provided
+        """ Constructor. Calls `super`, then encodes the `service` including the `search_string` provided
 
-        :param: session_id: Session ID used to make request
-        :type: session_id: string
-        :param: instance_url: Instance URL used to make the request (eg. `'eu11.salesforce.com'`)
-        :type: instance_url: string
-        :param: search_string: Search string. eg `'FIND {sfdc_py} RETURNING Account(Id, Name) LIMIT 5'`
-        :type: search_string: string
-        :param: **kwargs: kwargs
-        :type: **kwargs: dict
+          :param: session_id: Session ID used to make request
+          :type: session_id: string
+          :param: instance_url: Instance URL used to make the request (eg. `'eu11.salesforce.com'`)
+          :type: instance_url: string
+          :param: search_string: Search string. eg `'FIND {sfdc_py} RETURNING Account(Id, Name) LIMIT 5'`
+          :type: search_string: string
+          :param: **kwargs: kwargs
+          :type: **kwargs: dict
         """
         super(Search, self).__init__(session_id, instance_url, **kwargs)
         s = urlencode({'q': search_string.encode('utf-8')})
@@ -595,24 +587,23 @@ class Search(commons.BaseRequest):
 
 
 class SObjectBlob(commons.BaseRequest):
-    """ Perform a request to ``/services/data/vX.XX/sobjects`` where file i/o is necessary.
-        
+    """ Perform a request to `'/services/data/vX.XX/sobjects'` where file i/o is necessary.
         .. versionadded:: 1.0.0
     """
 
     def __init__(self, _client, service, http_method):
-        """ Constructor. Calls ``super``, then sets ``service`` and ``http_method`` instance variables.
+        """ Constructor. Calls `super`, then sets `service` and `http_method` instance variables.
 
-        :param: session_id: Session ID used to make request
-        :type: session_id: string
-        :param: instance_url: Instance URL used to make the request (eg. `'eu11.salesforce.com'`)
-        :type: instance_url: string
-        :param: service: The service to append to /services/data/vX.XX/sobjects
-        :type: service: string
-        :param: http_method: Method to use with request (`'GET'` and `'POST'` currently supported.)
-        :type: http_method: string
-        :param: **kwargs: kwargs
-        :type: **kwargs: dict
+          :param: session_id: Session ID used to make request
+          :type: session_id: string
+          :param: instance_url: Instance URL used to make the request (eg. `'eu11.salesforce.com'`)
+          :type: instance_url: string
+          :param: service: The service to append to /services/data/vX.XX/sobjects
+          :type: service: string
+          :param: http_method: Method to use with request (`'GET'` and `'POST'` currently supported.)
+          :type: http_method: string
+          :param: **kwargs: kwargs
+          :type: **kwargs: dict
         """
 
         k = {'http_method': http_method}
@@ -621,13 +612,13 @@ class SObjectBlob(commons.BaseRequest):
         self.service = service
 
     def set_request_body(self, **kwargs):
-        """ Creates binary request body by merging ``entity``, ``json_body``, ``file_content_type``, ``field``, ``filename`` and
-        ``content`` from ``**kwargs**`` into a binary body template.  Sets ``request_body`` instance variable with the result.
+        """ Creates binary request body by merging `entity`, `json_body`, `file_content_type`, `field`, `filename` and
+        `content` from `**kwargs**` into a binary body template.  Sets `request_body` instance variable with the result.
 
-        Note: ``content`` can be either a ``file`` or a raw value.
+        Note: `content` can be either a `file` or a raw value.
 
-        :param: **kwargs:
-        :type: **kwargs: string
+          :param: **kwargs:
+          :type: **kwargs: string
         """
 
         if self.http_method == 'POST':
@@ -694,20 +685,19 @@ class SObjectBlob(commons.BaseRequest):
 
 class SObjectController(object):
     """ A special class that controls insert/update/delete/query/describe of SObject resources.
-
         .. versionadded:: 1.0.0
     """
     def __init__(self, _client, object_type, _id, binary_field, api_version, external_id):
         """ Constructor.
 
-        :param: _client: Salesforce client object
-        :type: _client: Client
-        :param: object_type: Name of the SObject, eg. `'Case'`
-        :type: object_type: string
-        :param: _id: Resource ID, if available
-        :type: _id: string
-        :param: binary_field: Binary field name, if available on object, eg. `'Body'`
-        :type: binary_field: string
+          :param: _client: Salesforce client object
+          :type: _client: Client
+          :param: object_type: Name of the SObject, eg. `'Case'`
+          :type: object_type: string
+          :param: _id: Resource ID, if available
+          :type: _id: string
+          :param: binary_field: Binary field name, if available on object, eg. `'Body'`
+          :type: binary_field: string
         """
 
         self.__client__ = _client
@@ -720,7 +710,7 @@ class SObjectController(object):
         self.client_kwargs = _client.client_kwargs
 
     def get_service(self):
-        """ Returns the correct sobject service depending on whether the countroller contains an ``id`` instance variable
+        """ Returns the correct sobject service depending on whether the countroller contains an `id` instance variable
 
         :return: service
         :rtype: string
@@ -741,15 +731,15 @@ class SObjectController(object):
     def insert(self, body, **kwargs):
         """ Creates an SObject in Salesforce.
 
-        Note: if ``binary_field`` is defined in kwargs, an ``SObjectBlob`` request will be made and returned, otherwise an
-        ``SObject`` request will be made.
+        Note: if `binary_field` is defined in kwargs, an `SObjectBlob` request will be made and returned, otherwise an
+        `SObject` request will be made.
 
-        :param: body: Body of SObject request.
-        :type: body: dict
-        :param: **kwargs: kwargs
-        :type: **kwargs: dict
-        :return: Insert result from Salesforce
-        :rtype: (dict, SObject|SObjectBlob)
+          :param: body: Body of SObject request.
+          :type: body: dict
+          :param: **kwargs: kwargs
+          :type: **kwargs: dict
+          :return: Insert result from Salesforce
+          :rtype: (dict, SObject|SObjectBlob)
         """
 
         sobj = None
@@ -792,10 +782,10 @@ class SObjectController(object):
     def update(self, body, **kwargs):
         """ Updates an SObject in Salesforce.
 
-        :param: body: Body of SObject request.
-        :type: body: dict
-        :return: Update result from Salesforce
-        :rtype: (None, SObject)
+          :param: body: Body of SObject request.
+          :type: body: dict
+          :return: Update result from Salesforce
+          :rtype: (None, SObject)
         """
 
         _client = self.__client__
@@ -814,10 +804,10 @@ class SObjectController(object):
     def upsert(self, body, **kwargs):
         """ Upserts an SObject in Salesforce.
 
-        :param: body: Body of SObject request.
-        :type: body: dict
-        :return: Upserts result from Salesforce
-        :rtype: (None, SObject)
+          :param: body: Body of SObject request.
+          :type: body: dict
+          :return: Upserts result from Salesforce
+          :rtype: (None, SObject)
         """
 
         _client = self.__client__
@@ -853,11 +843,11 @@ class SObjectController(object):
 
     @commons.kwarg_adder
     def query(self, **kwargs):
-        """ Queries an SObject in Salesforce. If a ``binary_field`` instance variable is defined, this method will further
+        """ Queries an SObject in Salesforce. If a `binary_field` instance variable is defined, this method will further
         query the binary field content and return it accordingly.
 
-        :return: Query result from Salesforce
-        :rtype: (dict, SObject)|(dict, SObject, SObjectBlob)
+          :return: Query result from Salesforce
+          :rtype: (dict, SObject)|(dict, SObject, SObjectBlob)
         """
         (_client, resource_id) = (self.__client__, self.get_service())
         k = {
@@ -884,8 +874,8 @@ class SObjectController(object):
 
         .. versionadded:: 1.0.0
 
-        :return: Describe result from Salesforce
-        :rtype: (dict, SObject)
+          :return: Describe result from Salesforce
+          :rtype: (dict, SObject)
         """
 
         _client = self.__client__
@@ -905,8 +895,8 @@ class SObjectController(object):
 
         .. versionadded:: 1.0.0
 
-        :return: Describe global result from Salesforce
-        :rtype: (dict, SObject)
+          :return: Describe global result from Salesforce
+          :rtype: (dict, SObject)
         """
 
         _client = self.__client__
@@ -922,35 +912,34 @@ class SObjectController(object):
 
 
 class SObjects(commons.BaseRequest):
-    """ Perform a request to ``/services/data/vX.XX/sobjects``
-
-    .. versionadded:: 1.0.0
+    """ Perform a request to `'/services/data/vX.XX/sobjects'`
+        .. versionadded:: 1.0.0
     """
     def __init__(self, _client, **kwargs):
-        """ Constructor. Calls ``super``, retrieves ``resource_id`` from ``**kwargs`` if present, then creates ``self.service``
+        """ Constructor. Calls `super`, retrieves `resource_id` from `**kwargs` if present, then creates `self.service`
         instance variable.
 
-        :param: session_id: Session ID used to make request
-        :type: session_id: string
-        :param: instance_url: Instance URL used to make the request (eg. ``eu11.salesforce.com``)
-        :type: instance_url: string
-        :param: **kwargs: kwargs
-        :type: **kwargs: dict
+          :param: session_id: Session ID used to make request
+          :type: session_id: string
+          :param: instance_url: Instance URL used to make the request (eg. `'eu11.salesforce.com'`)
+          :type: instance_url: string
+          :param: **kwargs: kwargs
+          :type: **kwargs: dict
         """
         super(SObjects, self).__init__(_client.session_id, _client.instance_url, **kwargs)
         resource_id = kwargs.get('resource_id')
         self.service = SOBJ_SERVICE % (self.api_version, resource_id)
 
     def request(self):
-        """ Makes the appropriate request depending on the ``http_method``.  Supported now are ``GET``, ``POST``,
-        ``PATCH``, and ``DELETE``. Returns request response.
+        """ Makes the appropriate request depending on the `http_method`.  Supported now are: `'GET'`, `'POST'`,
+        `'PATCH'`, and `'DELETE'`. Returns request response.
 
-        Note: As successful ``PATCH`` and ``DELETE`` responses return ``NO CONTENT``, this method will return ``None``.
-        It may be advisable to check the ``status`` of the ``SObject`` instance returned as an additional factor in
+        Note: As successful `'PATCH'` and `'DELETE'` responses return `NO CONTENT`, this method will return `None`.
+        It may be advisable to check the `status` of the `SObject` instance returned as an additional factor in
         determining whether the request succeeded.
 
-        :return: response dict
-        :rtype: dict|None
+          :return: response dict
+          :rtype: dict|None
         """
         sobjects_headers = {
             'Content-Type': 'application/json',
@@ -1011,28 +1000,35 @@ class SObjects(commons.BaseRequest):
 
 
 def client(username, password, client_id, client_secret, **kwargs):
-    """ Builds a ``Client`` and returns it.
+    """ Builds a `Client` and returns it.
 
-    .. versionadded:: 1.0.0
+        .. versionadded:: 1.0.0
 
-    Note: if any of the required parameters are missing, a ``ValueError`` will be raised.
+    Note: if any of the required parameters are missing, a `ValueError` will be raised.
 
-    :Parameters:
-        - *username* (`string`) - Salesforce username.
-        - *password* (`string`) - Salesforce password.
-        - *client_id* (`string`) - Salesforce client ID.
-        - *client_secret* (`string`) - Salesforce client secret.
-        - *\**kwargs* - kwargs (see below)
+        :Parameters:
+            - `*username` (`string`) - Salesforce username.
+            - `*password` (`string`) - Salesforce password.
+            - `*client_id` (`string`) - Salesforce client ID.
+            - `*client_secret` (`string`) - Salesforce client secret.
+            - `\**kwargs` - kwargs (see below)
 
-    :Keyword Arguments:
-        - *login_url* (`string`) - Salesforce login URL without protocol. Default: ``login.salesforce.com``
-        - *protocol* (`string`) - Protocol (future use)
-        - *proxies* (`dict`) - A dict containing proxies to be used by ``requests`` module. Ex:``{"https": "example.org:443"}``. Default: ``None``
-        - *timeout* (`string`) - Tell Requests to stop waiting for a response after a given number of seconds
+        :Keyword Arguments:
+            * *login_url* (`string`) --
+                Salesforce login URL without protocol
+                Default: `'login.salesforce.com'`
+            * *protocol* (`string`) --
+                Protocol (future use)
+            * *proxies* (`dict`) --
+                A dict containing proxies to be used by `requests` module. Ex:
+                    `{"https": "example.org:443"}`
+                Default: `None`
+            * *timeout* ('string') --
+                Tell Requests to stop waiting for a response after a given number of seconds
 
-    :returns: client
-    :rtype: Client
-    :raises: ValueError
+        :returns: client
+        :rtype: Client
+        :raises: ValueError
     """
 
     if username is None:
