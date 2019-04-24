@@ -1,11 +1,8 @@
-SalesforcePy package
-===========
-
-Submodules
-----------
+SalesforcePy Package Reference
+==============================
 
 SalesforcePy.chatter module
-------------------
+---------------------------
 
 .. automodule:: SalesforcePy.chatter
     :members:
@@ -13,7 +10,7 @@ SalesforcePy.chatter module
     :show-inheritance:
 
 SalesforcePy.commons module
-------------------
+---------------------------
 
 .. automodule:: SalesforcePy.commons
     :members:
@@ -21,7 +18,7 @@ SalesforcePy.commons module
     :show-inheritance:
 
 SalesforcePy.jobs module
-------------------
+------------------------
 
 .. automodule:: SalesforcePy.jobs
     :members:
@@ -29,7 +26,7 @@ SalesforcePy.jobs module
     :show-inheritance:
 
 SalesforcePy.sfdc module
----------------
+------------------------
 
 .. automodule:: SalesforcePy.sfdc
     :members:
@@ -37,18 +34,9 @@ SalesforcePy.sfdc module
     :show-inheritance:
 
 SalesforcePy.wave module
----------------
+------------------------
 
 .. automodule:: SalesforcePy.wave
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-
-Module contents
----------------
-
-.. automodule:: SalesforcePy
     :members:
     :undoc-members:
     :show-inheritance:
