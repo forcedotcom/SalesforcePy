@@ -17,6 +17,7 @@ WAVE_QUERY_SERVICE = '/services/data/v%s/wave/query'
 
 class Wave(commons.ApiNamespace):
     """ The Wave namespace class from which all API calls to a Salesforce organisation are made.
+
         .. versionadded:: 1.0.0
     """
     @commons.kwarg_adder
@@ -56,6 +57,7 @@ class Wave(commons.ApiNamespace):
 
 class WaveDataSet(commons.BaseRequest):
     """ Performs a request to `'/services/data/<api_version>/wave/datasets/<api_name>'`
+
         .. versionadded:: 1.0.0
     """
 
@@ -77,6 +79,7 @@ class WaveDataSet(commons.BaseRequest):
 
 class WaveQuery(commons.BaseRequest):
     """ Performs a request to `'/services/data/<api_version>/wave/query'`
+
         .. versionadded:: 1.0.0
     """
     def __init__(self, session_id, instance_url, query, **kwargs):

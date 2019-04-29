@@ -48,9 +48,7 @@ Content-Disposition: form-data; name="%s"; filename="%s"
 
 
 class ApprovalProcess(commons.BaseRequest):
-    """ Returns a list of all approval processes. Can also be used to submit a particular record if that entity supports
-            an approval process and one has already been defined. It also supports specifying a collection of different
-            Process Approvals requests to have them all executed in bulk.
+    """ Returns a list of all approval processes. Can also be used to submit a particular record if that entity supports an approval process and one has already been defined. It also supports specifying a collection of different Process Approvals requests to have them all executed in bulk.
 
         .. versionadded:: 1.0.0
     """
@@ -73,6 +71,7 @@ class ApprovalProcess(commons.BaseRequest):
 
 class Client(object):
     """ The client class from which all API calls to a Salesforce organisation are made.
+
         .. versionadded:: 1.0.0
     """
     def __init__(self, *args, **kwargs):
@@ -157,6 +156,7 @@ class Client(object):
         """
         Sets the api version to be used by the client. If not provided, it will get the latest version
         available
+
         :return: set version kwarg on client if not defined
         """
         # If 'version' was already in the client kwargs, then 'commons.kwarg_adder' decorator will take care of
@@ -318,6 +318,7 @@ class Client(object):
     def __enter__(self):
         """
         Invoked on entry to this class, handle login automatically for context managers
+
         :return: self
         """
         self.login()
@@ -340,7 +341,8 @@ class Client(object):
 
 
 class ExecuteAnonymous(commons.BaseRequest):
-    """ Performs a request to '/services/data/vX.XX/tooling/executeAnonymous/'
+    """ Performs a request to `/services/data/vX.XX/tooling/executeAnonymous/`
+
         .. versionadded:: 1.0.0
     """
     def __init__(self, session_id, instance_url, ab, **kwargs):
@@ -370,6 +372,7 @@ class ExecuteAnonymous(commons.BaseRequest):
 
 class Login(commons.OAuthRequest):
     """ Performs a request to `'/services/oauth2/token'`
+
         .. versionadded:: 1.0.0
     """
     def __init__(
@@ -422,8 +425,7 @@ class Login(commons.OAuthRequest):
         }
 
     def request(self):
-        """ Gets the result of `super` for this method, then assigns the `access_token` to `session_id`.  Returns
-        request response.
+        """ Gets the result of `super` for this method, then assigns the `access_token` to `session_id`.  Returns request response.
 
           :return: Response dict
           :rtype: dict
@@ -446,6 +448,7 @@ class Login(commons.OAuthRequest):
 
 class LoginException(Exception):
     """ Exception thrown during due to login failure.
+
         .. versionadded:: 1.0.0
     """
     pass
@@ -453,6 +456,7 @@ class LoginException(Exception):
 
 class Logout(commons.OAuthRequest):
     """ Performs a request to `'/services/oauth2/revoke'`
+
         .. versionadded:: 1.0.0
     """
     def __init__(self, session_id, instance_url, **kwargs):
@@ -474,6 +478,7 @@ class Logout(commons.OAuthRequest):
 
 class Query(commons.BaseRequest):
     """ Performs a request to `'/services/data/vX.XX/query/'`
+
         .. versionadded:: 1.0.0
     """
     def __init__(self, session_id, instance_url, query_string, **kwargs):
@@ -495,6 +500,7 @@ class Query(commons.BaseRequest):
 
 class QueryMore(commons.BaseRequest):
     """ Performs recursive requests to `'/services/data/vX.XX/query/'` when there are multiple batches to process.
+
         .. versionadded:: 1.0.0
     """
     def __init__(self, session_id, instance_url, query_string, **kwargs):
@@ -567,6 +573,7 @@ class QueryMore(commons.BaseRequest):
 
 class Search(commons.BaseRequest):
     """ Performs a request to `'/services/data/vX.XX/search/'`
+
         .. versionadded:: 1.0.0
     """
     def __init__(self, session_id, instance_url, search_string, **kwargs):
@@ -588,6 +595,7 @@ class Search(commons.BaseRequest):
 
 class SObjectBlob(commons.BaseRequest):
     """ Perform a request to `'/services/data/vX.XX/sobjects'` where file i/o is necessary.
+
         .. versionadded:: 1.0.0
     """
 
@@ -685,6 +693,7 @@ class SObjectBlob(commons.BaseRequest):
 
 class SObjectController(object):
     """ A special class that controls insert/update/delete/query/describe of SObject resources.
+
         .. versionadded:: 1.0.0
     """
     def __init__(self, _client, object_type, _id, binary_field, api_version, external_id):
@@ -913,6 +922,7 @@ class SObjectController(object):
 
 class SObjects(commons.BaseRequest):
     """ Perform a request to `'/services/data/vX.XX/sobjects'`
+
         .. versionadded:: 1.0.0
     """
     def __init__(self, _client, **kwargs):
@@ -1007,24 +1017,32 @@ def client(username, password, client_id, client_secret, **kwargs):
     Note: if any of the required parameters are missing, a `ValueError` will be raised.
 
         :Parameters:
-            - `*username` (`string`) - Salesforce username.
-            - `*password` (`string`) - Salesforce password.
-            - `*client_id` (`string`) - Salesforce client ID.
-            - `*client_secret` (`string`) - Salesforce client secret.
-            - `\**kwargs` - kwargs (see below)
+            `*username` (`string`)
+              Salesforce username.
+            `*password` (`string`)
+              Salesforce password.
+            `*client_id` (`string`)
+              Salesforce client ID.
+            `*client_secret` (`string`)
+              Salesforce client secret.
+            `\**kwargs`
+              kwargs (see below)
 
         :Keyword Arguments:
-            * *login_url* (`string`) --
-                Salesforce login URL without protocol
-                Default: `'login.salesforce.com'`
-            * *protocol* (`string`) --
-                Protocol (future use)
-            * *proxies* (`dict`) --
-                A dict containing proxies to be used by `requests` module. Ex:
-                    `{"https": "example.org:443"}`
-                Default: `None`
-            * *timeout* ('string') --
-                Tell Requests to stop waiting for a response after a given number of seconds
+            `*login_url` (`string`)
+              Salesforce login URL without protocol
+
+              Default: `'login.salesforce.com'`
+            `*protocol` (`string`)
+              Protocol (future use)
+            `*proxies` (`dict`)
+              A dict containing proxies to be used by `requests` module. 
+
+              Example: `{"https": "example.org:443"}`
+ 
+              Default: `None`
+            `*timeout` ('string')
+              Tell Requests to stop waiting for a response after a given number of seconds
 
         :returns: client
         :rtype: Client

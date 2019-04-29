@@ -158,8 +158,8 @@ See documentation for sample request body.
 Chatter
 -------
 
-Create a feed item (chatter post). It returns a 201 status code for a successful request. 
-See Chatter REST api documentation for information on the expected body to create feed items.
+Create a feed item (chatter post). It returns a ``201`` status code for a successful request. 
+See the `Chatter REST API Developer Guide <https://developer.salesforce.com/docs/atlas.en-us.chatterapi.meta/chatterapi/intro_what_is_chatter_connect.htm>`_ for information on the expected body to create feed items.
 
 .. code-block:: python
 

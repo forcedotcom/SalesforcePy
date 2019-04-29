@@ -21,6 +21,7 @@ UPDATE_URI = '/services/data/v%s/jobs/ingest/%s'
 
 class Batches(commons.BaseRequest):
     """ Performs a PUT request to `'/services/data/vX.XX/jobs/ingest/<job_id>/batches'`
+
         .. versionadded:: 1.1.0
     """
     def __init__(self, session_id, instance_url, api_version, job_id, csv_file, **kwargs):
@@ -36,6 +37,7 @@ class Batches(commons.BaseRequest):
 
 class CreateJob(commons.BaseRequest):
     """ Performs a POST request to `'/services/data/vX.XX/jobs/ingest'`
+
         .. versionadded:: 1.1.0
     """
     def __init__(self, session_id, instance_url, api_version, request_body, **kwargs):
@@ -61,6 +63,7 @@ class CreateJob(commons.BaseRequest):
 
 class DeleteJob(commons.BaseRequest):
     """ Performs a DELETE request to `'/services/data/vX.XX/jobs/ingest/<job_id>'`
+
         .. versionadded:: 1.1.0
     """
     def __init__(self, session_id, instance_url, api_version, job_id, **kwargs):
@@ -85,6 +88,7 @@ class DeleteJob(commons.BaseRequest):
 
 class GetJob(commons.BaseRequest):
     """ Performs a GET request to `'/services/data/vX.XX/jobs/ingest'`
+
         .. versionadded:: 1.1.0
     """
     def __init__(self, session_id, instance_url, api_version, **kwargs):
@@ -173,6 +177,7 @@ class Ingest(commons.ApiNamespace):
 
 class UpdateJob(commons.BaseRequest):
     """ Performs a PATCH request to `'/services/data/vX.XX/jobs/ingest/<job_id>'`
+
         .. versionadded:: 1.1.0
     """
     def __init__(self, session_id, instance_url, api_version, job_id, request_body, **kwargs):

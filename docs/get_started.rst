@@ -41,7 +41,8 @@ Getting started with SalesforcePy is a three-step process:
         client_secret="123456789123456789",
         login_url="test.salesforce.com",
         version = "38.0", # optional, defaults to the latest version for your instance.
-        timeout = "30", # optional, defines a connect/read timeout value, if not specified requests can hang for minutes or more.
+        timeout = "30", # optional, defines a connect/read timeout value, if not specified
+	                #  requests can hang for minutes or more.
     )
 
     # Log in
