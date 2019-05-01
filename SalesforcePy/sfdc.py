@@ -48,7 +48,9 @@ Content-Disposition: form-data; name="%s"; filename="%s"
 
 
 class ApprovalProcess(commons.BaseRequest):
-    """ Returns a list of all approval processes. Can also be used to submit a particular record if that entity supports an approval process and one has already been defined. It also supports specifying a collection of different Process Approvals requests to have them all executed in bulk.
+    """ Returns a list of all approval processes. Can also be used to submit a particular record 
+    if that entity supports an approval process and one has already been defined. It also supports 
+    specifying a collection of different Process Approvals requests to have them all executed in bulk.
 
         .. versionadded:: 1.0.0
     """
@@ -425,7 +427,8 @@ class Login(commons.OAuthRequest):
         }
 
     def request(self):
-        """ Gets the result of `super` for this method, then assigns the `access_token` to `session_id`.  Returns request response.
+        """ Gets the result of `super` for this method, then assigns the `access_token` to `session_id`.  
+        Returns request response.
 
           :return: Response dict
           :rtype: dict
@@ -1036,10 +1039,10 @@ def client(username, password, client_id, client_secret, **kwargs):
             `*protocol` (`string`)
               Protocol (future use)
             `*proxies` (`dict`)
-              A dict containing proxies to be used by `requests` module. 
+              A dict containing proxies to be used by `requests` module.
 
               Example: `{"https": "example.org:443"}`
- 
+
               Default: `None`
             `*timeout` ('string')
               Tell Requests to stop waiting for a response after a given number of seconds
