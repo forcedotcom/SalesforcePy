@@ -48,8 +48,8 @@ Content-Disposition: form-data; name="%s"; filename="%s"
 
 
 class ApprovalProcess(commons.BaseRequest):
-    """ Returns a list of all approval processes. Can also be used to submit a particular record 
-    if that entity supports an approval process and one has already been defined. It also supports 
+    """ Returns a list of all approval processes. Can also be used to submit a particular record # noqa
+    if that entity supports an approval process and one has already been defined. It also supports # noqa
     specifying a collection of different Process Approvals requests to have them all executed in bulk.
 
         .. versionadded:: 1.0.0
@@ -427,7 +427,7 @@ class Login(commons.OAuthRequest):
         }
 
     def request(self):
-        """ Gets the result of `super` for this method, then assigns the `access_token` to `session_id`.  
+        """ Gets the result of `super` for this method, then assigns the `access_token` to `session_id`.
         Returns request response.
 
           :return: Response dict
