@@ -113,8 +113,8 @@ def kwarg_adder(func):
 
 class SFDCRequestException(Exception):
     """
-    This exception is raised when we fail to complete requests to the 
-    `SFDC REST API <https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_what_is_rest_api.htm>`_.
+    This exception is raised when we fail to complete requests to the # noqa
+    `SFDC REST API <https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_what_is_rest_api.htm>`_.# noqa
 
     .. versionadded:: 1.0.0
     """
@@ -256,8 +256,8 @@ class BaseRequest(object):
     def set_proxies(self, proxies):
         """ Sets `proxies` for this class.
 
-        :param proxies: A dict containing proxies to use (see: 
-        `Proxies <http://docs.python-requests.org/en/master/user/advanced/#proxies)>`_ 
+        :param proxies: A dict containing proxies to use (see: # noqa
+        `Proxies <http://docs.python-requests.org/en/master/user/advanced/#proxies)>`_ # noqa
         in the python-requests.org guide.
 
         :type: dict
