@@ -17,6 +17,7 @@ DEFAULT_API_VERSION = '37.0'
 def delete_request(base_request):
     """
     Performs DELETE request for the class provided.
+
     :param: base_request: Class with which to make request.
     :type: BaseRequest
     :return: response
@@ -31,6 +32,7 @@ def delete_request(base_request):
 def get_request(base_request):
     """
     Performs GET request for the class provided.
+
     :param: base_request: Class with which to make request.
     :type: BaseRequest
     :return: response
@@ -45,6 +47,7 @@ def get_request(base_request):
 def patch_request(base_request):
     """
     Performs PATCH request for the class provided.
+
     :param: base_request: Class with which to make request.
     :type: BaseRequest
     :return: response
@@ -60,6 +63,7 @@ def patch_request(base_request):
 def post_request(base_request):
     """
     Performs POST request for the class provided.
+
     :param: base_request: Class with which to make request.
     :type: BaseRequest
     :return: response
@@ -75,6 +79,7 @@ def post_request(base_request):
 def put_request(base_request):
     """
     Performs PUT request for the class provided.
+
     :param: base_request: Class with which to make request.
     :type: BaseRequest
     :return: response
@@ -91,6 +96,7 @@ def kwarg_adder(func):
     """
     Decorator to add the kwargs from the client to the kwargs at the function level. If the same
     parameters are used in both, the function level kwarg will supersede the one at the client level.
+
     :param func: client function to add client kwargs to
     :return: the function with updated kwargs
     """
@@ -107,7 +113,9 @@ def kwarg_adder(func):
 
 class SFDCRequestException(Exception):
     """
-    This exception is raised when we fail to complete requests to the SFDC REST API.
+    This exception is raised when we fail to complete requests to the # noqa
+    `SFDC REST API <https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_what_is_rest_api.htm>`_.# noqa
+
     .. versionadded:: 1.0.0
     """
     pass
@@ -124,7 +132,7 @@ class ApiNamespace(object):
 
 
 class BaseRequest(object):
-    """ Base class for all request objects, for convenience, new request types should inherit from this
+    """ Base class for all request objects, for convenience, new request types should inherit from this class.
 
         .. versionadded:: 1.0.0
     """
@@ -194,7 +202,7 @@ class BaseRequest(object):
         return self.headers
 
     def get_request_vars(self):
-        """ Returns the variables required by request()` and other functions.
+        """ Returns the variables required by `request()` and other functions.
 
           :return: (headers, logger, request_object, response, service)
           :rtype: (dict, logging.Logger, requests.Request|None, list|dict|None, string)
@@ -247,8 +255,11 @@ class BaseRequest(object):
 
     def set_proxies(self, proxies):
         """ Sets `proxies` for this class.
-        :param proxies: A dict containing proxies to use (see:
-        http://docs.python-requests.org/en/master/user/advanced/#proxies)
+
+        :param proxies: A dict containing proxies to use (see: # noqa
+        `Proxies <http://docs.python-requests.org/en/master/user/advanced/#proxies)>`_ # noqa
+        in the python-requests.org guide.
+
         :type: dict
         """
         self.proxies = proxies

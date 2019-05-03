@@ -59,5 +59,6 @@ Yes. Here's an example of how to do it.
         password=password,
         client_id=client_id,
         client_secret=client_secret,
-        proxies={"https": "localhost:8888/example/"}    # `proxies` kwarg takes a dict as required by the `requests` module.
+        proxies={"https": "localhost:8888/example/"}
+	  # `proxies` kwarg takes a dict as required by the `requests` module.
     )
