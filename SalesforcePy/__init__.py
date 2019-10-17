@@ -1,7 +1,8 @@
-from __future__ import absolute_import
-from . import sfdc
+import warnings
+from salesforce import name, client, LoginException
 
-name = 'SalesforcePy'
-client = sfdc.client
-
-LoginException = sfdc.LoginException
+warnings.warn(
+    'The SalesorcePy package has been deprecated in favor of salesfoce. '
+    'Please update your imports as required as SalesforcePy will be '
+    'removed in a future version.'
+)
