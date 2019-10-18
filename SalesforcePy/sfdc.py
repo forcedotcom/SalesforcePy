@@ -85,7 +85,7 @@ class Client(object):
                 - `*login_url` (`string`) - Salesforce login URL.
                 - `*client_id` (`string`) - Salesforce client ID.
                 - `*client_secret` (`string`) - Salesforce client secret.
-                - `\**kwargs` - kwargs (see below)
+                - `**kwargs` - kwargs (see below)
 
             :Keyword Arguments:
                 * *protocol* (`string`) --
@@ -1028,7 +1028,7 @@ def client(username, password, client_id, client_secret, **kwargs):
               Salesforce client ID.
             `*client_secret` (`string`)
               Salesforce client secret.
-            `\**kwargs`
+            `**kwargs`
               kwargs (see below)
 
         :Keyword Arguments:
