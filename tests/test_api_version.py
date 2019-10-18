@@ -1,6 +1,6 @@
 import testutil
 import responses
-import SalesforcePy.sfdc as sfdc
+from SalesforcePy import sfdc
 
 
 @responses.activate
