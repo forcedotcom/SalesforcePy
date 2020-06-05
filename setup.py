@@ -12,7 +12,7 @@ with open(os.path.join(os.path.dirname(__file__), 'requirements-dev.txt')) as fh
 
 setuptools.setup(
     name='SalesforcePy',
-    version='1.1.2',
+    version='2.0.0',
     description='An absurdly simple package for making Salesforce Rest API requests',
     url='https://github.com/forcedotcom/SalesforcePy',
     author='Aaron Caffrey',

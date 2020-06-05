@@ -135,7 +135,6 @@ class Client(object):
           :type: **kwargs: dict
           :return: Login response
           :rtype: (dict, Login)
-          :raises: LoginException
         """
 
         login_response = Login(
@@ -146,11 +145,12 @@ class Client(object):
             **kwargs
         )
         req = login_response.request()
-        if req is None:
-            raise LoginException("Failed to perform `login` request")
-        self.session_id = login_response.get_session_id()
-        self.set_instance_url(req.get('instance_url', str()))
-        self.set_api_version()
+
+        if req is not None:
+            self.session_id = login_response.get_session_id()
+            self.set_instance_url(req.get('instance_url', str()))
+            self.set_api_version()
+
         return req, login_response
 
     @commons.kwarg_adder

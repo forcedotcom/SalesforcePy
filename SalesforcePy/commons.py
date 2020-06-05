@@ -288,7 +288,10 @@ class OAuthRequest(BaseRequest):
             if self.status == requests.codes.ok:
                 response = request_object.json()
             else:
-                raise SFDCRequestException('OAuth call failed. Received %s status code' % self.status)
+                ex = SFDCRequestException('OAuth call failed. Received %s status code' % self.status)
+                ex.oauth_response = request_object.json()
+
+                raise ex
         except Exception as e:
             self.exceptions.append(e)
             logger.error('%s %s %s' % (self.http_method, service, self.status))

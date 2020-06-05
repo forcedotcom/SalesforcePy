@@ -31,3 +31,4 @@ htmlcov/
 .cache/
 .coverage
 .pytest_cache
+scratch.py
