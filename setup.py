@@ -1,14 +1,21 @@
-import os.path
 import setuptools
 
 with open('README.md', 'r') as fh:
     long_description = fh.read()
 
-with open(os.path.join(os.path.dirname(__file__), 'requirements.txt')) as fh:
-    install_requires = fh.readlines()
 
-with open(os.path.join(os.path.dirname(__file__), 'requirements-dev.txt')) as fh:
-    tests_require = fh.readlines()
+install_requires = ['requests==2.20.0', ]
+
+tests_require = [
+    'responses==0.10.1',
+    'coverage==4.0.3',
+    'pytest==3.9.2',
+    'python-coveralls==2.9.1',
+    'pytest-flake8==1.0.2',
+    'flake8==3.6.0',
+    'wheel==0.33.4',
+]
+
 
 setuptools.setup(
     name='SalesforcePy',
@@ -29,4 +36,5 @@ setuptools.setup(
     zip_safe=False,
     install_requires=install_requires,
     setup_requires=['pytest-runner'],
-    tests_require=tests_require)
+    tests_require=tests_require
+)
