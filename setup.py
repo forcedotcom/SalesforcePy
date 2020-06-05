@@ -8,11 +8,11 @@ install_requires = ['requests==2.20.0', ]
 
 tests_require = [
     'responses==0.10.1',
-    'coverage==4.0.3',
-    'pytest==3.9.2',
+    'coverage==5.1',
+    'pytest==5.4.3',
     'python-coveralls==2.9.1',
-    'pytest-flake8==1.0.2',
-    'flake8==3.6.0',
+    'pytest-flake8==1.0.6',
+    'flake8==3.8.2',
     'wheel==0.33.4',
 ]
 
