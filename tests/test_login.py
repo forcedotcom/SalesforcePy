@@ -42,7 +42,7 @@ def test_login_via_client_with_proxies():
 
 @responses.activate
 def test_login_negative():
-    testutil.add_response("login_response_no_body")
+    testutil.add_response("login_response_401")
     testutil.add_response("api_version_response_200")
     client = sfdc.client(
         username=testutil.username,
@@ -50,10 +50,10 @@ def test_login_negative():
         client_id=testutil.client_id,
         client_secret=testutil.client_secret
     )
-    with pytest.raises(sfdc.LoginException) as le:
-        _, lr = client.login()
-        assert lr.exceptions[0].message == 'OAuth call failed. Received 200 status code'
-        assert "Failed to perform `login` request" in str(le.value)
+    _, lr = client.login()
+    assert lr.exceptions[0].args[0] == "OAuth call failed. Received 401 status code"
+    assert lr.exceptions[0].oauth_response[0].get("message") == "Session expired or invalid"
+    assert lr.exceptions[0].oauth_response[0].get("errorCode") == "INVALID_SESSION_ID"
 
 
 @responses.activate
