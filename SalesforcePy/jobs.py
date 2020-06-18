@@ -24,6 +24,7 @@ class Batches(commons.BaseRequest):
 
         .. versionadded:: 1.1.0
     """
+
     def __init__(self, session_id, instance_url, api_version, job_id, csv_file, **kwargs):
         super(Batches, self).__init__(session_id, instance_url, **kwargs)
 
@@ -40,6 +41,7 @@ class CreateJob(commons.BaseRequest):
 
         .. versionadded:: 1.1.0
     """
+
     def __init__(self, session_id, instance_url, api_version, request_body, **kwargs):
         """ Constructor. Calls `super`, then encodes the `service` including the `query_string` provided
 
@@ -66,6 +68,7 @@ class DeleteJob(commons.BaseRequest):
 
         .. versionadded:: 1.1.0
     """
+
     def __init__(self, session_id, instance_url, api_version, job_id, **kwargs):
         """ Constructor. Calls `super`, then encodes the `service` including the `query_string` provided
 
@@ -91,6 +94,7 @@ class GetJob(commons.BaseRequest):
 
         .. versionadded:: 1.1.0
     """
+
     def __init__(self, session_id, instance_url, api_version, **kwargs):
         """ Constructor. Calls `super`, then encodes the `service` including the `query_string` provided
 
@@ -109,7 +113,8 @@ class GetJob(commons.BaseRequest):
         failures = kwargs.get('failures', False)
         unprocessed = kwargs.get('unprocessed', False)
         job_id = kwargs.get('job_id', None)
-        job_info = kwargs.get('job_info', successes is False and failures is False and unprocessed is False)
+        job_info = kwargs.get(
+            'job_info', successes is False and failures is False and unprocessed is False)
 
         self.http_method = 'GET'
 
@@ -126,50 +131,104 @@ class GetJob(commons.BaseRequest):
 
 
 class Ingest(commons.ApiNamespace):
+    """ The Ingest namespace class from which all Bulk API calls to a Salesforce organisation are made.
+
+        .. versionadded:: 1.1.0
+    """
     @commons.kwarg_adder
     def batches(self, job_id, csv_file, **kwargs):
+        """ Upload data to Bulk API batch job
+
+          :param: job_id: Job ID
+          :type: job_id: string
+          :param: csv_file: CSV data
+          :type: csv_file: string
+          :return: Query response
+          :rtype: (response, batches)
+        """
         client = self.client
         api_version = self.client_kwargs.get('version')
-        batches = Batches(client.session_id, client.instance_url, api_version, job_id, csv_file, **kwargs)
+        batches = Batches(client.session_id, client.instance_url,
+                          api_version, job_id, csv_file, **kwargs)
         response = batches.request()
 
         return response, batches
 
     @commons.kwarg_adder
     def create(self, job_resource, **kwargs):
+        """ Create new Bulk API batch job
+
+          :param: job_resource: Request body
+          :type: job_resource: dict
+          :param: **kwargs: kwargs
+          :type: **kwargs: dict
+          :return: Query response
+          :rtype: (response, create_job)
+        """
         client = self.client
         api_version = self.client_kwargs.get('version')
-        create_job = CreateJob(client.session_id, client.instance_url, api_version, job_resource, **kwargs)
+        create_job = CreateJob(
+            client.session_id, client.instance_url, api_version, job_resource, **kwargs)
         response = create_job.request()
 
         return response, create_job
 
     @commons.kwarg_adder
     def get(self, **kwargs):
+        """ Get Bulk API batch job information
+
+          :param: **kwargs: kwargs
+          :type: **kwargs: dict
+          :return: Query response
+          :rtype: (response, get_job)
+        """
         client = self.client
         api_version = self.client_kwargs.get('version')
-        get_job = GetJob(client.session_id, client.instance_url, api_version, **kwargs)
+        get_job = GetJob(client.session_id,
+                         client.instance_url, api_version, **kwargs)
         response = get_job.request()
 
         return response, get_job
 
     @commons.kwarg_adder
     def delete(self, job_id, **kwargs):
+        """ Delete Bulk API batch job
+
+          :param: job_id: Job ID
+          :type: job_id: string
+          :param: **kwargs: kwargs
+          :type: **kwargs: dict
+          :return: Query response
+          :rtype: (response, delete_job)
+        """
         client = self.client
         api_version = self.client_kwargs.get('version')
-        delete_job = DeleteJob(client.session_id, client.instance_url, api_version, job_id, **kwargs)
+        delete_job = DeleteJob(
+            client.session_id, client.instance_url, api_version, job_id, **kwargs)
         response = delete_job.request()
 
         return response, delete_job
 
     @commons.kwarg_adder
     def update(self, job_id, state, **kwargs):
+        """ Close or abort a Bulk API batch job
+
+          :param: job_id: Job ID
+          :type: job_id: string
+          :param: state: State to update job to (UploadComplete or Aborted)
+          :type: state: string
+          :param: **kwargs: kwargs
+          :type: **kwargs: dict
+          :return: Query response
+          :rtype: (response, upload_job)
+        """
         client = self.client
         api_version = self.client_kwargs.get('version')
         instance_url = client.instance_url
         request_body = {'state': state}
         session_id = client.session_id
-        update_job = UpdateJob(session_id, instance_url, api_version, job_id, request_body, **kwargs)
+        update_job = UpdateJob(session_id, instance_url,
+                               api_version, job_id, request_body, **kwargs)
         response = update_job.request()
 
         return response, update_job
@@ -180,6 +239,7 @@ class UpdateJob(commons.BaseRequest):
 
         .. versionadded:: 1.1.0
     """
+
     def __init__(self, session_id, instance_url, api_version, job_id, request_body, **kwargs):
         """ Constructor.
 
