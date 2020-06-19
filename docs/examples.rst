@@ -13,7 +13,7 @@ Here's how you can perform a query.
     query_results = client.query('SELECT Id, Name FROM Account LIMIT 1')
 
 In the example above ``query_results[0]`` is a dict with the response. For more information, See
-`Execute a SOQL Query <https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/dome_query.htm>`_.
+`Execute a SOQL Query <https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/dome_query.htm>`__.
 
 Query More
 ----------
@@ -32,7 +32,7 @@ with ``query()``:
 In this example, ``query_results[0]`` is a list of dicts, each of which is a single query result (batch). 
 The behaviour of ``query_more()`` is to consume ``nextRecordsUrl`` of each query result recursively 
 until it runs out. For more information, see Retrieving the Remaining SOQL Query Results in
-`Execute a SOQL Query <https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/dome_query.htm>`_.
+`Execute a SOQL Query <https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/dome_query.htm>`__.
 
 Insert sObjects
 ---------------
@@ -111,7 +111,7 @@ In addition, it provides the organization encoding, as well as the maximum batch
     describe_global_result = client.sobjects().describe_global()
 
 In the example above ``describe_global_result[0]`` will be a dict with the response. For more information, see
-`Describe Global <https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_describeGlobal.htm>`_.
+`Describe Global <https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_describeGlobal.htm>`__.
 The ``If-Modified-Since`` header cannot be used with this method.
 
 Insert File
@@ -148,12 +148,30 @@ Anonymous Apex can be executed in a Salesforce organisation like so:
 .. code-block:: python
 
     ea_result = client.execute_anonymous('system.debug(\'Hello world.\');')
-    Approval Process
-    Approvals can be retrieved, submitted and approved/rejected
+
+Approval Process
+----------------
+
+Approvals can be retrieved, submitted and approved/rejected
+
+.. code-block:: python
 
     ap_result = client.approvals(requestBody)
 
-See documentation for sample request body.
+Sample request body, submitting a record for approval
+
+.. code-block:: json
+
+  requestBody = {
+    "requests": [{
+        "actionType": "Submit",
+        "contextId": "00161000011ueBV",
+        "nextApproverIds": ["00561000000j3h2"],
+        "comments": "this is a test",
+        "contextActorId": "005610000027SlY",
+        "processDefinitionNameOrId": "test_account",
+        "skipEntryCriteria": "true" }]
+    }
 
 Chatter
 -------
@@ -214,7 +232,7 @@ In this example, we create a job to insert accounts.
     client.jobs.ingest.create(job_resource=job_resource)
 
 For more information on the response for this request, see 
-`Create a Job <https://developer.salesforce.com/docs/atlas.en-us.api_bulk_v2.meta/api_bulk_v2/create_job.htm>`_.
+`Create a Job <https://developer.salesforce.com/docs/atlas.en-us.api_bulk_v2.meta/api_bulk_v2/create_job.htm>`__.
 
 Upload Job Data
 ^^^^^^^^^^^^^^^
@@ -232,7 +250,7 @@ In this example, we create a job, then upload a csv file using the job ID.
         batches_result = client.jobs.ingest.batches(job_id=job_id, csv_file=csv_file)
 
 For more information on the response for this request, see 
-`Upload Job Data <https://developer.salesforce.com/docs/atlas.en-us.api_bulk_v2.meta/api_bulk_v2/upload_job_data.htm>`_.
+`Upload Job Data <https://developer.salesforce.com/docs/atlas.en-us.api_bulk_v2.meta/api_bulk_v2/upload_job_data.htm>`__.
 
 Update a job state
 ^^^^^^^^^^^^^^^^^^
@@ -267,7 +285,7 @@ Assumed in this example that this value is stored in ``job_id``.
 
 For more information on the response for this request, see 
 `Delete a Job
-<https://developer.salesforce.com/docs/atlas.en-us.api_bulk_v2.meta/api_bulk_v2/delete_job.htm>`_.
+<https://developer.salesforce.com/docs/atlas.en-us.api_bulk_v2.meta/api_bulk_v2/delete_job.htm>`__.
 
 Get all jobs
 ^^^^^^^^^^^^
@@ -279,7 +297,7 @@ In this example, we get a list of all jobs.
     get_result = client.jobs.ingest.get()
 
 For more information on the response for this request, see 
-`Get All Jobs <https://developer.salesforce.com/docs/atlas.en-us.api_bulk_v2.meta/api_bulk_v2/get_all_jobs.htm>`_.
+`Get All Jobs <https://developer.salesforce.com/docs/atlas.en-us.api_bulk_v2.meta/api_bulk_v2/get_all_jobs.htm>`__.
 
 Get Job Info
 ^^^^^^^^^^^^
@@ -292,7 +310,7 @@ Assumed in this example that this value is stored in ``job_id``.
     get_result = client.jobs.ingest.get(job_id=job_id)
 
 For more information on the response for this request, see 
-`Get Job Info <https://developer.salesforce.com/docs/atlas.en-us.api_bulk_v2.meta/api_bulk_v2/get_job_info.htm>`_.
+`Get Job Info <https://developer.salesforce.com/docs/atlas.en-us.api_bulk_v2.meta/api_bulk_v2/get_job_info.htm>`__.
 
 Get Job Successes
 ^^^^^^^^^^^^^^^^^
