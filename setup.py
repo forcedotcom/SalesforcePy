@@ -4,7 +4,7 @@ with open('README.md', 'r') as fh:
     long_description = fh.read()
 
 
-install_requires = ['requests==2.20.0', ]
+install_requires = ['requests>=2.20.0,<3', ]
 
 tests_require = [
     'responses==0.10.1',
