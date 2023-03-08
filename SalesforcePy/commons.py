@@ -164,11 +164,11 @@ class BaseRequest(object):
                     A dict containing the request body
                     Default: `None`
         """
-        self.proxies = kwargs.get('proxies', None)
+        self.proxies = kwargs.get('proxies')
         self.session_id = session_id
         self.http_method = kwargs.get('http_method', 'GET')
         self.instance_url = instance_url
-        self.request_body = kwargs.get('request_body', None)
+        self.request_body = kwargs.get('request_body')
         self.api_version = kwargs.get('version', DEFAULT_API_VERSION)
         self.timeout = float(kwargs['timeout']) if 'timeout' in kwargs else None
         self.service = None
