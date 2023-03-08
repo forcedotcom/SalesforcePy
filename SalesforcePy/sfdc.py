@@ -67,7 +67,7 @@ class ApprovalProcess(commons.BaseRequest):
 
         if self.request_body is None:
             self.http_method = 'GET'
-        elif self.request_body is not None:
+        else:
             self.http_method = 'POST'
 
 
