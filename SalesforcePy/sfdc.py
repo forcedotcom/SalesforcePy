@@ -64,11 +64,7 @@ class ApprovalProcess(commons.BaseRequest):
             **kwargs)
 
         self.service = APPROVAL_SERVICE % self.api_version
-
-        if self.request_body is None:
-            self.http_method = 'GET'
-        else:
-            self.http_method = 'POST'
+        self.http_method = 'GET' if self.request_body is None else 'POST'
 
 
 class Client(object):
