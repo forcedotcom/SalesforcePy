@@ -540,8 +540,8 @@ class QueryMore(commons.BaseRequest):
         len_results = len(results)
 
         if len_results == 0:
-            q = Query(self.session_id, self.instance_url, self.query_string)
-            q.set_proxies(self.proxies)
+            q = Query(self.session_id, self.instance_url, self.query_string,
+                      proxies=self.proxies, version=self.api_version)
             response = q.request()
             results.append(response)
             last = response
