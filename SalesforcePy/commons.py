@@ -254,17 +254,6 @@ class BaseRequest(object):
         finally:
             return response
 
-    def set_proxies(self, proxies):
-        """ Sets `proxies` for this class.
-
-        :param proxies: A dict containing proxies to use (see: # noqa
-        `Proxies <http://docs.python-requests.org/en/master/user/advanced/#proxies)>`_ # noqa
-        in the python-requests.org guide.
-
-        :type: dict
-        """
-        self.proxies = proxies
-
 
 class OAuthRequest(BaseRequest):
     """ Base class for all OAuth request objects

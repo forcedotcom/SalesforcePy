@@ -164,10 +164,7 @@ class Client(object):
             headers = {'Content-Type': 'application/json'}
             r = requests.get(service, headers=headers, proxies=self.proxies)
             if r.status_code == 200:
-                versions = []
-                for i in r.json():
-                    versions.append(i['version'])
-                self.client_kwargs.update({'version': max(versions)})
+                self.client_kwargs.update({'version': max(i['version'] for i in r.json())})
             else:
                 # return a known recent api version
                 self.client_kwargs.update({'version': DEFAULT_API_VERSION})
@@ -536,8 +533,8 @@ class QueryMore(commons.BaseRequest):
         len_results = len(results)
 
         if len_results == 0:
-            q = Query(self.session_id, self.instance_url, self.query_string)
-            q.set_proxies(self.proxies)
+            q = Query(self.session_id, self.instance_url, self.query_string,
+                      proxies=self.proxies, version=self.api_version)
             response = q.request()
             results.append(response)
             last = response
