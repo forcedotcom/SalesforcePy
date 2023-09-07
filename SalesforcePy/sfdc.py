@@ -225,11 +225,11 @@ class Client(object):
           :rtype: SObjectController
         """
 
-        _id = kwargs['id'] if 'id' in kwargs else None
-        object_type = kwargs['object_type'] if 'object_type' in kwargs else None
-        binary_field = kwargs['binary_field'] if 'binary_field' in kwargs else None
+        _id = kwargs.get('id')
+        object_type = kwargs.get('object_type')
+        binary_field = kwargs.get('binary_field')
         api_version = kwargs.get('version')
-        external_id = kwargs['external_id'] if 'external_id' in kwargs else None
+        external_id = kwargs.get('external_id')
         return SObjectController(self, object_type, _id, binary_field, api_version, external_id)
 
     @commons.kwarg_adder
@@ -304,11 +304,8 @@ class Client(object):
         """
 
         logger = self.logger
-        if 'level' in kwargs:
-            level = kwargs['level']
-            logger.setLevel(level)
-        else:
-            logger.setLevel(logging.INFO)
+        level = kwargs.get('level', logging.INFO)
+        logger.setLevel(level)
 
     def __enter__(self):
         """
@@ -397,7 +394,7 @@ class Login(commons.OAuthRequest):
         super(Login, self).__init__(None, None, **kwargs)
         self.username = username
         self.password = password
-        self.login_url = kwargs['login_url'] if 'login_url' in kwargs else 'login.salesforce.com'
+        self.login_url = kwargs.get('login_url', 'login.salesforce.com')
         self.client_id = client_id
         self.client_secret = client_secret
         self.http_method = 'POST'

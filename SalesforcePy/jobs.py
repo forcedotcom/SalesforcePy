@@ -112,7 +112,7 @@ class GetJob(commons.BaseRequest):
         successes = kwargs.get('successes', False)
         failures = kwargs.get('failures', False)
         unprocessed = kwargs.get('unprocessed', False)
-        job_id = kwargs.get('job_id', None)
+        job_id = kwargs.get('job_id')
         job_info = kwargs.get(
             'job_info', successes is False and failures is False and unprocessed is False)
 
