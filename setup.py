@@ -13,7 +13,7 @@ tests_require = [
     'python-coveralls==2.9.1',
     'pytest-flake8==1.0.6',
     'flake8==3.8.2',
-    'wheel==0.33.4',
+    'wheel==0.38.1',
 ]
 
 
