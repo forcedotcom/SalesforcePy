@@ -8,6 +8,7 @@
 """
 from __future__ import absolute_import
 
+import collections
 import logging
 import requests
 
@@ -102,10 +103,7 @@ def kwarg_adder(func):
     """
     def decorated(self, *args, **function_kwarg):
         if hasattr(self, 'client_kwargs'):
-            client_args = {key: val for key, val in self.client_kwargs.items()
-                           if key not in function_kwarg.keys()}
-
-            function_kwarg.update(client_args)
+            function_kwarg = collections.ChainMap(function_kwarg, self.client_kwargs)
         return func(self, *args, **function_kwarg)
 
     return decorated
