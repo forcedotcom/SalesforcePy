@@ -8,6 +8,7 @@
 """
 from __future__ import absolute_import
 
+import collections
 import logging
 import requests
 
@@ -102,10 +103,7 @@ def kwarg_adder(func):
     """
     def decorated(self, *args, **function_kwarg):
         if hasattr(self, 'client_kwargs'):
-            client_args = {key: val for key, val in self.client_kwargs.items()
-                           if key not in function_kwarg.keys()}
-
-            function_kwarg.update(client_args)
+            function_kwarg = collections.ChainMap(function_kwarg, self.client_kwargs)
         return func(self, *args, **function_kwarg)
 
     return decorated
@@ -164,11 +162,11 @@ class BaseRequest(object):
                     A dict containing the request body
                     Default: `None`
         """
-        self.proxies = kwargs.get('proxies', None)
+        self.proxies = kwargs.get('proxies')
         self.session_id = session_id
         self.http_method = kwargs.get('http_method', 'GET')
         self.instance_url = instance_url
-        self.request_body = kwargs.get('request_body', None)
+        self.request_body = kwargs.get('request_body')
         self.api_version = kwargs.get('version', DEFAULT_API_VERSION)
         self.timeout = float(kwargs['timeout']) if 'timeout' in kwargs else None
         self.service = None
@@ -184,8 +182,8 @@ class BaseRequest(object):
           :return: request_url
           :rtype: string
         """
-        self.request_url = 'https://%s%s' % (self.instance_url,
-                                             self.service) if self.request_url is None else self.request_url
+        if self.request_url is None:
+            self.request_url = 'https://%s%s' % (self.instance_url, self.service)
         return self.request_url
 
     def get_headers(self):
@@ -194,11 +192,12 @@ class BaseRequest(object):
           :return: headers
           :rtype: dict
         """
-        self.headers = {
-            'Content-Type': 'application/json',
-            'Accept-Encoding': 'application/json',
-            'Authorization': 'OAuth %s' %
-            self.session_id} if self.headers is None else self.headers
+        if self.headers is None:
+            self.headers = {
+                'Content-Type': 'application/json',
+                'Accept-Encoding': 'application/json',
+                'Authorization': 'OAuth %s' % self.session_id
+            }
         return self.headers
 
     def get_request_vars(self):
@@ -253,17 +252,6 @@ class BaseRequest(object):
         finally:
             return response
 
-    def set_proxies(self, proxies):
-        """ Sets `proxies` for this class.
-
-        :param proxies: A dict containing proxies to use (see: # noqa
-        `Proxies <http://docs.python-requests.org/en/master/user/advanced/#proxies)>`_ # noqa
-        in the python-requests.org guide.
-
-        :type: dict
-        """
-        self.proxies = proxies
-
 
 class OAuthRequest(BaseRequest):
     """ Base class for all OAuth request objects
@@ -301,7 +289,7 @@ class OAuthRequest(BaseRequest):
             return response
 
     def get_request_url(self):
-        url = self.instance_url if self.login_url is None else self.login_url
-        self.request_url = 'https://%s%s' % (
-            url, self.service) if self.request_url is None else self.request_url
+        if self.request_url is None:
+            url = self.login_url or self.instance_url
+            self.request_url = 'https://%s%s' % (url, self.service)
         return self.request_url

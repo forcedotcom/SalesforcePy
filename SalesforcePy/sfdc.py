@@ -64,11 +64,7 @@ class ApprovalProcess(commons.BaseRequest):
             **kwargs)
 
         self.service = APPROVAL_SERVICE % self.api_version
-
-        if self.request_body is None:
-            self.http_method = 'GET'
-        elif self.request_body is not None:
-            self.http_method = 'POST'
+        self.http_method = 'GET' if self.request_body is None else 'POST'
 
 
 class Client(object):
@@ -168,10 +164,7 @@ class Client(object):
             headers = {'Content-Type': 'application/json'}
             r = requests.get(service, headers=headers, proxies=self.proxies)
             if r.status_code == 200:
-                versions = []
-                for i in r.json():
-                    versions.append(i['version'])
-                self.client_kwargs.update({'version': max(versions)})
+                self.client_kwargs.update({'version': max(i['version'] for i in r.json())})
             else:
                 # return a known recent api version
                 self.client_kwargs.update({'version': DEFAULT_API_VERSION})
@@ -232,11 +225,11 @@ class Client(object):
           :rtype: SObjectController
         """
 
-        _id = kwargs['id'] if 'id' in kwargs else None
-        object_type = kwargs['object_type'] if 'object_type' in kwargs else None
-        binary_field = kwargs['binary_field'] if 'binary_field' in kwargs else None
+        _id = kwargs.get('id')
+        object_type = kwargs.get('object_type')
+        binary_field = kwargs.get('binary_field')
         api_version = kwargs.get('version')
-        external_id = kwargs['external_id'] if 'external_id' in kwargs else None
+        external_id = kwargs.get('external_id')
         return SObjectController(self, object_type, _id, binary_field, api_version, external_id)
 
     @commons.kwarg_adder
@@ -311,11 +304,8 @@ class Client(object):
         """
 
         logger = self.logger
-        if 'level' in kwargs:
-            level = kwargs['level']
-            logger.setLevel(level)
-        else:
-            logger.setLevel(logging.INFO)
+        level = kwargs.get('level', logging.INFO)
+        logger.setLevel(level)
 
     def __enter__(self):
         """
@@ -404,7 +394,7 @@ class Login(commons.OAuthRequest):
         super(Login, self).__init__(None, None, **kwargs)
         self.username = username
         self.password = password
-        self.login_url = kwargs['login_url'] if 'login_url' in kwargs else 'login.salesforce.com'
+        self.login_url = kwargs.get('login_url', 'login.salesforce.com')
         self.client_id = client_id
         self.client_secret = client_secret
         self.http_method = 'POST'
@@ -540,8 +530,8 @@ class QueryMore(commons.BaseRequest):
         len_results = len(results)
 
         if len_results == 0:
-            q = Query(self.session_id, self.instance_url, self.query_string)
-            q.set_proxies(self.proxies)
+            q = Query(self.session_id, self.instance_url, self.query_string,
+                      proxies=self.proxies, version=self.api_version)
             response = q.request()
             results.append(response)
             last = response
