@@ -184,8 +184,8 @@ class BaseRequest(object):
           :return: request_url
           :rtype: string
         """
-        self.request_url = 'https://%s%s' % (self.instance_url,
-                                             self.service) if self.request_url is None else self.request_url
+        if self.request_url is None:
+            self.request_url = 'https://%s%s' % (self.instance_url, self.service)
         return self.request_url
 
     def get_headers(self):
@@ -194,11 +194,12 @@ class BaseRequest(object):
           :return: headers
           :rtype: dict
         """
-        self.headers = {
-            'Content-Type': 'application/json',
-            'Accept-Encoding': 'application/json',
-            'Authorization': 'OAuth %s' %
-            self.session_id} if self.headers is None else self.headers
+        if self.headers is None:
+            self.headers = {
+                'Content-Type': 'application/json',
+                'Accept-Encoding': 'application/json',
+                'Authorization': 'OAuth %s' % self.session_id
+            }
         return self.headers
 
     def get_request_vars(self):
@@ -290,7 +291,7 @@ class OAuthRequest(BaseRequest):
             return response
 
     def get_request_url(self):
-        url = self.instance_url if self.login_url is None else self.login_url
-        self.request_url = 'https://%s%s' % (
-            url, self.service) if self.request_url is None else self.request_url
+        if self.request_url is None:
+            url = self.login_url or self.instance_url
+            self.request_url = 'https://%s%s' % (url, self.service)
         return self.request_url
