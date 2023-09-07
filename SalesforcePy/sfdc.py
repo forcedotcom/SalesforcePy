@@ -524,7 +524,7 @@ class QueryMore(commons.BaseRequest):
 
         (last, results) = (
             dict(),
-            list() if len(args) is 0 else args[0],
+            list() if len(args) == 0 else args[0],
         )
 
         len_results = len(results)
