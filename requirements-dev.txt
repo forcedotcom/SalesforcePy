@@ -1,4 +1,4 @@
-responses==0.23.3
+responses==0.22.0
 coverage==5.1
 pytest>=7.0.0
 pytest-flake8==1.0.6
