@@ -234,7 +234,7 @@ def test_query_sobj_row_with_blob_negative():
     assert query_result[0] == testutil.mock_responses["query_attachments_before_blob_200"]["body"]
     assert query_result[1].status == 200
     assert query_result[2].status == 200
-    assert query_result[2].response is None
+    assert query_result[2].response.content == b''
 
 
 @responses.activate
