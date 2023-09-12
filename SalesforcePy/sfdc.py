@@ -46,6 +46,19 @@ Content-Disposition: form-data; name="%s"; filename="%s"
 
 --boundary_string--"""
 
+class ApexRest(commons.BaseRequest):
+    """Performs a request to `'/services/apexrest/<action>'`"""
+
+    def __init__(
+            self, session_id, instance_url, action, http_method, request_params, request_body, **kwargs):
+        if request_params is not None:
+            p = urlencode(request_params)
+            action = '%s?%s' % (action, p)
+
+        super().__init__(
+                session_id, instance_url, http_method=http_method, request_body=request_body, **kwargs)
+        self.service = f"/services/apexrest/{action}"
+
 
 class ApprovalProcess(commons.BaseRequest):
     """ Returns a list of all approval processes. Can also be used to submit a particular record # noqa
@@ -267,6 +280,34 @@ class Client(object):
             **kwargs)
         req = ea.request()
         return req, ea
+
+    @commons.kwarg_adder
+    def apexrest(self, action, http_method, request_params=None, request_body=None, **kwargs):
+        """
+        Performs a request to `/services/apexrest/<action>`.
+
+        Args:
+            action (str): The Apex REST resource name.
+            http_method (str): The HTTP method for the request (e.g., 'GET', 'POST', 'PUT', 'PATCH', 'DELETE').
+            request_params (dict): Query parameters for the request.
+            request_body (dict): Request body data for POST and PUT requests.
+
+        Returns:
+            tuple: A tuple containing the HTTP response and the request object.
+        """
+        apex_rest_request = ApexRest(
+            self.session_id,
+            self.instance_url,
+            action,
+            http_method,
+            request_params,
+            request_body,
+            **kwargs
+        )
+
+        req = apex_rest_request.request()
+        return req, apex_rest_request
+
 
     @commons.kwarg_adder
     def approvals(self, body=None, **kwargs):
