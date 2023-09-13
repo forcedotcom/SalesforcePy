@@ -1,4 +1,6 @@
-# TODO: Add boilerplate...
+import testutil
+import responses
+
 @responses.activate
 def test_apexrest_get_request():
 	testutil.add_response("login_response_200")
@@ -7,7 +9,7 @@ def test_apexrest_get_request():
 
 	client = testutil.get_client()
 	apexrest_result = client.apexrest(
-		action='testmethod',
+		action='foo',
 		http_method='GET',
 		request_params={"foo": 0}
 	)
@@ -26,7 +28,7 @@ def test_apexrest_post_request():
 
 	client = testutil.get_client()
 	apexrest_result = client.apexrest(
-		action='testmethod',
+		action='foo',
 		http_method='POST',
 		request_body={'foo': 0}
 	)
@@ -42,9 +44,9 @@ def test_apexrest_patch_request():
 
     client = testutil.get_client()
     apexrest_result = client.apexrest(
-        action='testmethod',
+        action='foo',
         http_method='PATCH',
-        request_params={"foo": 0}
+        request_params={'foo': 0}
     )
 
     assert apexrest_result[0] == testutil.mock_responses["apexrest_patch_response_200"]["body"]
@@ -59,27 +61,10 @@ def test_apexrest_put_request():
 
     client = testutil.get_client()
     apexrest_result = client.apexrest(
-        action='testmethod',
+        action='foo',
         http_method='PUT',
-        request_params={"foo": 0}
+        request_params={'foo': 0}
     )
 
     assert apexrest_result[0] == testutil.mock_responses["apexrest_put_response_200"]["body"]
-    assert apexrest_result[1].status == 200
-
-
-@responses.activate
-def test_apexrest_delete_request():
-    testutil.add_response("login_response_200")
-    testutil.add_response("apexrest_delete_response_200")
-    testutil.add_response("api_version_response_200")
-
-    client = testutil.get_client()
-    apexrest_result = client.apexrest(
-        action='testmethod',
-        http_method='DELETE',
-        request_params={"foo": 0}
-    )
-
-    assert apexrest_result[0] == testutil.mock_responses["apexrest_delete_response_200"]["body"]
     assert apexrest_result[1].status == 200

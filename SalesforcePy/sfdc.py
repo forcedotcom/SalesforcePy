@@ -308,7 +308,6 @@ class Client(object):
         req = apex_rest_request.request()
         return req, apex_rest_request
 
-
     @commons.kwarg_adder
     def approvals(self, body=None, **kwargs):
         """ Performs an approval process request.
