@@ -1,0 +1,7 @@
+{
+    "content_type": "application/json",
+    "method": "PATCH",
+    "url": "https://eu11.salesforce.com/services/apexrest/foo",
+    "status_code": 200,
+    "body": [{"bar": 0}]
+}
