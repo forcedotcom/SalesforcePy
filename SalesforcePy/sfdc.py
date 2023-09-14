@@ -57,7 +57,7 @@ class ApexRest(commons.BaseRequest):
 
         super().__init__(
                 session_id, instance_url, http_method=http_method, request_body=request_body, **kwargs)
-        self.service = f"/services/apexrest/{action}"
+        self.service = '/services/apexrest/%s' % action
 
 
 class ApprovalProcess(commons.BaseRequest):
