@@ -11,6 +11,8 @@ from __future__ import absolute_import
 import collections
 import logging
 import requests
+import xml.etree.ElementTree as ET
+from urllib.parse import urlparse
 
 DEFAULT_API_VERSION = '37.0'
 
@@ -91,6 +93,28 @@ def put_request(base_request):
     return requests.put(
         service, headers=headers, proxies=base_request.proxies, timeout=base_request.timeout,
         data=base_request.request_body)
+
+
+def get_soap_login_request_body(username, password):
+    return '''<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\">
+    <soapenv:Body>
+       <login xmlns=\"urn:enterprise.soap.sforce.com\">
+           <username>%s</username>
+           <password>%s</password>
+       </login>
+    </soapenv:Body>
+</soapenv:Envelope>
+    ''' % (username, password)
+
+
+def element_to_dict(element):
+    result = {}
+    for child in element:
+        if len(child) > 0:
+            result[child.tag] = element_to_dict(child)
+        else:
+            result[child.tag] = child.text
+    return result
 
 
 def kwarg_adder(func):
@@ -293,3 +317,58 @@ class OAuthRequest(BaseRequest):
             url = self.login_url or self.instance_url
             self.request_url = 'https://%s%s' % (url, self.service)
         return self.request_url
+
+
+class SoapLoginRequest(BaseRequest):
+    """ Login request Soap implementation
+    """
+    def __init__(self, username, password, **kwargs):
+        super(SoapLoginRequest, self).__init__(None, None, **kwargs)
+
+        self.headers = {'SOAPAction': 'login',
+                        'Content-Type': 'text/xml; charset=utf-8',
+                        'Expect': '100-continue',
+                        'Connection': 'Keep-Alive'}
+
+        self.username = username
+        self.password = password
+        self.org_id = kwargs.get('org_id')
+        self.login_url = kwargs.get('login_url', 'login.salesforce.com')
+
+    def get_request_url(self):
+        api_version = self.api_version
+        login_url = self.login_url
+        service = '/services/Soap/c/%s/' % api_version
+        self.request_url = 'https://%s%s' % (login_url, service)
+
+        return self.request_url
+
+    def request(self):
+        (headers, logger, request_object, response,
+         service) = self.get_request_vars()
+        xml = get_soap_login_request_body(self.username, self.password)
+        logging.getLogger('sfdc_py').info('%s %s' % ('POST', service))
+        try:
+            request_object = requests.post(
+                service, headers=headers, data=xml, proxies=self.proxies, timeout=self.timeout)
+            self.status = request_object.status_code
+
+            soap_dict = response = element_to_dict(ET.fromstring(request_object.text))
+
+            if self.status == requests.codes.ok:
+                body = soap_dict['{http://schemas.xmlsoap.org/soap/envelope/}Body']
+                login_response = body['{urn:enterprise.soap.sforce.com}loginResponse']
+                result = login_response['{urn:enterprise.soap.sforce.com}result']
+                server_url = result['{urn:enterprise.soap.sforce.com}serverUrl']
+                self.instance_url = urlparse(server_url).netloc
+                self.session_id = result['{urn:enterprise.soap.sforce.com}sessionId']
+            else:
+                ex = SFDCRequestException('Request failed. Received %s status code' % self.status)
+
+                raise ex
+        except Exception as e:
+            self.exceptions.append(e)
+            logger.error('%s %s %s' % (self.http_method, service, self.status))
+            logger.error(e.message)
+        finally:
+            return response

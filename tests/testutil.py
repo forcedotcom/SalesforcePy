@@ -8,6 +8,7 @@ password = "p@ssword1"
 client_id = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 client_secret = "123456789123456789"
 login_url = "login.salesforce.com"
+org_id = "00Di0000000xxxx"
 version = "39.0"
 proxies = {"https": "mock.proxy.server.com:8080"}
 tests_dir = os.path.dirname(os.path.realpath(__file__))

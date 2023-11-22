@@ -2,7 +2,10 @@ import SalesforcePy as sfdc
 import testutil
 import responses
 import logging
+import os
 import pytest
+
+tests_dir = os.path.dirname(os.path.realpath(__file__))
 
 
 @responses.activate
@@ -72,3 +75,55 @@ def test_login_url_kwarg():
     assert login[0] == testutil.mock_responses["sandbox_login_response_200"]["body"]
     assert login[1].status == 200
     assert login[1].get_session_id() == testutil.mock_responses["sandbox_login_response_200"]["body"]["access_token"]
+
+
+@responses.activate
+def test_login_via_soap():
+    login_method = "POST"
+    login_url = "https://login.salesforce.com/services/Soap/c/37.0/"
+    login_status = 200
+    login_content_type = "text/xml; charset=utf-8"
+
+    with open (os.path.join(tests_dir, "fixtures/soap_login_response_200.xml"), "r") as f:
+        login_body = f.read()
+
+    responses.add(login_method, login_url, body=login_body, status=login_status, content_type=login_content_type)
+    testutil.add_response("api_version_response_200")
+
+    client = sfdc.client(
+        username=testutil.username,
+        password=testutil.password,
+        org_id=testutil.org_id
+    )
+    login = client.login_via_soap()
+
+    assert '{http://schemas.xmlsoap.org/soap/envelope/}Body' in login[0]
+    assert login[1].status == 200
+    assert login[1].exceptions == []
+    assert login[1].session_id == client.session_id
+    assert client.instance_url == 'eu11.salesforce.com'
+
+
+@responses.activate
+def test_login_via_soap_negative():
+    login_method = "POST"
+    login_url = "https://login.salesforce.com/services/Soap/c/37.0/"
+    login_status = 500
+    login_content_type = "text/xml; charset=utf-8"
+
+    with open (os.path.join(tests_dir, "fixtures/soap_login_response_500.xml"), "r") as f:
+        login_body = f.read()
+
+    responses.add(login_method, login_url, body=login_body, status=login_status, content_type=login_content_type)
+    
+    client = sfdc.client(
+        username=testutil.username,
+        password=testutil.password,
+        org_id=testutil.org_id
+    )
+    login = client.login_via_soap()
+
+    assert '{http://schemas.xmlsoap.org/soap/envelope/}Body' in login[0]
+    assert login[1].status == 500
+    assert len(login[1].exceptions) == 1
+    
