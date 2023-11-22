@@ -105,12 +105,15 @@ class Client(object):
                     Default: `None`
                 * *version* (`string`) --
                    SFDC API version to use e.g. '39.0'
+                * *org_id* (`string`) --
+                   Organisation ID (required if logging in via SOAP endpoint)
         """
 
         self.username = args[0]
         self.password = args[1]
         self.client_id = args[2]
         self.client_secret = args[3]
+        self.org_id = kwargs.get('org_id')
         self.protocol = kwargs.get('protocol')
         self.proxies = kwargs.get('proxies')
         self.instance_url = None
@@ -158,6 +161,30 @@ class Client(object):
         if req is not None:
             self.session_id = login_response.get_session_id()
             self.set_instance_url(req.get('instance_url', str()))
+            self.set_api_version()
+
+        return req, login_response
+    
+    @commons.kwarg_adder
+    def login_via_soap(self, **kwargs):
+        """ Performs a clientless login request using the Soap API.
+
+          :param: **kwargs: kwargs
+          :type: **kwargs: dict
+          :return: Login response
+          :rtype: (dict, commons.SoapLoginRequest)
+        """
+        login_response = commons.SoapLoginRequest(
+            self.username,
+            self.password,
+            **kwargs
+        )
+
+        req = login_response.request()
+
+        if login_response.status == 200:
+            self.session_id = login_response.session_id
+            self.instance_url = login_response.instance_url
             self.set_api_version()
 
         return req, login_response
@@ -1042,7 +1069,7 @@ class SObjects(commons.BaseRequest):
             return response
 
 
-def client(username, password, client_id, client_secret, **kwargs):
+def client(username, password, client_id=None, client_secret=None, **kwargs):
     """ Builds a `Client` and returns it.
 
         .. versionadded:: 1.0.0
@@ -1086,10 +1113,6 @@ def client(username, password, client_id, client_secret, **kwargs):
         raise ValueError('`username` cannot be None')
     elif password is None:
         raise ValueError('`password` cannot be None')
-    elif client_id is None:
-        raise ValueError('`client_id` cannot be None')
-    elif client_secret is None:
-        raise ValueError('`client_secret` cannot be None')
     return Client(
         username,
         password,

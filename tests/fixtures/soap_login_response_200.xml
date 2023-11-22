@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns="urn:enterprise.soap.sforce.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Body>
+      <loginResponse>
+         <result>
+            <metadataServerUrl>https://eu11.salesforce.com/services/Soap/m/37.0/00Di0000000xxxx</metadataServerUrl>
+            <passwordExpired>false</passwordExpired>
+            <sandbox>false</sandbox>
+            <serverUrl>https://eu11.salesforce.com/services/Soap/c/37.0/00Di0000000xxxx/0DFi00000008UYO</serverUrl>
+            <sessionId>00Di0000000xxxx!ASAAQF0stgINehCxOnHPGuLI4TMVx.jP8rEkLY5axmf0XWLfj0WFsmXhfXoFFgJ2gw1b2DImwyzSFPgB2wuIwNtG94ytkpoh</sessionId>
+            <userId>005i000000oooooAAW</userId>
+            <userInfo>
+               <accessibilityMode>false</accessibilityMode>
+               <currencySymbol>$</currencySymbol>
+               <orgAttachmentFileSizeLimit>5242880</orgAttachmentFileSizeLimit>
+               <orgDefaultCurrencyIsoCode>USD</orgDefaultCurrencyIsoCode>
+               <orgDisallowHtmlAttachments>false</orgDisallowHtmlAttachments>
+               <orgHasPersonAccounts>false</orgHasPersonAccounts>
+               <organizationId>00Di0000000xxxxEAY</organizationId>
+               <organizationMultiCurrency>false</organizationMultiCurrency>
+               <organizationName>salesforce.com</organizationName>
+               <profileId>00ei0000001CMKcAAO</profileId>
+               <roleId xsi:nil="true" />
+               <sessionSecondsValid>7200</sessionSecondsValid>
+               <userDefaultCurrencyIsoCode xsi:nil="true" />
+               <userEmail>you@yourdomain.com</userEmail>
+               <userFullName>Joe Bloggs</userFullName>
+               <userId>005i000000oooooAAW</userId>
+               <userLanguage>en_US</userLanguage>
+               <userLocale>en_US</userLocale>
+               <userName>you@yourdomain.com</userName>
+               <userTimeZone>America/Los_Angeles</userTimeZone>
+               <userType>Standard</userType>
+               <userUiSkin>Theme3</userUiSkin>
+            </userInfo>
+         </result>
+      </loginResponse>
+   </soapenv:Body>
+</soapenv:Envelope>

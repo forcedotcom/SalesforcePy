@@ -27,28 +27,6 @@ def test_client_no_password_negative():
         assert "`password` cannot be None" in str(e.value)
 
 
-def test_client_no_client_id_negative():
-    with pytest.raises(ValueError) as e:
-        sfdc.client(
-            username=testutil.username,
-            password=testutil.password,
-            client_id=None,
-            client_secret=testutil.client_secret
-        )
-        assert "`client_id` cannot be None" in str(e.value)
-
-
-def test_client_no_client_secret_negative():
-    with pytest.raises(ValueError) as e:
-        sfdc.client(
-            username=testutil.username,
-            password=testutil.password,
-            client_id=testutil.client_id,
-            client_secret=None
-        )
-        assert "`client_secret` cannot be None" in str(e.value)
-
-
 @responses.activate
 def test_context_manager():
 
