@@ -1,0 +1,16 @@
+{
+    "url": "https://eu11.salesforce.com/services/data/v58.0/einstein/llm/prompt/generations",
+    "status_code": 200,
+    "body": {
+        "generations" : [ {
+            "parameters" : "{finish_reason=stop, index=0, logprobs=null}",
+            "responseId" : "11111111-aaaa-4321-bbbb-cccccccccccc",
+            "text" : "Sure, here&#39;s a joke: Why did the Salesforce developer go broke? Because he used up all his API calls!"
+        } ],
+        "parameters" : null,
+        "prompt" : null,
+        "requestId" : "xxxxxxxx-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    },
+    "content_type":"application/json",
+    "method":"POST"
+  }

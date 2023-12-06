@@ -10,6 +10,7 @@ from __future__ import absolute_import
 
 from . import chatter
 from . import commons
+from . import einstein
 from . import jobs
 from . import wave
 
@@ -126,6 +127,7 @@ class Client(object):
         self.chatter = chatter.Chatter(self)
         self.jobs = jobs.Jobs(self)
         self.wave = wave.Wave(self)
+        self.einstein = einstein.Einstein(self)
 
     def set_instance_url(self, url):
         """ Strips the protocol from `url` and assigns the value to `self.instance_url`
