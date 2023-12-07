@@ -19,7 +19,7 @@ tests_require = [
 
 setuptools.setup(
     name='SalesforcePy',
-    version='2.0.0',
+    version='2.1.0',
     description='An absurdly simple package for making Salesforce Rest API requests',
     url='https://github.com/forcedotcom/SalesforcePy',
     author='Aaron Caffrey',

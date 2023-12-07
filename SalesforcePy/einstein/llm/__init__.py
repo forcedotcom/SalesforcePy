@@ -1,3 +1,9 @@
+""" 
+    ..module:: einstein
+    :synopsis: The Connect API Einstein LLM namespace.
+
+.. moduleauthor:: Aaron Caffrey <acaffrey@salesforce.com>
+"""
 from __future__ import absolute_import
 
 from .. import commons
