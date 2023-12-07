@@ -8,7 +8,7 @@ install_requires = ['requests>=2.20.0,<3', ]
 
 tests_require = [
     'responses==0.10.1',
-    'coverage==5.1',
+    'coverage==7.3',
     'pytest==5.4.3',
     'python-coveralls==2.9.1',
     'pytest-flake8==1.0.6',
@@ -19,7 +19,7 @@ tests_require = [
 
 setuptools.setup(
     name='SalesforcePy',
-    version='2.0.0',
+    version='2.1.0',
     description='An absurdly simple package for making Salesforce Rest API requests',
     url='https://github.com/forcedotcom/SalesforcePy',
     author='Aaron Caffrey',
