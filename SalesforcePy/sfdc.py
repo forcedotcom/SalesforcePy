@@ -195,21 +195,21 @@ class Client(object):
     @commons.kwarg_adder
     def login_via_device_flow(self, **kwargs):
         """
-        Performs OAuth device flow end-to-end and returns final authorization response if successful. Raises `SFDCRequestException` otherwise.
+        Performs OAuth device flow end-to-end and returns final authentication response if successful. Raises `SFDCRequestException` otherwise.
 
         :param: **kwargs: kwargs
         :type: **kwargs: dict
-        :return: Authorization response
-        :rtype: (dict, device_flow.AuthZRequest)
+        :return: Authentication response
+        :rtype: (dict, device_flow.AuthNRequest)
         """
-        device_code_authorization = device_flow.AuthNRequest(self.client_id, **kwargs)
+        device_code_authorization = device_flow.AuthZRequest(self.client_id, **kwargs)
         
-        # Handle and raise AuthN errors
+        # Handle and raise AuthZ errors
         
         device_code = device_code_authorization[1].device_code
 
-        # TODO: Poll AuthZ using `device_flow.AuthZRequest(self.client_id, device_code, **kwargs)`
-        # TODO: Handle and raise AuthZ errors
+        # TODO: Poll AuthN using `device_flow.AuthNRequest(self.client_id, device_code, **kwargs)`
+        # TODO: Handle and raise AuthN errors
 
         pass
 
