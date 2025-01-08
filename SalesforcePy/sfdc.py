@@ -10,6 +10,7 @@ from __future__ import absolute_import
 
 from . import chatter
 from . import commons
+from . import device_flow
 from . import einstein
 from . import jobs
 from . import wave
@@ -190,6 +191,28 @@ class Client(object):
             self.set_api_version()
 
         return req, login_response
+
+    @commons.kwarg_adder
+    def login_via_device_flow(self, **kwargs):
+        """
+        Performs OAuth device flow end-to-end and returns final authorization response if successful. Raises `SFDCRequestException` otherwise.
+
+        :param: **kwargs: kwargs
+        :type: **kwargs: dict
+        :return: Authorization response
+        :rtype: (dict, device_flow.AuthZRequest)
+        """
+        device_code_authorization = device_flow.AuthNRequest(self.client_id, **kwargs)
+        
+        # Handle and raise AuthN errors
+        
+        device_code = device_code_authorization[1].device_code
+
+        # TODO: Poll AuthZ using `device_flow.AuthZRequest(self.client_id, device_code, **kwargs)`
+        # TODO: Handle and raise AuthZ errors
+
+        pass
+
 
     @commons.kwarg_adder
     def set_api_version(self, **kwargs):

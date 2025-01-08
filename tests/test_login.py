@@ -26,6 +26,52 @@ def test_login_via_client():
 
 
 @responses.activate
+def test_login_via_device_flow():
+    testutil.add_response("device_code_authorization_response_200")
+    testutil.add_response("poll_device_code_authentication_response_200")
+    client = sfdc.client(
+        client_id=testutil.client_id
+    )
+    client.debug(level=logging.INFO)
+    
+    with client.login_via_device_flow() as device_code_authentication:
+        assert device_code_authentication[0] == testutil.mock_responses["poll_device_code_authentication_response_200"]["body"]
+        assert device_code_authentication[1].status == 200
+
+
+# TODO: Consider moving the following commented cases into file covering `device_flow`
+# @responses.activate
+# def test_get_device_code_authorization():
+#     testutil.add_response("device_code_authorization_response_200")
+#     client = sfdc.client(
+#         client_id=testutil.client_id
+#     )
+#     client.debug(level=logging.INFO)
+#     device_code_authorization = client.get_device_code_authorization()
+#     assert device_code_authorization[0] == testutil.mock_responses["device_code_authorization_response_200"]["body"]
+#     assert device_code_authorization[1].status == 200
+
+
+# @responses.activate
+# def test_poll_device_code_authentication():
+#     testutil.add_response("device_code_authorization_response_200")
+#     testutil.add_response("poll_device_code_authentication_response_200")
+#     client = sfdc.client(
+#         client_id=testutil.client_id
+#     )
+#     client.debug(level=logging.INFO)
+#     device_code_authorization = client.get_device_code_authorization()
+
+#     assert device_code_authorization[1].status == 200
+
+#     device_code = device_code_authorization[0]["device_code"]
+#     device_code_authentication = client.poll_device_code_authentication(device_code)
+    
+#     assert device_code_authentication[0] == testutil.mock_responses["poll_device_code_authentication_response_200"]["body"]
+#     assert device_code_authentication[1].status == 200
+
+
+@responses.activate
 def test_login_via_client_with_proxies():
     testutil.add_response("login_response_200")
     testutil.add_response("api_version_response_200")
