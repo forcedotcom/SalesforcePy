@@ -202,17 +202,28 @@ class Client(object):
         :return: Authentication response
         :rtype: (dict, device_flow.AuthNRequest)
         """
+        on_authorize = kwargs.get("on_authorize", lambda *args, **kwargs: None)
         device_code_authorization = device_flow.AuthZRequest(self.client_id, **kwargs)
         
-        # Handle and raise AuthZ errors
-        
-        device_code = device_code_authorization[1].device_code
+        authz_response = device_code_authorization.request()
 
-        # TODO: Poll AuthN using `device_flow.AuthNRequest(self.client_id, device_code, **kwargs)`
-        # TODO: Handle and raise AuthN errors
+        if len(device_code_authorization.exceptions) > 0:
+            raise device_code_authorization.exceptions[0]
+        else:
+            on_authorize(authz_response, device_code_authorization)
 
-        pass
+            device_code = device_code_authorization.device_code
 
+            # TODO: Perform AuthN recursively at interval from authz_response
+            device_code_authentication = device_flow.AuthNRequest(
+                self.client_id,
+                device_code,
+                **kwargs
+            )
+
+            # TODO: Write `on_authenticate` allowing for error handler behaviour
+            # TODO: Don't forget to assign out `access_code` for `200`
+            return device_code_authentication
 
     @commons.kwarg_adder
     def set_api_version(self, **kwargs):
@@ -1134,10 +1145,6 @@ def client(username, password, client_id=None, client_secret=None, **kwargs):
         :raises: ValueError
     """
 
-    if username is None:
-        raise ValueError('`username` cannot be None')
-    elif password is None:
-        raise ValueError('`password` cannot be None')
     return Client(
         username,
         password,

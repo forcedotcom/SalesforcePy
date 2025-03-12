@@ -1,4 +1,4 @@
-from ..commons import OAuthRequest
+from .commons import OAuthRequest
 
 
 class AuthNRequest(OAuthRequest):
@@ -11,7 +11,7 @@ class AuthNRequest(OAuthRequest):
         self.device_code = device_code
         self.http_method = 'POST'
         self.service = '/services/oauth2/token'
-        self.headers = {'Content-Type': 'application/x-www-form-urlencoded', 'Host': self.login_url}
+        self.headers = {'Content-Type': 'application/x-www-form-urlencoded', 'Host': self.login_url} # 'orgfarm-f3cf690995-dev-ed.develop.my.salesforce.com'
         self.payload = self.get_payload()
 
     def get_payload(self):
@@ -62,6 +62,7 @@ class AuthZRequest(OAuthRequest):
         self.http_method = 'POST'
         self.service = '/services/oauth2/token'
         self.headers = {'Content-Type': 'application/x-www-form-urlencoded', 'Host': self.login_url}
+        self.scope = kwargs.get('scope')
         self.payload = self.get_payload()
 
     def get_payload(self):
@@ -71,11 +72,15 @@ class AuthZRequest(OAuthRequest):
         :rtype: dict
         """
 
-        return {
-            'response_type': 'device_flow',
-            'client_id': self.client_id,
-            'scope': 'api'
+        payload = {
+            'response_type': 'device_code',
+            'client_id': self.client_id
         }
+
+        if self.scope is not None:
+            payload['scope'] = self.scope
+
+        return payload
 
     def request(self):
         """ Gets the result of `super` for this method, then assigns the `device_code`.
