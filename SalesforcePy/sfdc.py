@@ -19,6 +19,7 @@ import json
 import logging
 import re
 import requests
+import time
 
 try:
     from urllib.parse import urlencode
@@ -203,6 +204,7 @@ class Client(object):
         :rtype: (dict, device_flow.AuthNRequest)
         """
         on_authorize = kwargs.get("on_authorize", lambda *args, **kwargs: None)
+        on_authenticate = kwargs.get("on_authenticate", lambda *args, **kwargs: None)
         device_code_authorization = device_flow.AuthZRequest(self.client_id, **kwargs)
         
         authz_response = device_code_authorization.request()
@@ -213,17 +215,36 @@ class Client(object):
             on_authorize(authz_response, device_code_authorization)
 
             device_code = device_code_authorization.device_code
+            interval = authz_response.get("interval", 5)
+            _client = self
 
-            # TODO: Perform AuthN recursively at interval from authz_response
-            device_code_authentication = device_flow.AuthNRequest(
-                self.client_id,
-                device_code,
-                **kwargs
-            )
+            def next(is_initial):
+                if is_initial is False:
+                    time.sleep(interval)
 
-            # TODO: Write `on_authenticate` allowing for error handler behaviour
-            # TODO: Don't forget to assign out `access_code` for `200`
-            return device_code_authentication
+                device_code_authentication = device_flow.AuthNRequest(
+                    self.client_id,
+                    device_code,
+                    **kwargs
+                )
+
+                authn_response = device_code_authentication.request()
+
+                if device_code_authentication.status == requests.codes.ok:
+                    _client.session_id = authn_response.get("access_token")
+                    _client.set_instance_url(authn_response.get("instance_url", str()))
+                    on_authenticate(authn_response, device_code_authentication)
+
+                    return authn_response, device_code_authentication
+                else:
+                    on_authenticate(authn_response, device_code_authentication)
+                    return next(False)
+                
+            device_flow_login = next(True)
+            
+            self.set_api_version()
+
+            return device_flow_login
 
     @commons.kwarg_adder
     def set_api_version(self, **kwargs):
