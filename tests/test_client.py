@@ -5,28 +5,6 @@ import SalesforcePy as sfdc
 import testutil
 
 
-def test_client_no_username_negative():
-    with pytest.raises(ValueError) as e:
-        sfdc.client(
-            username=None,
-            password=testutil.password,
-            client_id=testutil.client_id,
-            client_secret=testutil.client_secret
-        )
-        assert "`username` cannot be None" in str(e.value)
-
-
-def test_client_no_password_negative():
-    with pytest.raises(ValueError) as e:
-        sfdc.client(
-            username=testutil.username,
-            password=None,
-            client_id=testutil.client_id,
-            client_secret=testutil.client_secret
-        )
-        assert "`password` cannot be None" in str(e.value)
-
-
 @responses.activate
 def test_context_manager():
 

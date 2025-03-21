@@ -26,6 +26,35 @@ def test_login_via_client():
 
 
 @responses.activate
+def test_login_via_device_flow():
+    testutil.add_response("device_code_authorization_response_200")
+    testutil.add_response("poll_device_code_authentication_response_200")
+    testutil.add_response("api_version_response_200")
+
+    request_count = 0
+
+    def on_authorize(res, authz):
+        nonlocal request_count
+        assert res == testutil.mock_responses["device_code_authorization_response_200"]["body"]
+        assert authz.status == 200
+
+        request_count += 1
+
+    def on_authenticate(res, authn):
+        nonlocal request_count
+        assert res == testutil.mock_responses["poll_device_code_authentication_response_200"]["body"]
+        assert authn.status == 200
+
+        request_count += 1
+
+    client = sfdc.client(None, None, client_id=testutil.client_id)
+    
+    with client.login_via_device_flow(on_authorize=on_authorize, on_authenticate=on_authenticate) as c:
+        assert c.session_id == "00DD00000008Uw2!ARkAQGppKf6n.VwG.EnFSvi731qWh.7vKfaJjL7h49yutIC84gAsxMrqcE81GjpTjQbDLkytl2ZwosNbIJwUS0X8ahiILj3e"
+        assert request_count == 2
+
+
+@responses.activate
 def test_login_via_client_with_proxies():
     testutil.add_response("login_response_200")
     testutil.add_response("api_version_response_200")

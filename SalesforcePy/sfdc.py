@@ -10,6 +10,7 @@ from __future__ import absolute_import
 
 from . import chatter
 from . import commons
+from . import device_flow
 from . import einstein
 from . import jobs
 from . import wave
@@ -18,6 +19,7 @@ import json
 import logging
 import re
 import requests
+import time
 
 try:
     from urllib.parse import urlencode
@@ -190,6 +192,59 @@ class Client(object):
             self.set_api_version()
 
         return req, login_response
+
+    @commons.kwarg_adder
+    def login_via_device_flow(self, **kwargs):
+        """
+        Performs OAuth device flow end-to-end and returns final authentication response if successful. Raises `SFDCRequestException` otherwise.
+
+        :param: **kwargs: kwargs
+        :type: **kwargs: dict
+        :return: Authentication response
+        :rtype: (dict, device_flow.AuthNRequest)
+        """
+        on_authorize = kwargs.get("on_authorize", lambda *args, **kwargs: None)
+        on_authenticate = kwargs.get("on_authenticate", lambda *args, **kwargs: None)
+        device_code_authorization = device_flow.AuthZRequest(self.client_id, **kwargs)
+        
+        authz_response = device_code_authorization.request()
+
+        if len(device_code_authorization.exceptions) > 0:
+            raise device_code_authorization.exceptions[0]
+        else:
+            on_authorize(authz_response, device_code_authorization)
+
+            device_code = device_code_authorization.device_code
+            interval = authz_response.get("interval", 5)
+            _client = self
+
+            def next(is_initial):
+                if is_initial is False:
+                    time.sleep(interval)
+
+                device_code_authentication = device_flow.AuthNRequest(
+                    self.client_id,
+                    device_code,
+                    **kwargs
+                )
+
+                authn_response = device_code_authentication.request()
+
+                if device_code_authentication.status == requests.codes.ok:
+                    _client.session_id = authn_response.get("access_token")
+                    _client.set_instance_url(authn_response.get("instance_url", str()))
+                    on_authenticate(authn_response, device_code_authentication)
+
+                    return authn_response, device_code_authentication
+                else:
+                    on_authenticate(authn_response, device_code_authentication)
+                    return next(False)
+                
+            next(True)
+            
+            self.set_api_version()
+
+            return self
 
     @commons.kwarg_adder
     def set_api_version(self, **kwargs):
@@ -1111,10 +1166,6 @@ def client(username, password, client_id=None, client_secret=None, **kwargs):
         :raises: ValueError
     """
 
-    if username is None:
-        raise ValueError('`username` cannot be None')
-    elif password is None:
-        raise ValueError('`password` cannot be None')
     return Client(
         username,
         password,

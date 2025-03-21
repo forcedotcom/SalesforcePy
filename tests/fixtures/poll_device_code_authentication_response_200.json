@@ -1,0 +1,16 @@
+{
+    "content_type": "application/x-www-form-urlencoded",
+    "method": "POST",
+    "url": "https://login.salesforce.com/services/oauth2/token",
+    "status_code": 200,
+    "body": {
+        "access_token": "00DD00000008Uw2!ARkAQGppKf6n.VwG.EnFSvi731qWh.7vKfaJjL7h49yutIC84gAsxMrqcE81GjpTjQbDLkytl2ZwosNbIJwUS0X8ahiILj3e",
+        "refresh_token": "your token here",
+        "signature": "hJuYICd2IHsjyTcFqTYiOr8THmgDmrcjgWaMp13X6dY=",
+        "scope": "api",
+        "instance_url": "https://eu11.salesforce.com",
+        "id": "https://login.salesforce.com/id/00DD00000008Uw2MAE/005D0000001cAGmIAM",
+        "token_type": "Bearer",
+        "issued_at": "1477674717112"
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "content_type": "application/x-www-form-urlencoded",
+    "method": "POST",
+    "url": "https://login.salesforce.com/services/oauth2/token",
+    "status_code": 200,
+    "body": {
+        "user_code":"X1D9SEET",
+        "device_code":"M01WRzlQaFI2ZzZCN3BzN1RUSTRjUDdNcHBnM2w3dHUuTVJBWVVMeVZxY21BOWhHTHBIaWlTLlE3ck85eWpsbWZmaUJVTTZ0RnBZQWxYRWtSakhiOTsxMC4yMi4zNC45MjsxNDc3Njc0NDg3NTA1O1gxRDlTRUVU",
+        "interval": 5,
+        "verification_uri": "https://login.salesforce.com/setup/connect"
+    }
+}
