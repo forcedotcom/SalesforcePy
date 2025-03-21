@@ -240,11 +240,11 @@ class Client(object):
                     on_authenticate(authn_response, device_code_authentication)
                     return next(False)
                 
-            device_flow_login = next(True)
+            next(True)
             
             self.set_api_version()
 
-            return device_flow_login
+            return self
 
     @commons.kwarg_adder
     def set_api_version(self, **kwargs):

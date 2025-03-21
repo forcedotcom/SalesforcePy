@@ -29,46 +29,29 @@ def test_login_via_client():
 def test_login_via_device_flow():
     testutil.add_response("device_code_authorization_response_200")
     testutil.add_response("poll_device_code_authentication_response_200")
-    client = sfdc.client(
-        client_id=testutil.client_id
-    )
-    client.debug(level=logging.INFO)
+    testutil.add_response("api_version_response_200")
+
+    request_count = 0
+
+    def on_authorize(res, authz):
+        nonlocal request_count
+        assert res == testutil.mock_responses["device_code_authorization_response_200"]["body"]
+        assert authz.status == 200
+
+        request_count += 1
+
+    def on_authenticate(res, authn):
+        nonlocal request_count
+        assert res == testutil.mock_responses["poll_device_code_authentication_response_200"]["body"]
+        assert authn.status == 200
+
+        request_count += 1
+
+    client = sfdc.client(None, None, client_id=testutil.client_id)
     
-    with client.login_via_device_flow() as device_code_authentication:
-        assert device_code_authentication[0] == testutil.mock_responses["poll_device_code_authentication_response_200"]["body"]
-        assert device_code_authentication[1].status == 200
-
-
-# TODO: Consider moving the following commented cases into file covering `device_flow`
-# @responses.activate
-# def test_get_device_code_authorization():
-#     testutil.add_response("device_code_authorization_response_200")
-#     client = sfdc.client(
-#         client_id=testutil.client_id
-#     )
-#     client.debug(level=logging.INFO)
-#     device_code_authorization = client.get_device_code_authorization()
-#     assert device_code_authorization[0] == testutil.mock_responses["device_code_authorization_response_200"]["body"]
-#     assert device_code_authorization[1].status == 200
-
-
-# @responses.activate
-# def test_poll_device_code_authentication():
-#     testutil.add_response("device_code_authorization_response_200")
-#     testutil.add_response("poll_device_code_authentication_response_200")
-#     client = sfdc.client(
-#         client_id=testutil.client_id
-#     )
-#     client.debug(level=logging.INFO)
-#     device_code_authorization = client.get_device_code_authorization()
-
-#     assert device_code_authorization[1].status == 200
-
-#     device_code = device_code_authorization[0]["device_code"]
-#     device_code_authentication = client.poll_device_code_authentication(device_code)
-    
-#     assert device_code_authentication[0] == testutil.mock_responses["poll_device_code_authentication_response_200"]["body"]
-#     assert device_code_authentication[1].status == 200
+    with client.login_via_device_flow(on_authorize=on_authorize, on_authenticate=on_authenticate) as c:
+        assert c.session_id == "00DD00000008Uw2!ARkAQGppKf6n.VwG.EnFSvi731qWh.7vKfaJjL7h49yutIC84gAsxMrqcE81GjpTjQbDLkytl2ZwosNbIJwUS0X8ahiILj3e"
+        assert request_count == 2
 
 
 @responses.activate
