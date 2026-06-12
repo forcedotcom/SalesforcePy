@@ -9,7 +9,7 @@ Git Workflow
 
 1. Fork this repo.
 2. Run ``git clone -b <yourbranch> <yourfork>``.
-3. From within the project root directory run pip install.
+3. From within the project root directory run ``uv sync`` (or ``pip install -e .``).
 4. Develop!
 5. Cover your code in ``/tests``.
 6. Create a pull request to the ``forcedotcom:developer branch``.

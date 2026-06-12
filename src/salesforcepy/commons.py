@@ -6,13 +6,14 @@
 .. versionadded:: 1.0.0
 
 """
-from __future__ import absolute_import
-
+# Built-in imports
 import collections
 import logging
-import requests
 import xml.etree.ElementTree as ET
 from urllib.parse import urlparse
+
+# Third-party imports
+import requests
 
 DEFAULT_API_VERSION = '37.0'
 
@@ -271,7 +272,7 @@ class BaseRequest(object):
         except Exception as e:
             self.exceptions.append(e)
             logger.error('%s %s %s' % (self.http_method, service, self.status))
-            logger.error(e.message)
+            logger.error(str(e))
             return
         finally:
             return response
@@ -307,7 +308,7 @@ class OAuthRequest(BaseRequest):
         except Exception as e:
             self.exceptions.append(e)
             logger.error('%s %s %s' % (self.http_method, service, self.status))
-            logger.error(e.message)
+            logger.error(str(e))
             return
         finally:
             return response
@@ -369,6 +370,6 @@ class SoapLoginRequest(BaseRequest):
         except Exception as e:
             self.exceptions.append(e)
             logger.error('%s %s %s' % (self.http_method, service, self.status))
-            logger.error(e.message)
+            logger.error(str(e))
         finally:
             return response

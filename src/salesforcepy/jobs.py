@@ -5,7 +5,7 @@
 .. moduleauthor:: Aaron Caffrey <acaffrey@salesforce.com>
 
 """
-from __future__ import absolute_import
+# Local library imports
 from . import commons
 
 BATCHES_URI = '/services/data/v%s/jobs/ingest/%s/batches'

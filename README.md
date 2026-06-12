@@ -8,7 +8,29 @@ by Aaron Caffrey, Colin Cheevers, Jose Garcia, Tania Prince
 
 A Salesforce.com [Open Source contribution](https://opensource.salesforce.com/).
 
-SalesforcePy is an absurdly simple package for making Salesforce Rest API calls. We created this package so you can:
+SalesforcePy is an absurdly simple package for making Salesforce Rest API calls.
+
+## Installation
+
+### With [uv](https://docs.astral.sh/uv/) (recommended)
+
+```bash
+uv add salesforcepy
+```
+
+**From GitHub (latest):**
+
+```bash
+uv add git+https://github.com/forcedotcom/SalesforcePy.git
+```
+
+### With pip
+
+```bash
+pip install salesforcepy
+# or from GitHub
+pip install git+https://github.com/forcedotcom/SalesforcePy.git
+``` We created this package so you can:
 
 + Have a Salesforce client that is reusable, minimalistic, and pythonic
 + Use interfaces that are closely knit to the Salesforce Rest API service specification

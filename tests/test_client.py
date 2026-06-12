@@ -1,7 +1,7 @@
 import pytest
 import responses
 
-import SalesforcePy as sfdc
+import salesforcepy as sfdc
 import testutil
 
 

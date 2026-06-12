@@ -4,8 +4,7 @@
 
 .. moduleauthor:: Aaron Caffrey <acaffrey@salesforce.com>
 """
-from __future__ import absolute_import
-
+# Local library imports
 from .. import commons
 
 EMBEDDINGS_SERVICE = "/services/data/v%s/einstein/llm/embeddings"

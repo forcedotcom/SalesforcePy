@@ -17,7 +17,7 @@ From Local Source
 ^^^^^^^^^^^^^^^^^
 1. Download and extract, or clone this repo.
 2. cd into the ``/SalesforcePy`` directory.
-3. Run ``pip install .``.
+3. Run ``uv sync`` (or ``pip install -e .``).
 
 Create a Client and Log In
 --------------------------
@@ -30,8 +30,8 @@ Getting started with SalesforcePy is a three-step process:
 
 .. code-block:: python
 
-    #Import SalesforcePy
-    import SalesforcePy as sfdc
+    #Import salesforcepy
+    import salesforcepy as sfdc
 
     # Create an instance of a Salesforce client. Replace the credentials here with valid ones.
     client = sfdc.client(

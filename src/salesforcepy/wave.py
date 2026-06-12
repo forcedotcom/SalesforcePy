@@ -7,7 +7,7 @@
 
 """
 
-from __future__ import absolute_import
+# Local library imports
 from . import commons
 
 

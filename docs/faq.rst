@@ -24,7 +24,7 @@ Yes. Here's an example of how to do it, and what to expect.
 .. code-block:: python
 
     import logging
-    import SalesforcePy as sfdc
+    import salesforcepy as sfdc
 
     username = "jsoap@universalcontainers.com"
     password = "p@ssword1"
@@ -47,7 +47,7 @@ Yes. Here's an example of how to do it.
 
 .. code-block:: python
 
-    import SalesforcePy as sfdc
+    import salesforcepy as sfdc
 
     username = "jsoap@universalcontainers.com"
     password = "p@ssword1"

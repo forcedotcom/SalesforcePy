@@ -6,25 +6,23 @@
     Colin Cheevers <ccheevers@salesforce.com>, Tania Prince <tania.prince@salesforce.com>
 
 """
-from __future__ import absolute_import
+# Built-in imports
+import json
+import logging
+import re
+import time
+from urllib.parse import urlencode
 
+# Third-party imports
+import requests
+
+# Local library imports
 from . import chatter
 from . import commons
 from . import device_flow
 from . import einstein
 from . import jobs
 from . import wave
-
-import json
-import logging
-import re
-import requests
-import time
-
-try:
-    from urllib.parse import urlencode
-except ImportError:
-    from urllib import urlencode
 
 DEFAULT_API_VERSION = commons.DEFAULT_API_VERSION
 SOBJ_SERVICE = '/services/data/v%s/sobjects%s'
@@ -97,7 +95,7 @@ class Client(object):
                 - `*login_url` (`string`) - Salesforce login URL.
                 - `*client_id` (`string`) - Salesforce client ID.
                 - `*client_secret` (`string`) - Salesforce client secret.
-                - `\**kwargs` - kwargs (see below)
+                - `**kwargs` - kwargs (see below)
 
             :Keyword Arguments:
                 * *protocol* (`string`) --
@@ -1142,7 +1140,7 @@ def client(username, password, client_id=None, client_secret=None, **kwargs):
               Salesforce client ID.
             `*client_secret` (`string`)
               Salesforce client secret.
-            `\**kwargs`
+            `**kwargs`
               kwargs (see below)
 
         :Keyword Arguments:

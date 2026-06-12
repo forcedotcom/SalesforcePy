@@ -6,8 +6,7 @@
 .. versionadded:: 1.0.0
 
 """
-from __future__ import absolute_import
-
+# Local library imports
 from . import commons
 
 FEED_COMMENT_SERVICE = '/services/data/v%s/chatter/feed-elements/%s/capabilities/comments/items'

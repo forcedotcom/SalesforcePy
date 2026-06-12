@@ -1,7 +1,7 @@
 import json
 import os
 import responses
-import SalesforcePy as sfdc
+import salesforcepy as sfdc
 
 username = "jsoap@universalcontainers.com"
 password = "p@ssword1"

@@ -1,7 +1,7 @@
-from __future__ import absolute_import
+# Local library imports
 from . import sfdc
 
-name = 'SalesforcePy'
+name = 'salesforcepy'
 client = sfdc.client
 
 LoginException = sfdc.LoginException
