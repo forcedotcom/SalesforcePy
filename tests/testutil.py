@@ -22,7 +22,9 @@ def add_response(res_key):
         with open(os.path.join(tests_dir, "fixtures/%s.json" % res_key)) as f:
             res = mock_responses[res_key] = json.loads(f.read())
 
-    body =  None if res["body"] is None else json.dumps(res["body"])
+    body = res["body"]
+    if body is not None and not isinstance(body, str):
+        body = json.dumps(body)
 
     responses.add(
         res["method"],
