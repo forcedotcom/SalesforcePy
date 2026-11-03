@@ -266,6 +266,12 @@ class BaseRequest(object):
 
             if request_object.content.decode('utf-8') == 'null':
                 raise SFDCRequestException('Request body is null')
+
+            content_type = request_object.headers.get('Content-Type', '')
+            if not request_object.content:
+                response = None
+            elif 'csv' in content_type.lower():
+                response = request_object.text
             else:
                 response = request_object.json()
         except Exception as e:
