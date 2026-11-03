@@ -188,8 +188,7 @@ def test_query_sobj_row_with_blob():
         object_type="Attachment",
         id="00P0Y000000hUviUAE",
         binary_field="Body").query()
-    blob_body = '"%s"' % (
-        testutil.mock_responses["query_attachments_blob_200"]["body"])
+    blob_body = testutil.mock_responses["query_attachments_blob_200"]["body"]
 
     assert query_result[0] == testutil.mock_responses["query_attachments_before_blob_200"]["body"]
     assert query_result[1].status == 200
@@ -208,8 +207,7 @@ def test_query_sobj_row_with_blob_with_proxy():
         object_type="Attachment",
         id="00P0Y000000hUviUAE",
         binary_field="Body").query()
-    blob_body = '"%s"' % (
-        testutil.mock_responses["query_attachments_blob_200"]["body"])
+    blob_body = testutil.mock_responses["query_attachments_blob_200"]["body"]
 
     assert query_result[0] == testutil.mock_responses["query_attachments_before_blob_200"]["body"]
     assert query_result[1].status == 200
